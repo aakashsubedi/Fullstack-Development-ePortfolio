@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Hero Section: Learn HTML + Live IDE | Interactive Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-dark: #0a0f1c;
+      --secondary-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --accent-purple: #6366f1;
+      --accent-purple-light: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.2);
+      --text-dark: #0f172a;
+      --text-muted: #334155;
+      --border-light: #e2e8f0;
+      --code-bg: #1e293b;
+      --code-text: #e2e8f0;
+      --output-bg: #f1f5f9;
+      --success-green: #10b981;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.2s ease;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #f9fafb 100%);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    /* Hero section container */
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Two column layout */
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    /* LEFT COLUMN: explanation + example */
+    .explanation-panel {
+      flex: 1.1;
+      min-width: 280px;
+      background: var(--card-bg);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-sm);
+      padding: 2rem 1.8rem;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .explanation-panel:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-purple);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .explanation-panel h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-purple), #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .definition {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent-purple);
+      padding-left: 1rem;
+    }
+
+    .highlight-text {
+      font-weight: 500;
+      color: var(--text-dark);
+      margin: 1.2rem 0 1rem;
+    }
+
+    /* code example block */
+    .code-example {
+      background: var(--code-bg);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+      font-size: 0.9rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .code-example pre {
+      color: var(--code-text);
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: inherit;
+    }
+
+    .code-example .tag {
+      color: #f472b6;
+    }
+    .code-example .attr {
+      color: #c084fc;
+    }
+    .code-example .string {
+      color: #6ee7b7;
+    }
+
+    .live-demo-note {
+      background: #fef9e3;
+      border-left: 4px solid #f59e0b;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-top: 1.2rem;
+      color: #92400e;
+    }
+
+    /* RIGHT COLUMN: IDE panel */
+    .ide-panel {
+      flex: 1;
+      min-width: 320px;
+      background: var(--card-bg);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+      backdrop-filter: blur(2px);
+    }
+
+    .ide-header {
+      background: #f1f5f9;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .ide-header h3 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ide-header h3::before {
+      content: "⚡";
+      font-size: 1.3rem;
+    }
+
+    .btn-run {
+      background: var(--accent-purple);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .btn-run:hover {
+      background: #4f46e5;
+      transform: scale(0.97);
+      box-shadow: 0 8px 20px -8px var(--accent-purple-light);
+    }
+
+    .btn-run:active {
+      transform: scale(0.96);
+    }
+
+    /* textarea editor */
+    .code-editor {
+      width: 100%;
+      min-height: 240px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: 'Fira Code', 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      padding: 1.2rem;
+      border: none;
+      resize: vertical;
+      outline: none;
+      caret-color: var(--accent-purple-light);
+      tab-size: 2;
+    }
+
+    .code-editor:focus {
+      background: #111827;
+    }
+
+    /* output area */
+    .output-area {
+      background: var(--output-bg);
+      border-top: 2px dashed var(--border-light);
+      padding: 1rem 1.2rem;
+    }
+
+    .output-label {
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #475569;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .output-frame {
+      background: white;
+      border-radius: 1rem;
+      padding: 1rem;
+      min-height: 140px;
+      border: 1px solid var(--border-light);
+      transition: all 0.1s;
+      font-family: system-ui, sans-serif;
+      overflow-x: auto;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      background: white;
+      min-height: 140px;
+    }
+
+    .error-message {
+      color: #dc2626;
+      font-size: 0.75rem;
+      margin-top: 0.4rem;
+      font-family: monospace;
+      background: #fee2e2;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    /* responsive design */
+    @media (max-width: 880px) {
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .explanation-panel h1 {
+        font-size: 2.2rem;
+      }
+      .hero-grid {
+        flex-direction: column;
+      }
+      .explanation-panel, .ide-panel {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        padding: 1.5rem 1rem;
+      }
+      .explanation-panel {
+        padding: 1.5rem;
+      }
+      .badge {
+        font-size: 0.7rem;
+      }
+      .btn-run {
+        padding: 0.4rem 1rem;
+      }
+      .code-editor {
+        min-height: 200px;
+      }
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eef2ff;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-purple-light);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-grid">
+      <!-- LEFT SIDE: What is HTML + example -->
+      <div class="explanation-panel">
+        <div class="badge">📘 Web Fundamentals</div>
+        <h1>What is HTML?</h1>
+        <div class="definition">
+          <strong>HTML (HyperText Markup Language)</strong> is the standard markup language for creating web pages. 
+          It describes the structure of a webpage using elements represented by tags. Browsers interpret HTML to render content like headings, paragraphs, links, images, and more.
+        </div>
+        <p class="highlight-text">✨ Simple HTML example:</p>
+        
+        <!-- an attractive example block -->
+        <div class="code-example">
+          <pre>
+&lt;<span class="tag">!DOCTYPE html</span>&gt;
+&lt;<span class="tag">html</span>&gt;
+  &lt;<span class="tag">head</span>&gt;
+    &lt;<span class="tag">title</span>&gt;My First Page&lt;/<span class="tag">title</span>&gt;
+  &lt;/<span class="tag">head</span>&gt;
+  &lt;<span class="tag">body</span>&gt;
+    &lt;<span class="tag">h1</span>&gt;Hello, World!&lt;/<span class="tag">h1</span>&gt;
+    &lt;<span class="tag">p</span>&gt;HTML is the <span style="color:#a5f3c3;">❤️</span> of the web.&lt;/<span class="tag">p</span>&gt;
+  &lt;/<span class="tag">body</span>&gt;
+&lt;/<span class="tag">html</span>&gt;
+          </pre>
+        </div>
+        
+        <div class="highlight-text">🧱 Key building blocks:</div>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted);">
+          <li><strong>Elements</strong> – defined by start & end tags: <code>&lt;h1&gt; ... &lt;/h1&gt;</code></li>
+          <li><strong>Attributes</strong> – provide extra info: <code>class="container"</code></li>
+          <li><strong>Semantic tags</strong> – <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> improve accessibility</li>
+        </ul>
+        
+        <div class="live-demo-note">
+          💡 <strong>Pro tip:</strong> On the right side, edit the HTML code and click ▶️ Run to see live output. Test headings, images, buttons — any HTML!
+        </div>
+      </div>
+      
+      <!-- RIGHT SIDE: LIVE HTML IDE (Editor + Run + Output) -->
+      <div class="ide-panel">
+        <div class="ide-header">
+          <h3>🔧 Live HTML Playground</h3>
+          <button class="btn-run" id="runBtn">▶️ Run Code</button>
+        </div>
+        
+        <!-- code editor textarea with default starter content -->
+        <textarea id="htmlEditor" class="code-editor" spellcheck="false" aria-label="HTML code editor"><!-- Welcome to Live IDE! -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Live Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 12px; background: #fff; }
+    .demo-card { background: #f0f4ff; padding: 1rem; border-radius: 20px; border-left: 5px solid #6366f1; }
+    button { background: #6366f1; border: none; color: white; padding: 6px 14px; border-radius: 40px; cursor: pointer; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="demo-card">
+    <h2>✨ Try HTML yourself!</h2>
+    <p>Change this text, add an image, or create a list.</p>
+    <button onclick="alert('HTML rocks 🎉')">Click me</button>
+  </div>
+  <p style="font-size: 0.8rem; color: gray;">✏️ Edit the code & hit Run</p>
+</body>
+</html></textarea>
+        
+        <div class="output-area">
+          <div class="output-label">
+            🖥️ Output Preview
+            <span style="font-size: 10px;">(rendered after run)</span>
+          </div>
+          <div id="outputContainer" class="output-frame">
+            <!-- iframe to display rendered HTML safely -->
+            <iframe id="resultFrame" title="HTML Output" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"></iframe>
+          </div>
+          <div id="errorMsg" class="error-message" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      // Get DOM elements
+      const editor = document.getElementById('htmlEditor');
+      const runButton = document.getElementById('runBtn');
+      const resultIframe = document.getElementById('resultFrame');
+      const errorMsgSpan = document.getElementById('errorMsg');
+
+      // Helper: render HTML code inside iframe safely
+      function renderHTML(htmlCode) {
+        // reset error display
+        errorMsgSpan.style.display = 'none';
+        errorMsgSpan.textContent = '';
+        
+        // sometimes iframe might not be fully ready, but we can write directly
+        const iframeDoc = resultIframe.contentDocument || resultIframe.contentWindow.document;
+        
+        try {
+          // Write the HTML into iframe
+          iframeDoc.open();
+          iframeDoc.write(htmlCode);
+          iframeDoc.close();
+          
+          // Additional check: if there is any syntax error that breaks the DOM? 
+          // But this will reflect normally. If error occurs inside script tags, we catch only via try/catch for doc write.
+          // However if the HTML is invalid badly, user still sees broken DOM, but no catastrophic crash.
+          // We'll also handle special case: if user writes something like <plaintext>, but it's fine. 
+        } catch (err) {
+          // In case of cross-origin issues or security, but we are using sandboxed iframe and same origin
+          showError("Render error: " + err.message);
+        }
+      }
+      
+      function showError(msg) {
+        errorMsgSpan.textContent = msg;
+        errorMsgSpan.style.display = 'inline-block';
+        // Optionally also show fallback content inside iframe
+        const iframeDoc = resultIframe.contentDocument || resultIframe.contentWindow.document;
+        if (iframeDoc) {
+          iframeDoc.open();
+          iframeDoc.write(`<div style="font-family:monospace; padding:2rem; color:#b91c1c; background:#fee2e2; border-radius:12px;">
+            ⚠️ Error: ${msg.replace(/</g, '&lt;')}<br><small>Please check your HTML syntax.</small>
+          </div>`);
+          iframeDoc.close();
+        }
+      }
+      
+      // function to run code: get editor content and write to iframe
+      function runCode() {
+        let rawCode = editor.value;
+        if (!rawCode.trim()) {
+          // show empty friendly message instead of blank
+          rawCode = `<!-- No code entered. Write some HTML! -->
+          <div style="display:flex; align-items:center; justify-content:center; height:100%; font-family: monospace; color:#777;">
+            ✏️ Write HTML in the editor and click Run
+          </div>`;
+        }
+        
+        // Optional: we should sanitize only for potential script injection? Not required since it's full IDE style.
+        // But we must avoid repeated DOCTYPE issues: ensure that user input always builds a valid document?
+        // We'll trust user input for educational purpose and leave as is, but provide a safe wrapper if missing root tags?
+        // However we wanna keep original editor content exactly as user writes. if they write <p>Hello</p> only, it's still valid fragment.
+        // Better ensure it's always wrapped as full HTML? Nah, many live editors support fragments; browsers handle gracefully.
+        // But there's a tiny nuance: if user writes only text, iframe will render text node as plain text => perfect.
+        // So we render exactly what user provides.
+        
+        // Additionally we handle case where DOCTYPE might cause double declaration but no issue.
+        // Let's run the render with raw user code.
+        try {
+          const iframeDoc = resultIframe.contentDocument || resultIframe.contentWindow.document;
+          iframeDoc.open();
+          iframeDoc.write(rawCode);
+          iframeDoc.close();
+          errorMsgSpan.style.display = 'none';
+        } catch (err) {
+          // If there is any synchronous error during write (like weird DOM manipulation)
+          showError("Unable to render: " + err.message);
+        }
+      }
+      
+      // Event listener for run button
+      runButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        runCode();
+      });
+      
+      // Optional: If user presses Ctrl+Enter / Cmd+Enter inside editor, run code
+      editor.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          e.preventDefault();
+          runCode();
+        }
+      });
+      
+      // Initialize default content: display the initial HTML from textarea (already filled with starter demo)
+      // We call runCode on page load to show preview immediately.
+      // To make sure that the initial output matches the example that is already present inside textarea
+      // Wait a microtick for any potential iframe initialization
+      setTimeout(() => {
+        runCode();
+      }, 20);
+      
+      // Also add a small resize observer (optional) to maintain iframe height when content changes
+      // It's more friendly to have iframe adapt to its content height: we add a little mutation.
+      function adjustIframeHeight() {
+        const iframe = resultIframe;
+        if (iframe && iframe.contentWindow && iframe.contentDocument) {
+          try {
+            const body = iframe.contentDocument.body;
+            const html = iframe.contentDocument.documentElement;
+            const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+            if (height > 60) {
+              iframe.style.height = (height + 6) + 'px';
+            } else {
+              iframe.style.height = '140px';
+            }
+          } catch(e) { /* ignore cross-origin on some weird states, but it's safe */ }
+        }
+      }
+      
+      // After each run we adjust iframe height to remove scrollbar if possible
+      // Watch for new renders
+      const observer = new MutationObserver(() => adjustIframeHeight());
+      resultIframe.addEventListener('load', () => {
+        adjustIframeHeight();
+        // observe changes inside iframe body after render
+        try {
+          const iframeDoc = resultIframe.contentDocument;
+          if (iframeDoc && iframeDoc.body) {
+            observer.observe(iframeDoc.body, { attributes: true, childList: true, subtree: true });
+            adjustIframeHeight();
+          }
+        } catch(e) {}
+      });
+      
+      // also override runCode to call adjust after a short delay
+      const originalRun = runCode;
+      window.runCode = function() {
+        originalRun();
+        setTimeout(adjustIframeHeight, 30);
+      };
+      runButton.onclick = (e) => {
+        e.preventDefault();
+        originalRun();
+        setTimeout(adjustIframeHeight, 40);
+      };
+      // initial call after load anyway
+      window.addEventListener('load', () => {
+        adjustIframeHeight();
+      });
+      
+      // expose new run function globally for override
+      // but also keep normal
+      window.runCodeFn = runCode;
+    })();
+  </script>
+</body>
+</html>

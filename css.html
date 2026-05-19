@@ -3,191 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>HTML In-Depth | Full Stack Development</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Page-Specific Layout Styles */
-    .layout-container {
-      max-width: 1400px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-    }
-
-    /* Left Column: Documentation */
-    .doc-content {
-      flex: 1 1 45%; /* Adjusted to give the side-by-side editor more room */
-      color: #1e2f3a;
-      line-height: 1.7;
-    }
-
-    .doc-content h1 {
-      font-size: 2.5rem;
-      color: #2E5E99;
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
-    }
-
-    .doc-content h2 {
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem;
-      border-bottom: 2px solid rgba(46, 94, 153, 0.1);
-      padding-bottom: 0.5rem;
-      color: #2E5E99;
-    }
-
-    .doc-content h3 {
-      font-size: 1.3rem;
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    .doc-content p {
-      margin-bottom: 1rem;
-    }
-
-    .doc-content code {
-      background: rgba(46, 94, 153, 0.1);
-      color: #2E5E99;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.9em;
-    }
-
-    .demo-box {
-      border: 1px solid rgba(46, 94, 153, 0.2);
-      border-radius: 8px;
-      padding: 1.5rem;
-      background: #ffffff;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
-
-    .demo-box header, .demo-box main, .demo-box footer, .demo-box article, .demo-box section {
-      border: 2px dashed #2E5E99;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 4px;
-      background: rgba(46, 94, 153, 0.03);
-      position: relative;
-    }
-
-    .demo-box main { border-color: #d97706; background: rgba(217, 119, 6, 0.03); }
-    .demo-box article { border-color: #059669; background: rgba(5, 150, 105, 0.03); margin-bottom: 0;}
-    .demo-box footer { border-color: #4f46e5; background: rgba(79, 70, 229, 0.03); margin-bottom: 0; }
-    
-    .demo-label {
-      position: absolute;
-      top: -12px;
-      left: 10px;
-      background: #fff;
-      padding: 0 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      font-family: monospace;
-      color: #333;
-    }
-
-    /* Right Column: Try It Yourself Editor */
-    .editor-sidebar {
-      flex: 1 1 50%; /* Widened to accommodate side-by-side design */
-      min-width: 500px;
-      display: flex;
-      flex-direction: column;
-      /* Removed position: sticky and top */
-      height: 600px; /* Fixed height for the editor block */
-      margin-bottom: 2rem;
-    }
-
-    .editor-header {
-      background: #2E5E99;
-      color: #fff;
-      padding: 0.8rem 1rem;
-      border-radius: 8px 8px 0 0;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* New container for side-by-side layout */
-    .editor-workspace {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      background: #fff;
-      border: 1px solid rgba(46, 94, 153, 0.2);
-      border-top: none;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      overflow: hidden;
-    }
-
-    .editor-pane, .preview-pane {
-      display: flex;
-      flex-direction: column;
-      flex: 1; /* Both take up 50% of the workspace */
-      overflow: hidden;
-    }
-
-    .preview-pane {
-      border-left: 1px solid rgba(46, 94, 153, 0.2); /* Divider line between code and preview */
-    }
-
-    .pane-label {
-      background: #f1f5f9;
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #475569;
-      border-bottom: 1px solid rgba(46, 94, 153, 0.1);
-    }
-
-    textarea#code-input {
-      flex: 1;
-      width: 100%;
-      resize: none;
-      border: none;
-      padding: 1rem;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95rem;
-      outline: none;
-      background: #fafafa;
-      color: #333;
-    }
-
-    iframe#live-preview {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #fff;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 1100px) {
-      /* Stack the editor panes vertically on smaller screens where side-by-side is unreadable */
-      .editor-workspace {
-        flex-direction: column;
-      }
-      .preview-pane {
-        border-left: none;
-        border-top: 1px solid rgba(46, 94, 153, 0.2);
-      }
-      .editor-sidebar {
-        min-width: 100%;
-        height: 700px;
-      }
-    }
-  </style>
+  <title>Full Stack Development</title>
+  <link rel="stylesheet" href="css.css">
 </head>
 <body>
 
+<!-- Navbar -->
 <header class="navbar">
   <div class="nav-container">
-    <a href="#" class="logo">Logo</a>
+    <a href="index.html" class="logo">Logo</a>
 
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
       <div class="bar"></div>
@@ -198,117 +22,34 @@
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link active">HTML</a></li>
-      <li><a href="css.html" class="nav-link">CSS</a></li>
+      <li><a href="html.html" class="nav-link">HTML</a></li>
+      <li><a href="css.html" class="nav-link active">CSS</a></li>
       <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
       <li><a href="js.html" class="nav-link">JavaScript</a></li>
     </ul>
   </div>
-
   <div class="menu-overlay" id="overlay"></div>
 </header>
 
-<div class="layout-container">
-  
-  <main class="doc-content">
-    <h1>HTML In-Depth: The Skeleton of the Web</h1>
-    <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It provides the fundamental structure upon which all websites are built.</p>
-
-    <h2>1. The Core Structure</h2>
-    <p>Every valid HTML document requires a specific boilerplate to tell the browser how to render the page accurately.</p>
-    <ul>
-      <li><code>&lt;!DOCTYPE html&gt;</code>: This is not an HTML tag, but a declaration. It tells the browser that this document uses HTML5, ensuring the page renders in standards mode.</li>
-      <li><code>&lt;html&gt;</code>: The root element that wraps all content on the page.</li>
-      <li><code>&lt;head&gt;</code>: Contains meta-information about the document that isn't displayed directly to the user (e.g., character set, viewport settings, page title, and CSS links).</li>
-      <li><code>&lt;body&gt;</code>: Contains all the visible content of the web page, such as text, images, videos, and interactive elements.</li>
-    </ul>
-
-    <h2>2. Semantic HTML</h2>
-    <p>Semantic tags clearly describe their meaning to both the browser and the developer. Instead of using generic <code>&lt;div&gt;</code> tags for everything, we use tags that describe the <i>purpose</i> of the content.</p>
-    
-    <h3>Why Use Semantic Tags?</h3>
-    <ul>
-      <li><strong>SEO (Search Engine Optimization):</strong> Search engines prioritize semantic tags (like headers and articles) to understand the context and hierarchy of a page, improving rankings.</li>
-      <li><strong>Maintainability:</strong> Code is much easier to read and maintain when tags describe their content.</li>
-      <li><strong>Accessibility:</strong> Screen readers rely heavily on semantic HTML to navigate users through a page effectively.</li>
-    </ul>
-
-    <h3>Evidence: Blog Layout Demo</h3>
-    <p>Below is a visual representation of how a modern Blog Layout is structured using semantic tags.</p>
-    
-    <div class="demo-box">
-      <header>
-        <span class="demo-label">&lt;header&gt;</span>
-        <h2>My Developer Blog</h2>
-        <nav style="margin-top: 10px; font-size: 0.9em; color: #666;">
-          <strong>&lt;nav&gt;</strong> Home | About | Articles | Contact
-        </nav>
-      </header>
-      
-      <main>
-        <span class="demo-label">&lt;main&gt;</span>
-        <article>
-          <span class="demo-label">&lt;article&gt;</span>
-          <h3>Understanding the DOM</h3>
-          <p>By Jane Doe | May 18, 2026</p>
-          <p>The Document Object Model is a programming interface for web documents...</p>
-        </article>
-      </main>
-
-      <footer style="margin-top: 1rem;">
-        <span class="demo-label">&lt;footer&gt;</span>
-        <p>&copy; 2026 My Developer Blog. All rights reserved.</p>
-      </footer>
-    </div>
-
-    <h2>3. Web Accessibility (a11y)</h2>
-    <p>Writing good HTML means ensuring everyone, including people with disabilities, can consume your content.</p>
-    <ul>
-      <li><strong>Alternative Text (<code>alt</code> attribute):</strong> Always include descriptive `alt` text on <code>&lt;img&gt;</code> tags. If the image fails to load, or if a visually impaired user uses a screen reader, the `alt` text conveys the image's purpose. <i>(e.g., <code>&lt;img src="graph.png" alt="Bar chart showing a 20% increase in sales"&gt;</code>)</i></li>
-      <li><strong>Heading Hierarchy:</strong> Use headings (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) logically. Never skip heading levels (e.g., jumping from H1 to H3). This creates a navigable table of contents for screen reader users.</li>
-      <li><strong>Form Labels:</strong> Always associate a <code>&lt;label&gt;</code> with its corresponding <code>&lt;input&gt;</code> using the <code>for</code> and <code>id</code> attributes.</li>
-    </ul>
-
-  </main>
-
-  <aside class="editor-sidebar">
-    <div class="editor-header">
-      <span>Try It Yourself</span>
-      <span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px;">Live Editor</span>
-    </div>
-    
-    <div class="editor-workspace">
-      <div class="editor-pane">
-        <div class="pane-label">HTML Code Input</div>
-        <textarea id="code-input" spellcheck="false">
-<h1>Hello World!</h1>
-<p>Welcome to the live editor.</p>
-
-<section>
-  <h2>Experiment here</h2>
-  <p>Try modifying this HTML or adding <strong>semantic tags</strong> like <code>&lt;article&gt;</code> or <code>&lt;button&gt;</code>.</p>
+<!-- Hero -->
+<section class="hero">
+  <h1>What is CSS?</h1>
+  <p>The skeleton of the web.</p>
 </section>
-        </textarea>
-      </div>
 
-      <div class="preview-pane">
-        <div class="pane-label">Live Output</div>
-        <iframe id="live-preview" title="Live HTML Preview"></iframe>
-      </div>
-    </div>
-  </aside>
 
-</div>
 
 <script>
-  // --- Navbar Logic (Preserved from uploaded file) ---
+  // Responsive Navbar logic: toggle menu on hamburger click, close on link click or overlay tap
   (function() {
     const menuToggle = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     const overlay = document.getElementById('overlay');
     const navLinks = document.querySelectorAll('.nav-link');
+    // Flag to avoid double toggling events
     let isMenuOpen = false;
 
+    // Helper: open menu
     function openMenu() {
       if (!navMenu || !menuToggle) return;
       navMenu.classList.add('active');
@@ -316,9 +57,11 @@
       if (overlay) overlay.classList.add('active');
       menuToggle.setAttribute('aria-expanded', 'true');
       isMenuOpen = true;
+      // prevent body scroll when menu open on mobile
       document.body.style.overflow = 'hidden';
     }
 
+    // Helper: close menu
     function closeMenu() {
       if (!navMenu || !menuToggle) return;
       navMenu.classList.remove('active');
@@ -329,11 +72,16 @@
       document.body.style.overflow = '';
     }
 
+    // Toggle menu based on current state
     function toggleMenu() {
-      if (isMenuOpen) closeMenu();
-      else openMenu();
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     }
 
+    // Event listener for hamburger click
     if (menuToggle) {
       menuToggle.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -341,26 +89,37 @@
       });
     }
 
+    // Close menu when clicking on any nav link (for better UX)
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
+        // only if it's mobile view (menu open) AND we are in responsive mode
+        // but safe: we check if menu is open, then close it and allow navigation
         if (window.innerWidth <= 768 && isMenuOpen) {
+          // optional: small delay for better feeling? immediate close.
           closeMenu();
         }
+        // For active link highlight we can remove active from all and add to current
+        // Simple active state update (just to improve demo)
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
+        // prevent default if we want to demo but actually keep hash browsing? we don't have sections
+        // but we let href go ahead. For demo no e.preventDefault needed
       });
     });
 
+    // Close menu when overlay (background dim) is clicked
     if (overlay) {
       overlay.addEventListener('click', () => {
         if (isMenuOpen) closeMenu();
       });
     }
 
+    // Listen to window resize: if window is resized above 768px and menu is open, close and reset
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && isMenuOpen) {
         closeMenu();
       }
+      // additionally ensure that if desktop mode and menu has active class due to any bug, remove it
       if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         if(menuToggle) menuToggle.classList.remove('active');
@@ -370,12 +129,15 @@
       }
     });
 
+    // Escape key closes menu (accessibility)
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isMenuOpen) {
         closeMenu();
       }
     });
 
+    // initial check: if any state is inconsistent from start, we sync.
+    // also guarantee that on load if screen is desktop, menu is visible correctly.
     if (window.innerWidth > 768 && navMenu) {
       navMenu.classList.remove('active');
       if(menuToggle) menuToggle.classList.remove('active');
@@ -384,45 +146,6 @@
       document.body.style.overflow = '';
     }
   })();
-
-  // --- Live Editor Logic ---
-  (function() {
-    const codeInput = document.getElementById('code-input');
-    const livePreview = document.getElementById('live-preview');
-
-    function updatePreview() {
-      const code = codeInput.value;
-      // Access the iframe's document object
-      const iframeDoc = livePreview.contentDocument || livePreview.contentWindow.document;
-      
-      // Inject basic styling to match the parent theme slightly
-      const baseStyles = `
-        <style>
-          body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            color: #333; 
-            padding: 1rem; 
-            margin: 0;
-            line-height: 1.5;
-          }
-          h1, h2, h3 { color: #2E5E99; margin-top: 0;}
-          code { background: #eee; padding: 2px 4px; border-radius: 4px; }
-        </style>
-      `;
-
-      // Write the content to the iframe
-      iframeDoc.open();
-      iframeDoc.write(baseStyles + code);
-      iframeDoc.close();
-    }
-
-    // Event listener for user typing
-    codeInput.addEventListener('input', updatePreview);
-
-    // Initial render on page load
-    updatePreview();
-  })();
 </script>
-
 </body>
 </html>

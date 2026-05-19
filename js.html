@@ -3,174 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>HTML In-Depth | Full Stack Development</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Page-Specific Layout Styles */
-    .layout-container {
-      max-width: 1300px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-    }
+  <title>JavaScript In-Depth | Full Stack Development</title>
+  <link rel="stylesheet" href="js.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-    /* Left Column: Documentation */
-    .doc-content {
-      flex: 1 1 60%;
-      color: #1e2f3a;
-      line-height: 1.7;
-    }
-
-    .doc-content h1 {
-      font-size: 2.5rem;
-      color: #2E5E99;
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
-    }
-
-    .doc-content h2 {
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem;
-      border-bottom: 2px solid rgba(46, 94, 153, 0.1);
-      padding-bottom: 0.5rem;
-      color: #2E5E99;
-    }
-
-    .doc-content h3 {
-      font-size: 1.3rem;
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    .doc-content p {
-      margin-bottom: 1rem;
-    }
-
-    .doc-content code {
-      background: rgba(46, 94, 153, 0.1);
-      color: #2E5E99;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.9em;
-    }
-
-    .demo-box {
-      border: 1px solid rgba(46, 94, 153, 0.2);
-      border-radius: 8px;
-      padding: 1.5rem;
-      background: #ffffff;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
-
-    .demo-box header, .demo-box main, .demo-box footer, .demo-box article, .demo-box section {
-      border: 2px dashed #2E5E99;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 4px;
-      background: rgba(46, 94, 153, 0.03);
-      position: relative;
-    }
-
-    .demo-box main { border-color: #d97706; background: rgba(217, 119, 6, 0.03); }
-    .demo-box article { border-color: #059669; background: rgba(5, 150, 105, 0.03); margin-bottom: 0;}
-    .demo-box footer { border-color: #4f46e5; background: rgba(79, 70, 229, 0.03); margin-bottom: 0; }
-    
-    .demo-label {
-      position: absolute;
-      top: -12px;
-      left: 10px;
-      background: #fff;
-      padding: 0 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      font-family: monospace;
-      color: #333;
-    }
-
-    /* Right Column: Try It Yourself Editor */
-    .editor-sidebar {
-      flex: 1 1 30%;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      position: sticky;
-      top: 90px; /* Accounts for navbar */
-      height: calc(100vh - 120px);
-    }
-
-    .editor-header {
-      background: #2E5E99;
-      color: #fff;
-      padding: 0.8rem 1rem;
-      border-radius: 8px 8px 0 0;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .editor-pane, .preview-pane {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      background: #fff;
-      border: 1px solid rgba(46, 94, 153, 0.2);
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      overflow: hidden;
-    }
-
-    .preview-pane {
-      border-radius: 8px;
-    }
-
-    .pane-label {
-      background: #f1f5f9;
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #475569;
-      border-bottom: 1px solid rgba(46, 94, 153, 0.1);
-    }
-
-    textarea#code-input {
-      flex: 1;
-      width: 100%;
-      resize: none;
-      border: none;
-      padding: 1rem;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.95rem;
-      outline: none;
-      background: #fafafa;
-      color: #333;
-    }
-
-    iframe#live-preview {
-      flex: 1;
-      width: 100%;
-      border: none;
-      background: #fff;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 968px) {
-      .editor-sidebar {
-        position: static;
-        height: 800px;
-      }
-    }
-  </style>
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <header class="navbar">
   <div class="nav-container">
-    <a href="#" class="logo">Logo</a>
+    <a href="index.html" class="logo">Logo</a>
 
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
       <div class="bar"></div>
@@ -181,100 +25,292 @@
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link active">HTML</a></li>
+      <li><a href="html.html" class="nav-link">HTML</a></li>
       <li><a href="css.html" class="nav-link">CSS</a></li>
       <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
-      <li><a href="js.html" class="nav-link">JavaScript</a></li>
+      <li><a href="js.html" class="nav-link active">JavaScript</a></li>
     </ul>
   </div>
-
   <div class="menu-overlay" id="overlay"></div>
 </header>
 
+<!-- ===== HERO ===== -->
+
+
+
+<!-- Hero -->
+<section class="hero">
+  <h1>What is JavaScript?</h1>
+  <p>JavaScript is the only programming language that runs natively in every web browser, enabling interactivity, dynamic content, and real-time communication across the web.</p>
+</section>
+
+
+<!-- <section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Full Stack Development — Module 04</div>
+    <h1>JavaScript <span>In-Depth</span><br>The Language of the Web</h1>
+    <p>JavaScript is the only programming language that runs natively in every web browser, enabling interactivity, dynamic content, and real-time communication across the web.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">98%</span><span class="lbl">Browser support</span></div>
+      <div class="hero-stat"><span class="num">5</span><span class="lbl">Core sections</span></div>
+      <div class="hero-stat"><span class="num">ES2024</span><span class="lbl">Latest standard</span></div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ===== MAIN LAYOUT ===== -->
 <div class="layout-container">
-  
+
+  <!-- LEFT: Documentation -->
   <main class="doc-content">
-    <h1>HTML In-Depth: The Skeleton of the Web</h1>
-    <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It provides the fundamental structure upon which all websites are built.</p>
 
-    <h2>1. The Core Structure</h2>
-    <p>Every valid HTML document requires a specific boilerplate to tell the browser how to render the page accurately.</p>
-    <ul>
-      <li><code>&lt;!DOCTYPE html&gt;</code>: This is not an HTML tag, but a declaration. It tells the browser that this document uses HTML5, ensuring the page renders in standards mode.</li>
-      <li><code>&lt;html&gt;</code>: The root element that wraps all content on the page.</li>
-      <li><code>&lt;head&gt;</code>: Contains meta-information about the document that isn't displayed directly to the user (e.g., character set, viewport settings, page title, and CSS links).</li>
-      <li><code>&lt;body&gt;</code>: Contains all the visible content of the web page, such as text, images, videos, and interactive elements.</li>
-    </ul>
+    <!-- Section 1: Variables -->
+    <div class="doc-section">
+      <span class="section-number">01 / VARIABLES</span>
+      <h2>Variable Declarations</h2>
+      <p>JavaScript provides three keywords for declaring variables — <code>var</code>, <code>let</code>, and <code>const</code>. Modern JavaScript (ES6+) strongly favors <code>let</code> and <code>const</code> over <code>var</code> due to block scoping and predictable behavior.</p>
 
-    <h2>2. Semantic HTML</h2>
-    <p>Semantic tags clearly describe their meaning to both the browser and the developer. Instead of using generic <code>&lt;div&gt;</code> tags for everything, we use tags that describe the <i>purpose</i> of the content.</p>
-    
-    <h3>Why Use Semantic Tags?</h3>
-    <ul>
-      <li><strong>SEO (Search Engine Optimization):</strong> Search engines prioritize semantic tags (like headers and articles) to understand the context and hierarchy of a page, improving rankings.</li>
-      <li><strong>Maintainability:</strong> Code is much easier to read and maintain when tags describe their content.</li>
-      <li><strong>Accessibility:</strong> Screen readers rely heavily on semantic HTML to navigate users through a page effectively.</li>
-    </ul>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-icon">📦</div>
+          <h4>const</h4>
+          <p>Block-scoped. Cannot be reassigned. Use for values that shouldn't change.</p>
+        </div>
+        <div class="info-card green">
+          <div class="card-icon">🔄</div>
+          <h4>let</h4>
+          <p>Block-scoped. Can be reassigned. Use for values that will change.</p>
+        </div>
+        <div class="info-card red">
+          <div class="card-icon">⚠️</div>
+          <h4>var</h4>
+          <p>Function-scoped. Hoisted. Avoid in modern code — causes subtle bugs.</p>
+        </div>
+      </div>
 
-    <h3>Evidence: Blog Layout Demo</h3>
-    <p>Below is a visual representation of how a modern Blog Layout is structured using semantic tags.</p>
-    
-    <div class="demo-box">
-      <header>
-        <span class="demo-label">&lt;header&gt;</span>
-        <h2>My Developer Blog</h2>
-        <nav style="margin-top: 10px; font-size: 0.9em; color: #666;">
-          <strong>&lt;nav&gt;</strong> Home | About | Articles | Contact
-        </nav>
-      </header>
-      
-      <main>
-        <span class="demo-label">&lt;main&gt;</span>
-        <article>
-          <span class="demo-label">&lt;article&gt;</span>
-          <h3>Understanding the DOM</h3>
-          <p>By Jane Doe | May 18, 2026</p>
-          <p>The Document Object Model is a programming interface for web documents...</p>
-        </article>
-      </main>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">JavaScript</span>
+        </div>
+        <pre><span class="cm">// ✅ Modern ES6+ declarations</span>
+<span class="kw">const</span> courseName = <span class="str">"Full Stack Development"</span>;
+<span class="kw">let</span> currentModule = <span class="num">4</span>;
+<span class="kw">let</span> isCompleted = <span class="kw">false</span>;
 
-      <footer style="margin-top: 1rem;">
-        <span class="demo-label">&lt;footer&gt;</span>
-        <p>&copy; 2026 My Developer Blog. All rights reserved.</p>
-      </footer>
+<span class="cm">// const with objects — the variable itself can't be reassigned,</span>
+<span class="cm">// but the object's properties CAN be mutated.</span>
+<span class="kw">const</span> student = { name: <span class="str">"Alice"</span>, grade: <span class="num">88</span> };
+student.grade = <span class="num">95</span>;        <span class="cm">// ✅ Allowed</span>
+<span class="cm">// student = {};           // ❌ TypeError: Assignment to constant</span></pre>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>var</th><th>let</th><th>const</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Scope</td><td>Function</td><td>Block</td><td>Block</td></tr>
+          <tr><td>Hoisted</td><td class="tag-yes">Yes</td><td class="tag-warn">TDZ</td><td class="tag-warn">TDZ</td></tr>
+          <tr><td>Reassignable</td><td class="tag-yes">Yes</td><td class="tag-yes">Yes</td><td class="tag-no">No</td></tr>
+          <tr><td>Redeclarable</td><td class="tag-yes">Yes</td><td class="tag-no">No</td><td class="tag-no">No</td></tr>
+          <tr><td>Recommended</td><td class="tag-no">Avoid</td><td class="tag-yes">✓</td><td class="tag-yes">✓ Prefer</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <h2>3. Web Accessibility (a11y)</h2>
-    <p>Writing good HTML means ensuring everyone, including people with disabilities, can consume your content.</p>
-    <ul>
-      <li><strong>Alternative Text (<code>alt</code> attribute):</strong> Always include descriptive `alt` text on <code>&lt;img&gt;</code> tags. If the image fails to load, or if a visually impaired user uses a screen reader, the `alt` text conveys the image's purpose. <i>(e.g., <code>&lt;img src="graph.png" alt="Bar chart showing a 20% increase in sales"&gt;</code>)</i></li>
-      <li><strong>Heading Hierarchy:</strong> Use headings (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) logically. Never skip heading levels (e.g., jumping from H1 to H3). This creates a navigable table of contents for screen reader users.</li>
-      <li><strong>Form Labels:</strong> Always associate a <code>&lt;label&gt;</code> with its corresponding <code>&lt;input&gt;</code> using the <code>for</code> and <code>id</code> attributes.</li>
-    </ul>
+    <!-- Section 2: Functions -->
+    <div class="doc-section">
+      <span class="section-number">02 / FUNCTIONS</span>
+      <h2>Functions & Arrow Functions</h2>
+      <p>Functions are reusable blocks of code. JavaScript has multiple syntaxes — traditional function declarations, function expressions, and the modern <strong>arrow function</strong> syntax introduced in ES6.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">JavaScript</span>
+        </div>
+        <pre><span class="cm">// 1. Function Declaration (hoisted)</span>
+<span class="kw">function</span> <span class="fn">greet</span>(name) {
+  <span class="kw">return</span> <span class="str">`Hello, </span><span class="cn">${name}</span><span class="str">!`</span>;
+}
+
+<span class="cm">// 2. Arrow Function (concise, no own `this`)</span>
+<span class="kw">const</span> <span class="fn">add</span> = (a, b) <span class="op">=></span> a + b;
+
+<span class="cm">// 3. Arrow with block body</span>
+<span class="kw">const</span> <span class="fn">formatScore</span> = (score) <span class="op">=></span> {
+  <span class="kw">if</span> (score <span class="op">>=</span> <span class="num">90</span>) <span class="kw">return</span> <span class="str">"A"</span>;
+  <span class="kw">if</span> (score <span class="op">>=</span> <span class="num">80</span>) <span class="kw">return</span> <span class="str">"B"</span>;
+  <span class="kw">return</span> <span class="str">"C"</span>;
+};
+
+console.<span class="fn">log</span>(<span class="fn">greet</span>(<span class="str">"Alice"</span>));      <span class="cm">// "Hello, Alice!"</span>
+console.<span class="fn">log</span>(<span class="fn">add</span>(<span class="num">5</span>, <span class="num">3</span>));           <span class="cm">// 8</span>
+console.<span class="fn">log</span>(<span class="fn">formatScore</span>(<span class="num">87</span>));    <span class="cm">// "B"</span></pre>
+      </div>
+
+      <div class="callout">
+        <strong>💡 Key Insight</strong>
+        <p>Arrow functions do <em>not</em> have their own <code>this</code> context — they inherit it from the surrounding scope. This makes them ideal for callbacks but unsuitable as object methods.</p>
+      </div>
+    </div>
+
+    <!-- Section 3: DOM Manipulation -->
+    <div class="doc-section">
+      <span class="section-number">03 / DOM</span>
+      <h2>DOM Manipulation</h2>
+      <p>The <strong>Document Object Model (DOM)</strong> is a tree-like representation of your HTML that JavaScript can read and modify. This is what makes pages dynamic and interactive.</p>
+
+      <h3>Selecting Elements</h3>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">JavaScript</span>
+        </div>
+        <pre><span class="cm">// Modern: querySelector returns the first match</span>
+<span class="kw">const</span> title = document.<span class="fn">querySelector</span>(<span class="str">"h1"</span>);
+<span class="kw">const</span> submitBtn = document.<span class="fn">querySelector</span>(<span class="str">"#submit-btn"</span>);
+<span class="kw">const</span> cards = document.<span class="fn">querySelectorAll</span>(<span class="str">".card"</span>); <span class="cm">// NodeList</span>
+
+<span class="cm">// Modifying content and style</span>
+title.textContent = <span class="str">"Updated Title"</span>;
+title.style.color = <span class="str">"#2E5E99"</span>;
+submitBtn.classList.<span class="fn">add</span>(<span class="str">"active"</span>);
+
+<span class="cm">// Creating and inserting new elements</span>
+<span class="kw">const</span> newItem = document.<span class="fn">createElement</span>(<span class="str">"li"</span>);
+newItem.textContent = <span class="str">"New list item"</span>;
+document.<span class="fn">querySelector</span>(<span class="str">"ul"</span>).<span class="fn">appendChild</span>(newItem);</pre>
+      </div>
+    </div>
+
+    <!-- Section 4: Events -->
+    <div class="doc-section">
+      <span class="section-number">04 / EVENTS</span>
+      <h2>Event Listeners</h2>
+      <p>Events are actions that happen in the browser — clicks, key presses, form submissions, mouse movements. JavaScript responds to these using <code>addEventListener</code>.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">JavaScript</span>
+        </div>
+        <pre><span class="kw">const</span> btn = document.<span class="fn">querySelector</span>(<span class="str">"#myButton"</span>);
+<span class="kw">let</span> clickCount = <span class="num">0</span>;
+
+<span class="cm">// Attach an event listener</span>
+btn.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, (event) <span class="op">=></span> {
+  clickCount<span class="op">++</span>;
+  btn.textContent = <span class="str">`Clicked </span><span class="cn">${clickCount}</span><span class="str"> time(s)`</span>;
+  event.<span class="fn">stopPropagation</span>(); <span class="cm">// Prevent bubbling</span>
+});
+
+<span class="cm">// Form submit event</span>
+document.<span class="fn">querySelector</span>(<span class="str">"form"</span>)
+  .<span class="fn">addEventListener</span>(<span class="str">"submit"</span>, (e) <span class="op">=></span> {
+    e.<span class="fn">preventDefault</span>(); <span class="cm">// Stop page reload</span>
+    console.<span class="fn">log</span>(<span class="str">"Form submitted!"</span>);
+  });</pre>
+      </div>
+
+      <div class="callout warning">
+        <strong>⚠️ Common Mistake</strong>
+        <p>Always use <code>addEventListener</code> instead of inline HTML attributes like <code>onclick="..."</code>. Inline handlers mix structure with behavior, making code harder to maintain.</p>
+      </div>
+    </div>
+
+    <!-- Section 5: Arrays & Methods -->
+    <div class="doc-section">
+      <span class="section-number">05 / ARRAYS</span>
+      <h2>Arrays & Higher-Order Methods</h2>
+      <p>Arrays store ordered collections of data. JavaScript's built-in array methods — <code>map</code>, <code>filter</code>, and <code>reduce</code> — are among the most powerful tools in modern JS.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">JavaScript</span>
+        </div>
+        <pre><span class="kw">const</span> scores = [<span class="num">72</span>, <span class="num">88</span>, <span class="num">95</span>, <span class="num">61</span>, <span class="num">79</span>, <span class="num">92</span>];
+
+<span class="cm">// map() — transform every element → new array</span>
+<span class="kw">const</span> doubled = scores.<span class="fn">map</span>(s <span class="op">=></span> s * <span class="num">2</span>);
+<span class="cm">// [144, 176, 190, 122, 158, 184]</span>
+
+<span class="cm">// filter() — keep elements that pass a test</span>
+<span class="kw">const</span> passing = scores.<span class="fn">filter</span>(s <span class="op">=></span> s <span class="op">>=</span> <span class="num">75</span>);
+<span class="cm">// [88, 95, 79, 92]</span>
+
+<span class="cm">// reduce() — boil array down to a single value</span>
+<span class="kw">const</span> total = scores.<span class="fn">reduce</span>((sum, s) <span class="op">=></span> sum + s, <span class="num">0</span>);
+<span class="kw">const</span> average = total / scores.length;
+console.<span class="fn">log</span>(<span class="str">`Average: </span><span class="cn">${average.<span class="fn">toFixed</span>(<span class="num">1</span>)}</span><span class="str">%`</span>); <span class="cm">// "Average: 81.2%"</span></pre>
+      </div>
+
+      <div class="callout success">
+        <strong>✅ Best Practice</strong>
+        <p>Chain <code>filter</code> and <code>map</code> together for clean, readable data transformations: <code>scores.filter(s =&gt; s &gt;= 75).map(s =&gt; s + " pts")</code></p>
+      </div>
+    </div>
 
   </main>
 
+  <!-- RIGHT: Live Editor -->
   <aside class="editor-sidebar">
     <div class="editor-header">
-      <span>Try It Yourself</span>
-      <span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px;">Live Editor</span>
-    </div>
-    
-    <div class="editor-pane">
-      <div class="pane-label">HTML Code Input</div>
-      <textarea id="code-input" spellcheck="false">
-<h1>Hello World!</h1>
-<p>Welcome to the live editor.</p>
-
-<section>
-  <h2>Experiment here</h2>
-  <p>Try modifying this HTML or adding <strong>semantic tags</strong> like <code>&lt;article&gt;</code> or <code>&lt;button&gt;</code> to see the results instantly.</p>
-</section>
-      </textarea>
+      <span>⚡ Live Editor</span>
+      <div class="editor-tabs">
+        <button class="tab-btn active" data-mode="js" onclick="switchMode('js', this)">JS Console</button>
+        <button class="tab-btn" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
+      </div>
     </div>
 
-    <div class="preview-pane">
-      <div class="pane-label">Live Output</div>
+    <div class="editor-body">
+      <div class="pane-row">
+        <span class="pane-label" id="input-label">JavaScript</span>
+        <button class="run-btn" id="runBtn" onclick="runCode()">
+          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+          Run
+        </button>
+      </div>
+
+      <textarea id="code-input" spellcheck="false">// ✏️ Try editing and click Run!
+
+const students = [
+  { name: "Alice", score: 91 },
+  { name: "Bob",   score: 74 },
+  { name: "Carol", score: 88 },
+  { name: "Dan",   score: 67 }
+];
+
+// Filter passing students (score >= 75)
+const passing = students.filter(s => s.score >= 75);
+
+// Log results
+console.log("Total students:", students.length);
+console.log("Passing:", passing.length);
+
+passing.forEach(s => {
+  console.log(`✅ ${s.name}: ${s.score}%`);
+});
+
+// Calculate average
+const avg = students.reduce((sum, s) => sum + s.score, 0) / students.length;
+console.log(`Class average: ${avg.toFixed(1)}%`);
+</textarea>
+
+      <!-- JS Console Output -->
+      <div class="output-pane" id="js-output-pane">
+        <div class="pane-row">
+          <span class="pane-label">Output</span>
+          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()">Clear</button>
+        </div>
+        <div class="output-content" id="output-content">
+          <span class="output-empty">Click ▶ Run to execute your code…</span>
+        </div>
+      </div>
+
+      <!-- HTML Preview iframe (hidden by default) -->
       <iframe id="live-preview" title="Live HTML Preview"></iframe>
     </div>
   </aside>
@@ -282,7 +318,7 @@
 </div>
 
 <script>
-  // --- Navbar Logic (Preserved from uploaded file) ---
+  /* ===== NAVBAR LOGIC ===== */
   (function() {
     const menuToggle = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -310,99 +346,157 @@
       document.body.style.overflow = '';
     }
 
-    function toggleMenu() {
-      if (isMenuOpen) closeMenu();
-      else openMenu();
-    }
-
-    if (menuToggle) {
-      menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 && isMenuOpen) {
-          closeMenu();
-        }
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-
-    if (overlay) {
-      overlay.addEventListener('click', () => {
-        if (isMenuOpen) closeMenu();
-      });
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isMenuOpen) {
-        closeMenu();
-      }
-      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        if(menuToggle) menuToggle.classList.remove('active');
-        if(overlay) overlay.classList.remove('active');
-        document.body.style.overflow = '';
-        isMenuOpen = false;
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
-      }
-    });
-
-    if (window.innerWidth > 768 && navMenu) {
-      navMenu.classList.remove('active');
-      if(menuToggle) menuToggle.classList.remove('active');
-      if(overlay) overlay.classList.remove('active');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
+    if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); isMenuOpen ? closeMenu() : openMenu(); });
+    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768 && isMenuOpen) closeMenu(); }); });
+    if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768 && isMenuOpen) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
   })();
 
-  // --- Live Editor Logic ---
+  /* ===== SECTION REVEAL ON SCROLL ===== */
   (function() {
-    const codeInput = document.getElementById('code-input');
-    const livePreview = document.getElementById('live-preview');
-
-    function updatePreview() {
-      const code = codeInput.value;
-      // Access the iframe's document object
-      const iframeDoc = livePreview.contentDocument || livePreview.contentWindow.document;
-      
-      // Inject basic styling to match the parent theme slightly
-      const baseStyles = `
-        <style>
-          body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            color: #333; 
-            padding: 1rem; 
-            margin: 0;
-            line-height: 1.5;
-          }
-          h1, h2, h3 { color: #2E5E99; }
-          code { background: #eee; padding: 2px 4px; border-radius: 4px; }
-        </style>
-      `;
-
-      // Write the content to the iframe
-      iframeDoc.open();
-      iframeDoc.write(baseStyles + code);
-      iframeDoc.close();
-    }
-
-    // Event listener for user typing
-    codeInput.addEventListener('input', updatePreview);
-
-    // Initial render on page load
-    updatePreview();
+    const sections = document.querySelectorAll('.doc-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach((s, i) => {
+      s.style.transitionDelay = `${i * 0.05}s`;
+      observer.observe(s);
+    });
   })();
+
+  /* ===== EDITOR LOGIC ===== */
+  let currentMode = 'js';
+
+  function switchMode(mode, btn) {
+    currentMode = mode;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const outputPane = document.getElementById('js-output-pane');
+    const preview = document.getElementById('live-preview');
+    const inputLabel = document.getElementById('input-label');
+    const runBtn = document.getElementById('runBtn');
+
+    if (mode === 'js') {
+      outputPane.style.display = 'flex';
+      preview.style.display = 'none';
+      inputLabel.textContent = 'JavaScript';
+      runBtn.style.display = 'flex';
+      document.getElementById('code-input').value = `// ✏️ Try editing and click Run!
+
+const students = [
+  { name: "Alice", score: 91 },
+  { name: "Bob",   score: 74 },
+  { name: "Carol", score: 88 },
+  { name: "Dan",   score: 67 }
+];
+
+const passing = students.filter(s => s.score >= 75);
+console.log("Total students:", students.length);
+console.log("Passing:", passing.length);
+
+passing.forEach(s => {
+  console.log(\`✅ \${s.name}: \${s.score}%\`);
+});`;
+    } else {
+      outputPane.style.display = 'none';
+      preview.style.display = 'block';
+      inputLabel.textContent = 'HTML';
+      runBtn.style.display = 'none';
+      document.getElementById('code-input').value = `<h1>Hello World!</h1>
+<p>Welcome to the live HTML editor.</p>
+
+<section>
+  <h2>Semantic Tags Demo</h2>
+  <article>
+    <h3>Understanding the DOM</h3>
+    <p>The Document Object Model is a programming interface for web documents.</p>
+  </article>
+</section>`;
+      updateHTMLPreview();
+    }
+    clearOutput();
+  }
+
+  /* JS Console Runner */
+  function runCode() {
+    const code = document.getElementById('code-input').value;
+    const outputEl = document.getElementById('output-content');
+    outputEl.innerHTML = '';
+
+    const logs = [];
+
+    // Override console methods
+    const origLog = console.log;
+    const origError = console.error;
+    const origWarn = console.warn;
+
+    const addLine = (text, type = 'log') => {
+      const line = document.createElement('div');
+      line.className = `output-line ${type}`;
+      line.textContent = text;
+      outputEl.appendChild(line);
+      outputEl.scrollTop = outputEl.scrollHeight;
+    };
+
+    console.log = (...args) => {
+      addLine(args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' '), 'log');
+      origLog(...args);
+    };
+    console.error = (...args) => { addLine('Error: ' + args.join(' '), 'error'); origError(...args); };
+    console.warn = (...args) => { addLine('⚠ ' + args.join(' '), 'warn'); origWarn(...args); };
+
+    try {
+      const result = eval(code);
+      if (result !== undefined) {
+        addLine('↩ ' + (typeof result === 'object' ? JSON.stringify(result) : String(result)), 'result');
+      }
+      if (outputEl.children.length === 0) {
+        addLine('✓ Code ran with no output.', 'info');
+      }
+    } catch (err) {
+      addLine(err.toString(), 'error');
+    } finally {
+      console.log = origLog;
+      console.error = origError;
+      console.warn = origWarn;
+    }
+  }
+
+  function clearOutput() {
+    const el = document.getElementById('output-content');
+    el.innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
+  }
+
+  /* HTML Preview */
+  function updateHTMLPreview() {
+    if (currentMode !== 'html') return;
+    const code = document.getElementById('code-input').value;
+    const iframe = document.getElementById('live-preview');
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    const styles = `<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}code{background:#eee;padding:2px 4px;border-radius:4px;}</style>`;
+    iframeDoc.open();
+    iframeDoc.write(styles + code);
+    iframeDoc.close();
+  }
+
+  document.getElementById('code-input').addEventListener('input', () => {
+    if (currentMode === 'html') updateHTMLPreview();
+  });
+
+  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
+  document.getElementById('code-input').addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      if (currentMode === 'js') runCode();
+    }
+  });
 </script>
 
 </body>

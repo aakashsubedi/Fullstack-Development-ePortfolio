@@ -36,3 +36,116 @@
   <h1>What is HTML?</h1>
   <p>The skeleton of the web.</p>
 </section>
+
+
+
+<script>
+  // Responsive Navbar logic: toggle menu on hamburger click, close on link click or overlay tap
+  (function() {
+    const menuToggle = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    const overlay = document.getElementById('overlay');
+    const navLinks = document.querySelectorAll('.nav-link');
+    // Flag to avoid double toggling events
+    let isMenuOpen = false;
+
+    // Helper: open menu
+    function openMenu() {
+      if (!navMenu || !menuToggle) return;
+      navMenu.classList.add('active');
+      menuToggle.classList.add('active');
+      if (overlay) overlay.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      isMenuOpen = true;
+      // prevent body scroll when menu open on mobile
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Helper: close menu
+    function closeMenu() {
+      if (!navMenu || !menuToggle) return;
+      navMenu.classList.remove('active');
+      menuToggle.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      isMenuOpen = false;
+      document.body.style.overflow = '';
+    }
+
+    // Toggle menu based on current state
+    function toggleMenu() {
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Event listener for hamburger click
+    if (menuToggle) {
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    // Close menu when clicking on any nav link (for better UX)
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // only if it's mobile view (menu open) AND we are in responsive mode
+        // but safe: we check if menu is open, then close it and allow navigation
+        if (window.innerWidth <= 768 && isMenuOpen) {
+          // optional: small delay for better feeling? immediate close.
+          closeMenu();
+        }
+        // For active link highlight we can remove active from all and add to current
+        // Simple active state update (just to improve demo)
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        // prevent default if we want to demo but actually keep hash browsing? we don't have sections
+        // but we let href go ahead. For demo no e.preventDefault needed
+      });
+    });
+
+    // Close menu when overlay (background dim) is clicked
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        if (isMenuOpen) closeMenu();
+      });
+    }
+
+    // Listen to window resize: if window is resized above 768px and menu is open, close and reset
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        closeMenu();
+      }
+      // additionally ensure that if desktop mode and menu has active class due to any bug, remove it
+      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        if(menuToggle) menuToggle.classList.remove('active');
+        if(overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        isMenuOpen = false;
+      }
+    });
+
+    // Escape key closes menu (accessibility)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    });
+
+    // initial check: if any state is inconsistent from start, we sync.
+    // also guarantee that on load if screen is desktop, menu is visible correctly.
+    if (window.innerWidth > 768 && navMenu) {
+      navMenu.classList.remove('active');
+      if(menuToggle) menuToggle.classList.remove('active');
+      if(overlay) overlay.classList.remove('active');
+      isMenuOpen = false;
+      document.body.style.overflow = '';
+    }
+  })();
+</script>
+</body>
+</html>

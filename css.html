@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Full Stack Development</title>
+  <title>CSS In-Depth | Full Stack Development</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- ===== NAVBAR ===== -->
 <header class="navbar">
   <div class="nav-container">
     <a href="index.html" class="logo">Logo</a>
@@ -30,26 +34,94 @@
   </div>
   <div class="menu-overlay" id="overlay"></div>
 </header>
-
-<!-- Hero -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <h1>What is CSS?</h1>
-  <p>The skeleton of the web.</p>
+  <p>The styling of the web.</p>
 </section>
 
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="layout-container">
+  <!-- LEFT: Documentation -->
+  <main class="doc-content">
+    <div class="doc-section">
 
+      <span class="section-number">01 / STYLING</span>
+      <h2>CSS Selectors</h2>
+      <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">CSS</span>
+        </div>
+        <pre>h1 {
+  color: blue;
+  font-size: 24px;
+}</pre>
+      </div>
+
+    </div>
+  </main>
+
+  <aside class="editor-sidebar">
+    <div class="editor-header">
+      <span>⚡ Live Editor</span>
+      <div class="editor-tabs">
+        <button class="tab-btn" data-mode="js" onclick="switchMode('js', this)">JS Console</button>
+        <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
+      </div>
+    </div>
+
+    <div class="editor-body">
+      <div class="pane-row">
+        <span class="pane-label" id="input-label">HTML</span>
+        <button class="run-btn" id="runBtn" onclick="runCode()" style="display: none;">
+          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+          Run
+        </button>
+      </div>
+
+      <textarea id="code-input" spellcheck="false"><style>
+  h1 { color: #2E5E99; }
+  .box {
+    background: #e7f0fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #b6d4fe;
+  }
+</style>
+<h1>CSS Demo</h1>
+<div class="box">
+  <p>Edit the CSS to see changes!</p>
+</div></textarea>
+
+      <!-- JS Console Output -->
+      <div class="output-pane" id="js-output-pane" style="display: none;">
+        <div class="pane-row">
+          <span class="pane-label">Output</span>
+          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()">Clear</button>
+        </div>
+        <div class="output-content" id="output-content">
+          <span class="output-empty">Click ▶ Run to execute your code…</span>
+        </div>
+      </div>
+
+      <!-- HTML Preview iframe (hidden by default) -->
+      <iframe id="live-preview" title="Live HTML Preview" style="display: block;"></iframe>
+    </div>
+  </aside>
+
+</div>
 
 <script>
-  // Responsive Navbar logic: toggle menu on hamburger click, close on link click or overlay tap
+  /* ===== NAVBAR LOGIC ===== */
   (function() {
     const menuToggle = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     const overlay = document.getElementById('overlay');
     const navLinks = document.querySelectorAll('.nav-link');
-    // Flag to avoid double toggling events
     let isMenuOpen = false;
 
-    // Helper: open menu
     function openMenu() {
       if (!navMenu || !menuToggle) return;
       navMenu.classList.add('active');
@@ -57,11 +129,9 @@
       if (overlay) overlay.classList.add('active');
       menuToggle.setAttribute('aria-expanded', 'true');
       isMenuOpen = true;
-      // prevent body scroll when menu open on mobile
       document.body.style.overflow = 'hidden';
     }
 
-    // Helper: close menu
     function closeMenu() {
       if (!navMenu || !menuToggle) return;
       navMenu.classList.remove('active');
@@ -72,80 +142,163 @@
       document.body.style.overflow = '';
     }
 
-    // Toggle menu based on current state
-    function toggleMenu() {
-      if (isMenuOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    }
-
-    // Event listener for hamburger click
-    if (menuToggle) {
-      menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-    }
-
-    // Close menu when clicking on any nav link (for better UX)
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // only if it's mobile view (menu open) AND we are in responsive mode
-        // but safe: we check if menu is open, then close it and allow navigation
-        if (window.innerWidth <= 768 && isMenuOpen) {
-          // optional: small delay for better feeling? immediate close.
-          closeMenu();
-        }
-        // For active link highlight we can remove active from all and add to current
-        // Simple active state update (just to improve demo)
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        // prevent default if we want to demo but actually keep hash browsing? we don't have sections
-        // but we let href go ahead. For demo no e.preventDefault needed
-      });
-    });
-
-    // Close menu when overlay (background dim) is clicked
-    if (overlay) {
-      overlay.addEventListener('click', () => {
-        if (isMenuOpen) closeMenu();
-      });
-    }
-
-    // Listen to window resize: if window is resized above 768px and menu is open, close and reset
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isMenuOpen) {
-        closeMenu();
-      }
-      // additionally ensure that if desktop mode and menu has active class due to any bug, remove it
-      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        if(menuToggle) menuToggle.classList.remove('active');
-        if(overlay) overlay.classList.remove('active');
-        document.body.style.overflow = '';
-        isMenuOpen = false;
-      }
-    });
-
-    // Escape key closes menu (accessibility)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
-      }
-    });
-
-    // initial check: if any state is inconsistent from start, we sync.
-    // also guarantee that on load if screen is desktop, menu is visible correctly.
-    if (window.innerWidth > 768 && navMenu) {
-      navMenu.classList.remove('active');
-      if(menuToggle) menuToggle.classList.remove('active');
-      if(overlay) overlay.classList.remove('active');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
+    if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); isMenuOpen ? closeMenu() : openMenu(); });
+    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768 && isMenuOpen) closeMenu(); }); });
+    if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768 && isMenuOpen) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
   })();
+
+  /* ===== SECTION REVEAL ON SCROLL ===== */
+  (function() {
+    const sections = document.querySelectorAll('.doc-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach((s, i) => {
+      s.style.transitionDelay = `${i * 0.05}s`;
+      observer.observe(s);
+    });
+  })();
+
+  /* ===== EDITOR LOGIC ===== */
+  let currentMode = 'html';
+
+  function switchMode(mode, btn) {
+    currentMode = mode;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const outputPane = document.getElementById('js-output-pane');
+    const preview = document.getElementById('live-preview');
+    const inputLabel = document.getElementById('input-label');
+    const runBtn = document.getElementById('runBtn');
+
+    if (mode === 'js') {
+      outputPane.style.display = 'flex';
+      preview.style.display = 'none';
+      inputLabel.textContent = 'JavaScript';
+      runBtn.style.display = 'flex';
+      document.getElementById('code-input').value = `// ✏️ Try editing and click Run!
+
+const students = [
+  { name: "Alice", score: 91 },
+  { name: "Bob",   score: 74 },
+  { name: "Carol", score: 88 },
+  { name: "Dan",   score: 67 }
+];
+
+const passing = students.filter(s => s.score >= 75);
+console.log("Total students:", students.length);
+console.log("Passing:", passing.length);
+
+passing.forEach(s => {
+  console.log(\`✅ \${s.name}: \${s.score}%\`);
+});`;
+    } else {
+      outputPane.style.display = 'none';
+      preview.style.display = 'block';
+      inputLabel.textContent = 'HTML';
+      runBtn.style.display = 'none';
+      document.getElementById('code-input').value = `<style>
+  h1 { color: #2E5E99; }
+  .box {
+    background: #e7f0fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #b6d4fe;
+  }
+</style>
+<h1>CSS Demo</h1>
+<div class="box">
+  <p>Edit the CSS to see changes!</p>
+</div>`;
+      updateHTMLPreview();
+    }
+    clearOutput();
+  }
+
+  /* JS Console Runner */
+  function runCode() {
+    const code = document.getElementById('code-input').value;
+    const outputEl = document.getElementById('output-content');
+    outputEl.innerHTML = '';
+
+    const logs = [];
+
+    // Override console methods
+    const origLog = console.log;
+    const origError = console.error;
+    const origWarn = console.warn;
+
+    const addLine = (text, type = 'log') => {
+      const line = document.createElement('div');
+      line.className = `output-line ${type}`;
+      line.textContent = text;
+      outputEl.appendChild(line);
+      outputEl.scrollTop = outputEl.scrollHeight;
+    };
+
+    console.log = (...args) => {
+      addLine(args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' '), 'log');
+      origLog(...args);
+    };
+    console.error = (...args) => { addLine('Error: ' + args.join(' '), 'error'); origError(...args); };
+    console.warn = (...args) => { addLine('⚠ ' + args.join(' '), 'warn'); origWarn(...args); };
+
+    try {
+      const result = eval(code);
+      if (result !== undefined) {
+        addLine('↩ ' + (typeof result === 'object' ? JSON.stringify(result) : String(result)), 'result');
+      }
+      if (outputEl.children.length === 0) {
+        addLine('✓ Code ran with no output.', 'info');
+      }
+    } catch (err) {
+      addLine(err.toString(), 'error');
+    } finally {
+      console.log = origLog;
+      console.error = origError;
+      console.warn = origWarn;
+    }
+  }
+
+  function clearOutput() {
+    const el = document.getElementById('output-content');
+    el.innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
+  }
+
+  /* HTML Preview */
+  function updateHTMLPreview() {
+    if (currentMode !== 'html') return;
+    const code = document.getElementById('code-input').value;
+    const iframe = document.getElementById('live-preview');
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    const styles = `<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}code{background:#eee;padding:2px 4px;border-radius:4px;}</style>`;
+    iframeDoc.open();
+    iframeDoc.write(styles + code);
+    iframeDoc.close();
+  }
+
+  document.getElementById('code-input').addEventListener('input', () => {
+    if (currentMode === 'html') updateHTMLPreview();
+  });
+
+  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
+  document.getElementById('code-input').addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      if (currentMode === 'js') runCode();
+    }
+  });
+
+  updateHTMLPreview();
 </script>
+
 </body>
 </html>

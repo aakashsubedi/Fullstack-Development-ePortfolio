@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="theme-color" content="#2E5E99">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Bootstrap In-Depth | Full Stack Development</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="bootstrap.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<div class="menu-overlay" id="overlay"></div>
+
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo">Logo</a>
+    <a href="#" class="logo">
+    Logo
+    </a>
 
+    <!-- Mobile Menu -->
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
     </button>
 
+    <!-- Navigation Links -->
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
@@ -32,39 +38,465 @@
       <li><a href="js.html" class="nav-link">JavaScript</a></li>
     </ul>
   </div>
-  <div class="menu-overlay" id="overlay"></div>
 </header>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
   <h1>What is Bootstrap?</h1>
-  <p>The framework of the web.</p>
+  <p>The world's most popular CSS framework — build responsive, mobile-first sites faster than ever.</p>
 </section>
 
 <!-- ===== MAIN LAYOUT ===== -->
 <div class="layout-container">
+
   <!-- LEFT: Documentation -->
   <main class="doc-content">
-    <div class="doc-section">
 
-      <span class="section-number">01 / COMPONENTS</span>
-      <h2>Bootstrap Grid</h2>
-      <p>Bootstrap's grid system uses a series of containers, rows, and columns to layout and align content.</p>
+    <!-- SECTION 1: What is Bootstrap -->
+    <div class="doc-section">
+      <span class="section-number">01 / OVERVIEW</span>
+      <h2>What is Bootstrap?</h2>
+      <p>Bootstrap is a free, open-source <strong>CSS framework</strong> developed by Twitter. It provides ready-made design components — grids, navbars, cards, buttons, modals — so developers can build professional, responsive websites without writing every CSS rule from scratch.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-icon">🎯</div>
+          <h4>Pre-built Components</h4>
+          <p>Navbars, buttons, forms, modals, and more — all styled and ready to use.</p>
+        </div>
+        <div class="info-card green">
+          <div class="card-icon">📱</div>
+          <h4>Mobile-First</h4>
+          <p>Built with a responsive philosophy: mobile layouts come first, then scale up.</p>
+        </div>
+        <div class="info-card orange">
+          <div class="card-icon">⚡</div>
+          <h4>Rapid Development</h4>
+          <p>Add classes instead of writing CSS. Pages take hours, not days.</p>
+        </div>
+        <div class="info-card red">
+          <div class="card-icon">🔁</div>
+          <h4>Consistent UI</h4>
+          <p>Design tokens and a unified system mean every element looks cohesive.</p>
+        </div>
+      </div>
+      <div class="callout success">
+        <strong>💡 Key Insight</strong>
+        <p>Bootstrap is loaded by over <strong>22% of all websites</strong> on the internet — it's the industry standard for rapid, reliable UI development.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Why Bootstrap is Useful -->
+    <div class="doc-section">
+      <span class="section-number">02 / WHY BOOTSTRAP</span>
+      <h2>Why Bootstrap is Useful</h2>
+      <p>Building a website from scratch requires solving the same problems every time: responsive layouts, cross-browser compatibility, consistent button states, form styling. Bootstrap solves all of these for you.</p>
+
+      <h3>🚀 Speed Up Development</h3>
+      <p>Instead of writing hundreds of lines of CSS, you use semantic class names. A responsive two-column layout that might take 30 minutes to write manually takes seconds with Bootstrap:</p>
       <div class="code-block">
         <div class="code-block-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
-          <span class="code-lang">HTML</span>
+          <span class="code-lang">HTML — Custom CSS approach (slow)</span>
         </div>
-        <pre>&lt;div class="container"&gt;
-  &lt;div class="row"&gt;
-    &lt;div class="col"&gt;Column 1&lt;/div&gt;
-    &lt;div class="col"&gt;Column 2&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
+        <pre><span class="cm">/* You'd write all this CSS yourself */</span>
+<span class="kw">.container</span> { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+<span class="kw">.row</span> { display: flex; flex-wrap: wrap; margin: 0 -15px; }
+<span class="kw">.col-half</span> { flex: 0 0 50%; padding: 0 15px; }
+<span class="kw">@media</span> (max-width: 768px) {
+  <span class="kw">.col-half</span> { flex: 0 0 100%; }
+}</pre>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML — Bootstrap approach (fast)</span>
+        </div>
+        <pre><span class="cm">&lt;!-- Bootstrap does it all with class names --&gt;</span>
+<span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"container"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"row"</span><span class="op">&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-md-6"</span><span class="op">&gt;</span>Left Column<span class="op">&lt;/div&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-md-6"</span><span class="op">&gt;</span>Right Column<span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span></pre>
       </div>
 
+      <h3>🌐 Cross-Browser Compatibility</h3>
+      <p>Bootstrap handles vendor prefixes and browser quirks automatically. Your site looks consistent in Chrome, Firefox, Safari, and Edge without extra effort.</p>
+
+      <h3>📚 Excellent Documentation</h3>
+      <p>Bootstrap has one of the best-documented libraries in web development. Every component has live examples, copy-paste code snippets, and customization options.</p>
+
+      <div class="callout">
+        <strong>⏱️ Time Saved</strong>
+        <p>Studies show Bootstrap can reduce front-end development time by <strong>40–60%</strong> compared to writing custom CSS from scratch for standard UI patterns.</p>
+      </div>
     </div>
+
+    <!-- SECTION 3: Grid System -->
+    <div class="doc-section">
+      <span class="section-number">03 / GRID SYSTEM</span>
+      <h2>Bootstrap Grid System</h2>
+      <p>Bootstrap's grid uses a <strong>12-column</strong> flexbox layout. You define how many columns a element should span at different breakpoints using class prefixes.</p>
+
+      <!-- Grid visual demo -->
+      <div class="grid-demo">
+        <div class="grid-demo-row">
+          <div class="grid-col full"><code>col-12</code> — Full width</div>
+        </div>
+        <div class="grid-demo-row">
+          <div class="grid-col half"><code>col-6</code></div>
+          <div class="grid-col half"><code>col-6</code></div>
+        </div>
+        <div class="grid-demo-row">
+          <div class="grid-col third"><code>col-4</code></div>
+          <div class="grid-col third"><code>col-4</code></div>
+          <div class="grid-col third"><code>col-4</code></div>
+        </div>
+        <div class="grid-demo-row">
+          <div class="grid-col quarter"><code>col-3</code></div>
+          <div class="grid-col quarter"><code>col-3</code></div>
+          <div class="grid-col quarter"><code>col-3</code></div>
+          <div class="grid-col quarter"><code>col-3</code></div>
+        </div>
+        <div class="grid-demo-row">
+          <div class="grid-col wide"><code>col-8</code></div>
+          <div class="grid-col narrow"><code>col-4</code></div>
+        </div>
+      </div>
+
+
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML — Responsive Grid Example</span>
+        </div>
+        <pre><span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"container"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"row g-3"</span><span class="op">&gt;</span>
+
+    <span class="cm">&lt;!-- Full width on mobile, half on tablet, third on desktop --&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-6 col-lg-4"</span><span class="op">&gt;</span>Card A<span class="op">&lt;/div&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-6 col-lg-4"</span><span class="op">&gt;</span>Card B<span class="op">&lt;/div&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-12 col-lg-4"</span><span class="op">&gt;</span>Card C<span class="op">&lt;/div&gt;</span>
+
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Components -->
+    <div class="doc-section">
+      <span class="section-number">04 / COMPONENTS</span>
+      <h2>Bootstrap Components</h2>
+      <p>Bootstrap ships with dozens of ready-made UI components. Below are three of the most essential ones demonstrated live.</p>
+
+      <!-- Navbar Component -->
+      <h3>🧭 Navbar Component</h3>
+      <p>Bootstrap's navbar automatically collapses into a hamburger menu on mobile using only HTML attributes and a small JS bundle.</p>
+      <div class="bs-live-demo" id="navbar-demo">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded">
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">MyBrand</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#demoNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="demoNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML — Bootstrap Navbar</span>
+        </div>
+        <pre><span class="op">&lt;nav</span> <span class="str">class=</span><span class="str">"navbar navbar-expand-lg navbar-dark bg-primary"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"container-fluid"</span><span class="op">&gt;</span>
+    <span class="op">&lt;a</span> <span class="str">class=</span><span class="str">"navbar-brand"</span> <span class="str">href=</span><span class="str">"#"</span><span class="op">&gt;</span>MyBrand<span class="op">&lt;/a&gt;</span>
+    <span class="cm">&lt;!-- Hamburger auto-appears on mobile --&gt;</span>
+    <span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"navbar-toggler"</span> <span class="str">data-bs-toggle=</span><span class="str">"collapse"</span>
+            <span class="str">data-bs-target=</span><span class="str">"#navMenu"</span><span class="op">&gt;</span>
+      <span class="op">&lt;span</span> <span class="str">class=</span><span class="str">"navbar-toggler-icon"</span><span class="op">&gt;&lt;/span&gt;</span>
+    <span class="op">&lt;/button&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"collapse navbar-collapse"</span> <span class="str">id=</span><span class="str">"navMenu"</span><span class="op">&gt;</span>
+      <span class="op">&lt;ul</span> <span class="str">class=</span><span class="str">"navbar-nav ms-auto"</span><span class="op">&gt;</span>
+        <span class="op">&lt;li</span> <span class="str">class=</span><span class="str">"nav-item"</span><span class="op">&gt;&lt;a</span> <span class="str">class=</span><span class="str">"nav-link active"</span> <span class="str">href=</span><span class="str">"#"</span><span class="op">&gt;</span>Home<span class="op">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="op">&lt;li</span> <span class="str">class=</span><span class="str">"nav-item"</span><span class="op">&gt;&lt;a</span> <span class="str">class=</span><span class="str">"nav-link"</span> <span class="str">href=</span><span class="str">"#"</span><span class="op">&gt;</span>About<span class="op">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="op">&lt;/ul&gt;</span>
+    <span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/nav&gt;</span></pre>
+      </div>
+
+      <!-- Cards Component -->
+      <h3>🃏 Card Components</h3>
+      <p>Bootstrap cards are flexible content containers with options for headers, footers, images, and colored accents. Combine them with the grid for responsive layouts.</p>
+      <div class="bs-live-demo">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <div class="card demo-card">
+            <div class="card-body">
+              <h5 class="card-title" style="color:#2E5E99;">🎨 HTML</h5>
+              <p class="card-text" style="font-size:.85rem;color:#334155;">The skeleton of the web. Structure your content with semantic tags.</p>
+              <a href="#" class="btn btn-primary btn-sm" style="background:#2E5E99;border-color:#2E5E99;">Learn More</a>
+            </div>
+          </div>
+          <div class="card demo-card">
+            <div class="card-body">
+              <h5 class="card-title" style="color:#10b981;">🎨 CSS</h5>
+              <p class="card-text" style="font-size:.85rem;color:#334155;">Style and layout for the web. Make your sites beautiful and responsive.</p>
+              <a href="#" class="btn btn-success btn-sm">Learn More</a>
+            </div>
+          </div>
+          <div class="card demo-card">
+            <div class="card-body">
+              <h5 class="card-title" style="color:#f0db4f;-webkit-text-stroke:0.3px #888;">⚡ JS</h5>
+              <p class="card-text" style="font-size:.85rem;color:#334155;">Add interactivity and logic. Bring your pages to life with JavaScript.</p>
+              <a href="#" class="btn btn-warning btn-sm">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML — Bootstrap Card</span>
+        </div>
+        <pre><span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"card"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"card-body"</span><span class="op">&gt;</span>
+    <span class="op">&lt;h5</span> <span class="str">class=</span><span class="str">"card-title"</span><span class="op">&gt;</span>Card Title<span class="op">&lt;/h5&gt;</span>
+    <span class="op">&lt;p</span> <span class="str">class=</span><span class="str">"card-text"</span><span class="op">&gt;</span>Card description goes here.<span class="op">&lt;/p&gt;</span>
+    <span class="op">&lt;a</span> <span class="str">href=</span><span class="str">"#"</span> <span class="str">class=</span><span class="str">"btn btn-primary"</span><span class="op">&gt;</span>Learn More<span class="op">&lt;/a&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span>
+
+<span class="cm">&lt;!-- Card inside grid --&gt;</span>
+<span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"row row-cols-1 row-cols-md-3 g-4"</span><span class="op">&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col"</span><span class="op">&gt;&lt;div</span> <span class="str">class=</span><span class="str">"card h-100"</span><span class="op">&gt;</span>...<span class="op">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span></pre>
+      </div>
+
+      <!-- Buttons Component -->
+      <h3>🔘 Button Components</h3>
+      <p>Bootstrap gives you eight semantic color variants plus outline versions, multiple sizes, and state modifiers — all through class names.</p>
+      <div class="bs-live-demo" style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;">
+        <button class="btn btn-primary" style="background:#2E5E99;border-color:#2E5E99;">Primary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-danger">Danger</button>
+        <button class="btn btn-outline-primary" style="color:#2E5E99;border-color:#2E5E99;">Outline</button>
+        <button class="btn btn-sm btn-secondary">Small</button>
+        <button class="btn btn-lg btn-dark">Large</button>
+        <button class="btn btn-primary disabled" style="background:#2E5E99;border-color:#2E5E99;">Disabled</button>
+      </div>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML — Bootstrap Buttons</span>
+        </div>
+        <pre><span class="cm">&lt;!-- Semantic variants --&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-primary"</span><span class="op">&gt;</span>Primary<span class="op">&lt;/button&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-success"</span><span class="op">&gt;</span>Success<span class="op">&lt;/button&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-danger"</span><span class="op">&gt;</span>Danger<span class="op">&lt;/button&gt;</span>
+
+<span class="cm">&lt;!-- Outline style --&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-outline-primary"</span><span class="op">&gt;</span>Outline<span class="op">&lt;/button&gt;</span>
+
+<span class="cm">&lt;!-- Sizes --&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-primary btn-sm"</span><span class="op">&gt;</span>Small<span class="op">&lt;/button&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-primary btn-lg"</span><span class="op">&gt;</span>Large<span class="op">&lt;/button&gt;</span>
+
+<span class="cm">&lt;!-- Disabled state --&gt;</span>
+<span class="op">&lt;button</span> <span class="str">class=</span><span class="str">"btn btn-primary disabled"</span><span class="op">&gt;</span>Disabled<span class="op">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Responsive Layout -->
+    <div class="doc-section">
+      <span class="section-number">05 / RESPONSIVE LAYOUT</span>
+      <h2>Building a Responsive Layout</h2>
+      <p>Responsive design means your page looks great on phones, tablets, and desktops. Bootstrap makes this simple by letting you stack classes: define one layout for mobile, another for tablet, another for desktop — all on the same element.</p>
+
+      <div class="responsive-demo">
+        <div class="responsive-label">
+          <span class="badge-mobile">📱 Mobile</span> → stacks vertically
+          <span class="badge-tablet">💻 Tablet</span> → 2 columns
+          <span class="badge-desktop">🖥️ Desktop</span> → 3 columns
+        </div>
+        <div class="code-block">
+          <div class="code-block-header">
+            <div class="code-dots"><span></span><span></span><span></span></div>
+            <span class="code-lang">HTML — One layout rule, three breakpoints</span>
+          </div>
+          <pre><span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"row g-4"</span><span class="op">&gt;</span>
+  <span class="cm">&lt;!-- col-12: full on mobile --&gt;</span>
+  <span class="cm">&lt;!-- col-md-6: 2-col on tablet --&gt;</span>
+  <span class="cm">&lt;!-- col-lg-4: 3-col on desktop --&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-6 col-lg-4"</span><span class="op">&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"card p-3"</span><span class="op">&gt;</span>Card 1<span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-6 col-lg-4"</span><span class="op">&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"card p-3"</span><span class="op">&gt;</span>Card 2<span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"col-12 col-md-12 col-lg-4"</span><span class="op">&gt;</span>
+    <span class="op">&lt;div</span> <span class="str">class=</span><span class="str">"card p-3"</span><span class="op">&gt;</span>Card 3<span class="op">&lt;/div&gt;</span>
+  <span class="op">&lt;/div&gt;</span>
+<span class="op">&lt;/div&gt;</span></pre>
+        </div>
+      </div>
+
+      <h3>🛠️ Utility Classes</h3>
+      <p>Bootstrap's utility system lets you apply spacing, display, flex, color, and text utilities inline without touching CSS at all:</p>
+      <div class="utility-grid">
+        <div class="utility-chip"><code>mt-3</code> margin-top</div>
+        <div class="utility-chip"><code>p-4</code> padding all</div>
+        <div class="utility-chip"><code>d-flex</code> flexbox</div>
+        <div class="utility-chip"><code>text-center</code> align</div>
+        <div class="utility-chip"><code>fw-bold</code> font-weight</div>
+        <div class="utility-chip"><code>bg-primary</code> bg color</div>
+        <div class="utility-chip"><code>rounded</code> border-radius</div>
+        <div class="utility-chip"><code>shadow</code> box-shadow</div>
+        <div class="utility-chip"><code>w-100</code> full width</div>
+        <div class="utility-chip"><code>gap-3</code> gap/spacing</div>
+        <div class="utility-chip"><code>ms-auto</code> margin auto</div>
+        <div class="utility-chip"><code>d-none d-md-block</code> hide/show</div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: Comparison -->
+    <div class="doc-section">
+      <span class="section-number">06 / BONUS COMPARISON</span>
+      <h2>Custom CSS vs Bootstrap</h2>
+      <p>Both approaches have merit — the key is knowing when to use each. Here's an honest comparison:</p>
+      <table class="compare-table responsive-stack">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Custom CSS</th>
+            <th>Bootstrap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Development Speed</strong></td>
+            <td><span class="tag-warn">⚠ Slower</span> — write from scratch</td>
+            <td><span class="tag-yes">✓ Faster</span> — ready-made classes</td>
+          </tr>
+          <tr>
+            <td><strong>File Size</strong></td>
+            <td><span class="tag-yes">✓ Lean</span> — only what you need</td>
+            <td><span class="tag-warn">⚠ Larger</span> — ~30KB min+gzip</td>
+          </tr>
+          <tr>
+            <td><strong>Design Uniqueness</strong></td>
+            <td><span class="tag-yes">✓ Fully unique</span> — total control</td>
+            <td><span class="tag-warn">⚠ Generic</span> — "Bootstrap look"</td>
+          </tr>
+          <tr>
+            <td><strong>Learning Curve</strong></td>
+            <td><span class="tag-warn">⚠ High</span> — must know CSS deeply</td>
+            <td><span class="tag-yes">✓ Low</span> — learn class names</td>
+          </tr>
+          <tr>
+            <td><strong>Maintenance</strong></td>
+            <td><span class="tag-warn">⚠ Complex</span> — all yours to manage</td>
+            <td><span class="tag-yes">✓ Easier</span> — framework handles it</td>
+          </tr>
+          <tr>
+            <td><strong>Responsiveness</strong></td>
+            <td><span class="tag-warn">⚠ Manual</span> — write all media queries</td>
+            <td><span class="tag-yes">✓ Built-in</span> — breakpoints included</td>
+          </tr>
+          <tr>
+            <td><strong>Customisation</strong></td>
+            <td><span class="tag-yes">✓ Total</span> — zero constraints</td>
+            <td><span class="tag-warn">⚠ Limited</span> — override with Sass/CSS</td>
+          </tr>
+          <tr>
+            <td><strong>Team Consistency</strong></td>
+            <td><span class="tag-warn">⚠ Hard</span> — each dev styles differently</td>
+            <td><span class="tag-yes">✓ Unified</span> — shared design language</td>
+          </tr>
+          <tr>
+            <td><strong>Best For</strong></td>
+            <td>Brand-heavy sites, design systems</td>
+            <td>Prototypes, internal tools, MVPs</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="verdict-box">
+        <div class="verdict-item">
+          <div class="verdict-icon">🏗️</div>
+          <div>
+            <strong>Use Bootstrap when…</strong>
+            <p>You need to ship fast, build internal tools, prototype an idea, or work in a team that needs consistent UI without a dedicated designer.</p>
+          </div>
+        </div>
+        <div class="verdict-item">
+          <div class="verdict-icon">✏️</div>
+          <div>
+            <strong>Use Custom CSS when…</strong>
+            <p>You have a strong brand identity, need pixel-perfect control, are building a design-heavy marketing site, or want minimal bundle size.</p>
+          </div>
+        </div>
+        <div class="verdict-item">
+          <div class="verdict-icon">🤝</div>
+          <div>
+            <strong>Best of both worlds…</strong>
+            <p>Start with Bootstrap, then override with custom CSS for brand-specific elements. This is how most professional teams work in practice.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>⚠️ Pro Tip</strong>
+        <p>Never load the full Bootstrap CSS file in production if you only use a few components. Use <strong>Bootstrap's Sass customizer</strong> or a CSS purge tool like PurgeCSS to strip unused styles down to just what you use.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 7: Summary -->
+    <div class="doc-section">
+      <span class="section-number">07 / SUMMARY</span>
+      <h2>Key Takeaways</h2>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-icon">📐</div>
+          <h4>12-Column Grid</h4>
+          <p>Use <code>col-</code>, <code>col-md-</code>, <code>col-lg-</code> to control layout at every screen size.</p>
+        </div>
+        <div class="info-card green">
+          <div class="card-icon">🧩</div>
+          <h4>Reusable Components</h4>
+          <p>Navbars, cards, buttons, forms — all pre-styled and accessible out of the box.</p>
+        </div>
+        <div class="info-card orange">
+          <div class="card-icon">🏎️</div>
+          <h4>Ship Faster</h4>
+          <p>Class-based styling means less context switching between HTML and CSS files.</p>
+        </div>
+        <div class="info-card red">
+          <div class="card-icon">🎛️</div>
+          <h4>Customisable</h4>
+          <p>Override with custom CSS or use Sass variables to match any brand palette.</p>
+        </div>
+      </div>
+      <div class="callout success">
+        <strong>🎓 You're ready!</strong>
+        <p>You now understand Bootstrap's grid system, core components, and when to choose Bootstrap over custom CSS. Try the live editor on the right to experiment with Bootstrap layouts in real time.</p>
+      </div>
+    </div>
+
   </main>
 
+  <!-- RIGHT: Live Editor Sidebar -->
   <aside class="editor-sidebar">
     <div class="editor-header">
       <span>⚡ Live Editor</span>
@@ -73,7 +505,6 @@
         <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
       </div>
     </div>
-
     <div class="editor-body">
       <div class="pane-row">
         <span class="pane-label" id="input-label">HTML</span>
@@ -82,18 +513,44 @@
           Run
         </button>
       </div>
-
       <textarea id="code-input" spellcheck="false"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-6 bg-primary text-white p-3 rounded">
-      Bootstrap Column 1
+  <h5 class="mb-3" style="color:#2E5E99;">🎮 Try Bootstrap!</h5>
+  <div class="row g-3">
+    <div class="col-12 col-md-6">
+      <div class="card border-primary">
+        <div class="card-body">
+          <h6 class="card-title text-primary">Grid: col-md-6</h6>
+          <p class="card-text small">On mobile I'm full width. On tablet+ I'm half.</p>
+          <button class="btn btn-primary btn-sm">Primary</button>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6 bg-secondary text-white p-3 rounded">
-      Bootstrap Column 2
+    <div class="col-12 col-md-6">
+      <div class="card border-success">
+        <div class="card-body">
+          <h6 class="card-title text-success">Grid: col-md-6</h6>
+          <p class="card-text small">Edit the classes above to see changes live!</p>
+          <button class="btn btn-success btn-sm">Success</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark rounded px-3">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+        <div class="d-flex ms-auto gap-2">
+          <a class="nav-link text-white" href="#">Home</a>
+          <a class="nav-link text-white" href="#">About</a>
+        </div>
+      </nav>
     </div>
   </div>
-  <button class="btn btn-success mt-3">Click Me</button>
+  <div class="mt-3 d-flex flex-wrap gap-2">
+    <button class="btn btn-outline-primary">Outline</button>
+    <button class="btn btn-warning">Warning</button>
+    <button class="btn btn-danger btn-sm">Danger sm</button>
+    <button class="btn btn-dark btn-lg">Dark lg</button>
+  </div>
 </div></textarea>
 
       <!-- JS Console Output -->
@@ -107,7 +564,7 @@
         </div>
       </div>
 
-      <!-- HTML Preview iframe (hidden by default) -->
+      <!-- HTML Preview iframe -->
       <iframe id="live-preview" title="Live HTML Preview" style="display: block;"></iframe>
     </div>
   </aside>
@@ -144,9 +601,9 @@
     }
 
     if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); isMenuOpen ? closeMenu() : openMenu(); });
-    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768 && isMenuOpen) closeMenu(); }); });
+    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 1024 && isMenuOpen) closeMenu(); }); });
     if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 768 && isMenuOpen) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1024 && isMenuOpen) closeMenu(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
   })();
 
@@ -160,9 +617,9 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     sections.forEach((s, i) => {
-      s.style.transitionDelay = `${i * 0.05}s`;
+      s.style.transitionDelay = `${i * 0.04}s`;
       observer.observe(s);
     });
   })();
@@ -187,51 +644,40 @@
       runBtn.style.display = 'flex';
       document.getElementById('code-input').value = `// ✏️ Try editing and click Run!
 
-const students = [
-  { name: "Alice", score: 91 },
-  { name: "Bob",   score: 74 },
-  { name: "Carol", score: 88 },
-  { name: "Dan",   score: 67 }
+const frameworks = [
+  { name: "Bootstrap", stars: 170000, type: "CSS" },
+  { name: "Tailwind",  stars: 82000,  type: "CSS" },
+  { name: "React",     stars: 225000, type: "JS"  },
+  { name: "Vue",       stars: 207000, type: "JS"  }
 ];
 
-const passing = students.filter(s => s.score >= 75);
-console.log("Total students:", students.length);
-console.log("Passing:", passing.length);
+console.log("🌟 Popular Frontend Frameworks");
+console.log("================================");
 
-passing.forEach(s => {
-  console.log(\`✅ \${s.name}: \${s.score}%\`);
-});`;
+frameworks
+  .sort((a, b) => b.stars - a.stars)
+  .forEach(f => {
+    const bar = "█".repeat(Math.round(f.stars / 10000));
+    console.log(\`\${f.type} | \${f.name.padEnd(12)} \${f.stars.toLocaleString()} stars\`);
+  });
+
+const cssFrameworks = frameworks.filter(f => f.type === "CSS");
+console.log("\\n📦 CSS Frameworks found:", cssFrameworks.length);`;
     } else {
       outputPane.style.display = 'none';
       preview.style.display = 'block';
       inputLabel.textContent = 'HTML';
       runBtn.style.display = 'none';
-      document.getElementById('code-input').value = `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-6 bg-primary text-white p-3 rounded">
-      Bootstrap Column 1
-    </div>
-    <div class="col-md-6 bg-secondary text-white p-3 rounded">
-      Bootstrap Column 2
-    </div>
-  </div>
-  <button class="btn btn-success mt-3">Click Me</button>
-</div>`;
       updateHTMLPreview();
     }
     clearOutput();
   }
 
-  /* JS Console Runner */
   function runCode() {
     const code = document.getElementById('code-input').value;
     const outputEl = document.getElementById('output-content');
     outputEl.innerHTML = '';
 
-    const logs = [];
-
-    // Override console methods
     const origLog = console.log;
     const origError = console.error;
     const origWarn = console.warn;
@@ -273,7 +719,6 @@ passing.forEach(s => {
     el.innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
   }
 
-  /* HTML Preview */
   function updateHTMLPreview() {
     if (currentMode !== 'html') return;
     const code = document.getElementById('code-input').value;
@@ -289,7 +734,6 @@ passing.forEach(s => {
     if (currentMode === 'html') updateHTMLPreview();
   });
 
-  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
   document.getElementById('code-input').addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       e.preventDefault();

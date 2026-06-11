@@ -4,65 +4,421 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>CSS In-Depth | Full Stack Development</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="css.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="css.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo">Logo</a>
-
+    <a href="index.html" class="logo">FullStack</a>
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
     </button>
-
     <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link">HTML</a></li>
-      <li><a href="css.html" class="nav-link active">CSS</a></li>
-      <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
-      <li><a href="js.html" class="nav-link">JavaScript</a></li>
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="full_stack.html" class="nav-link">Full Stack</a></li>
+      <li><a href="html.html"       class="nav-link">HTML</a></li>
+      <li><a href="css.html"        class="nav-link active">CSS</a></li>
+      <li><a href="bootstrap.html"  class="nav-link">Bootstrap</a></li>
+      <li><a href="js.html"         class="nav-link">JavaScript</a></li>
     </ul>
   </div>
   <div class="menu-overlay" id="overlay"></div>
 </header>
-<!-- ===== HERO ===== -->
+
+<!-- HERO -->
 <section class="hero">
-  <h1>What is CSS?</h1>
-  <p>The styling of the web.</p>
+  <h1>CSS In-Depth</h1>
+  <p>Selectors · Box Model · Flexbox · Grid · Responsive Design</p>
 </section>
 
-<!-- ===== MAIN LAYOUT ===== -->
+<!-- MAIN LAYOUT -->
 <div class="layout-container">
-  <!-- LEFT: Documentation -->
   <main class="doc-content">
-    <div class="doc-section">
 
-      <span class="section-number">01 / STYLING</span>
+    <!-- 01 SELECTORS -->
+    <div class="doc-section">
+      <span class="section-number">01 / SELECTORS</span>
       <h2>CSS Selectors</h2>
-      <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+      <p>CSS selectors determine <em>which</em> HTML elements a rule applies to. They range from simple element names to complex structural expressions. Specificity decides which rule wins when multiple rules target the same element.</p>
+
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-icon">🎯</div>
+          <h4>Universal &amp; Element</h4>
+          <p><code>* { }</code> &nbsp;|&nbsp; <code>h1 { }</code></p>
+        </div>
+        <div class="info-card green">
+          <div class="card-icon">🆔</div>
+          <h4>Class &amp; ID</h4>
+          <p><code>.card { }</code> &nbsp;|&nbsp; <code>#hero { }</code></p>
+        </div>
+        <div class="info-card orange">
+          <div class="card-icon">🔗</div>
+          <h4>Combinators</h4>
+          <p><code>ul &gt; li</code> &nbsp;|&nbsp; <code>h2 + p</code> &nbsp;|&nbsp; <code>div p</code></p>
+        </div>
+        <div class="info-card red">
+          <div class="card-icon">✨</div>
+          <h4>Pseudo-classes &amp; Elements</h4>
+          <p><code>:hover</code> &nbsp;|&nbsp; <code>:nth-child()</code> &nbsp;|&nbsp; <code>::before</code></p>
+        </div>
+      </div>
+
+      <h3>Specificity — Which Rule Wins?</h3>
+      <p>Every selector gets a score. The higher the score, the more specific it is and it overrides lower-scoring rules targeting the same element.</p>
+
+      <div class="specificity-ladder" id="specLadder">
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="14" style="background:#6c7086;">* (universal)</div></div>
+          <span class="spec-badge">(0,0,0)</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="26" style="background:#89b4fa;">h1, p, div</div></div>
+          <span class="spec-badge">(0,0,1)</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="44" style="background:#2E5E99;">.class, :hover</div></div>
+          <span class="spec-badge">(0,1,0)</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="58" style="background:#10b981;">.card h2</div></div>
+          <span class="spec-badge">(0,1,1)</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="74" style="background:#f59e0b;">#id</div></div>
+          <span class="spec-badge">(1,0,0)</span>
+        </div>
+        <div class="spec-row">
+          <div class="spec-bar-wrap"><div class="spec-bar" data-w="92" style="background:#ef4444;">style="…" (inline)</div></div>
+          <span class="spec-badge">(1,0,0,0)</span>
+        </div>
+      </div>
+
       <div class="code-block">
         <div class="code-block-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
-          <span class="code-lang">CSS</span>
+          <span class="code-lang">CSS — Selectors</span>
         </div>
-        <pre>h1 {
-  color: blue;
-  font-size: 24px;
+        <pre><span class="cm">/* 1. Element selector */</span>
+<span class="prop">h1</span> { <span class="kw">color</span>: <span class="cn">navy</span>; }
+
+<span class="cm">/* 2. Class selector */</span>
+<span class="prop">.card</span> { <span class="kw">background</span>: <span class="str">#fff</span>; }
+
+<span class="cm">/* 3. ID selector (high specificity) */</span>
+<span class="prop">#hero</span> { <span class="kw">font-size</span>: <span class="num">3rem</span>; }
+
+<span class="cm">/* 4. Descendant combinator */</span>
+<span class="prop">nav a</span> { <span class="kw">text-decoration</span>: <span class="cn">none</span>; }
+
+<span class="cm">/* 5. Child combinator */</span>
+<span class="prop">ul > li</span> { <span class="kw">list-style</span>: <span class="cn">disc</span>; }
+
+<span class="cm">/* 6. Pseudo-class */</span>
+<span class="prop">a:hover</span> { <span class="kw">color</span>: <span class="cn">crimson</span>; }
+
+<span class="cm">/* 7. Pseudo-element */</span>
+<span class="prop">p::first-line</span> { <span class="kw">font-weight</span>: <span class="num">700</span>; }
+
+<span class="cm">/* 8. nth-child structural selector */</span>
+<span class="prop">tr:nth-child(even)</span> { <span class="kw">background</span>: <span class="str">#f0f4f8</span>; }</pre>
+      </div>
+    </div>
+
+    <!-- 02 BOX MODEL -->
+    <div class="doc-section">
+      <span class="section-number">02 / BOX MODEL</span>
+      <h2>The CSS Box Model</h2>
+      <p>Every HTML element is a rectangular box made of four concentric layers. Understanding this model is fundamental to controlling layout and spacing.</p>
+
+      <div class="box-model-demo">
+        <div style="padding:1rem 1rem 0.5rem;">
+          <div class="bm-outer">
+            <span class="bm-label">MARGIN — space outside the element</span>
+            <div class="bm-border">
+              <span class="bm-label">BORDER — visible edge of the element</span>
+              <div class="bm-padding">
+                <span class="bm-label">PADDING — space inside the border</span>
+                <div class="bm-content">CONTENT — your text / image lives here</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>⚠ box-sizing Gotcha</strong>
+        <p>By default, <code>width: 300px</code> means 300px of <em>content only</em> — padding and border are added on top. Setting <code>box-sizing: border-box</code> includes padding + border inside the declared width, which is almost always what you want. This page uses <code>* { box-sizing: border-box }</code> globally.</p>
+      </div>
+
+      <h3>Before CSS vs After CSS</h3>
+
+      <div class="before-after">
+        <div class="ba-panel before">
+          <div class="ba-header">✗ Before CSS</div>
+          <div class="ba-body">
+            <div class="ba-before-content">
+              <h4>Profile Card</h4>
+              <p>No spacing, no color, raw browser defaults only.</p>
+              <ul><li>Name: Alice</li><li>Role: Developer</li><li>Level: Senior</li></ul>
+            </div>
+          </div>
+        </div>
+        <div class="ba-panel after">
+          <div class="ba-header">✓ After CSS</div>
+          <div class="ba-body">
+            <div class="ba-after-content">
+              <h4>Profile Card</h4>
+              <p>Spacing, color, and readable visual hierarchy applied.</p>
+              <ul><li>Name: Alice</li><li>Role: Developer</li><li>Level: Senior</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">CSS — Box Model</span>
+        </div>
+        <pre><span class="cm">/* Include padding & border inside declared width */</span>
+<span class="prop">*</span>, <span class="prop">*::before</span>, <span class="prop">*::after</span> {
+  <span class="kw">box-sizing</span>: <span class="cn">border-box</span>;
+}
+
+<span class="prop">.card</span> {
+  <span class="cm">/* Content dimensions */</span>
+  <span class="kw">width</span>:   <span class="num">300px</span>;
+  <span class="kw">height</span>:  <span class="cn">auto</span>;
+
+  <span class="cm">/* Padding — space inside the border */</span>
+  <span class="kw">padding</span>: <span class="num">1.5rem</span>;          <span class="cm">/* all 4 sides */</span>
+  <span class="kw">padding</span>: <span class="num">1rem</span> <span class="num">2rem</span>;      <span class="cm">/* top+bottom | left+right */</span>
+
+  <span class="cm">/* Border */</span>
+  <span class="kw">border</span>:  <span class="num">2px</span> <span class="cn">solid</span> <span class="str">#2E5E99</span>;
+  <span class="kw">border-radius</span>: <span class="num">10px</span>;
+
+  <span class="cm">/* Margin — space outside the border */</span>
+  <span class="kw">margin</span>: <span class="num">0</span> <span class="cn">auto</span>;           <span class="cm">/* center horizontally */</span>
+}</pre>
+      </div>
+    </div>
+
+    <!-- 03 FLEXBOX -->
+    <div class="doc-section">
+      <span class="section-number">03 / FLEXBOX</span>
+      <h2>Flexbox Layout</h2>
+      <p>Flexbox is a <strong>one-dimensional</strong> layout model — it handles a row <em>or</em> a column at a time. It excels at distributing space among items and aligning them within a container.</p>
+
+      <div class="flex-demo-area">
+        <div class="flex-demo-title">justify-content values — live interactive demo</div>
+
+        <div class="flex-label">flex-start (default)</div>
+        <div class="flex-row jc-start">
+          <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+        </div>
+
+        <div class="flex-label">center</div>
+        <div class="flex-row jc-center">
+          <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+        </div>
+
+        <div class="flex-label">flex-end</div>
+        <div class="flex-row jc-end">
+          <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+        </div>
+
+        <div class="flex-label">space-between</div>
+        <div class="flex-row jc-between">
+          <div class="flex-item">A</div><div class="flex-item">B</div><div class="flex-item">C</div>
+        </div>
+
+        <div class="flex-label">flex-grow: 1 — items expand to fill available space</div>
+        <div class="flex-row">
+          <div class="flex-item grow">A</div><div class="flex-item grow">B</div><div class="flex-item grow">C</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">CSS — Flexbox</span>
+        </div>
+        <pre><span class="prop">.nav-container</span> {
+  <span class="kw">display</span>:         <span class="cn">flex</span>;          <span class="cm">/* activate flexbox */</span>
+  <span class="kw">flex-direction</span>:  <span class="cn">row</span>;           <span class="cm">/* main axis */</span>
+  <span class="kw">justify-content</span>: <span class="cn">space-between</span>; <span class="cm">/* main-axis alignment */</span>
+  <span class="kw">align-items</span>:     <span class="cn">center</span>;        <span class="cm">/* cross-axis alignment */</span>
+  <span class="kw">flex-wrap</span>:       <span class="cn">wrap</span>;          <span class="cm">/* allow wrapping */</span>
+  <span class="kw">gap</span>:             <span class="num">1rem</span>;          <span class="cm">/* space between items */</span>
+}
+
+<span class="prop">.flex-item</span> {
+  <span class="kw">flex</span>: <span class="num">1 1 auto</span>;  <span class="cm">/* grow | shrink | basis */</span>
+}
+
+<span class="cm">/* Sidebar stacks its children vertically */</span>
+<span class="prop">.editor-sidebar</span> {
+  <span class="kw">display</span>:        <span class="cn">flex</span>;
+  <span class="kw">flex-direction</span>: <span class="cn">column</span>;
 }</pre>
       </div>
 
+      <div class="callout success">
+        <strong>💡 Layout Decision — Flexbox Usage</strong>
+        <p>The <strong>navbar</strong> uses <code>justify-content: space-between</code> to push the logo left and links right. The <strong>editor sidebar</strong> uses <code>flex-direction: column</code> to stack header, textarea, and preview pane vertically with the textarea consuming remaining space via <code>flex: 1</code>.</p>
+      </div>
     </div>
-  </main>
 
+    <!-- 04 GRID -->
+    <div class="doc-section">
+      <span class="section-number">04 / CSS GRID</span>
+      <h2>CSS Grid Layout</h2>
+      <p>Grid is a <strong>two-dimensional</strong> layout model — it controls rows <em>and</em> columns simultaneously. It is the right choice for page-level structures and complex two-axis layouts.</p>
+
+      <div class="flex-demo-area">
+        <div class="flex-demo-title">Grid: 3-column template with spanning items</div>
+        <div class="grid-demo">
+          <div class="g-item">1</div>
+          <div class="g-item row2">2<br><small>(row span 2)</small></div>
+          <div class="g-item">3</div>
+          <div class="g-item span2">4 (col span 2)</div>
+          <div class="g-item span3">5 (col span 3)</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">CSS — Grid</span>
+        </div>
+        <pre><span class="cm">/* Page layout: doc content | sticky sidebar */</span>
+<span class="prop">.layout-container</span> {
+  <span class="kw">display</span>:               <span class="cn">grid</span>;
+  <span class="kw">grid-template-columns</span>: <span class="num">1fr</span> <span class="num">380px</span>;
+  <span class="kw">gap</span>:                   <span class="num">2.5rem</span>;
+  <span class="kw">align-items</span>:           <span class="cn">start</span>;
+}
+
+<span class="cm">/* Responsive card grid — no media queries needed */</span>
+<span class="prop">.card-grid</span> {
+  <span class="kw">display</span>:               <span class="cn">grid</span>;
+  <span class="kw">grid-template-columns</span>: <span class="fn">repeat</span>(<span class="cn">auto-fit</span>, <span class="fn">minmax</span>(<span class="num">200px</span>, <span class="num">1fr</span>));
+  <span class="kw">gap</span>: <span class="num">1rem</span>;
+}
+
+<span class="cm">/* Spanning columns and rows */</span>
+<span class="prop">.featured</span> {
+  <span class="kw">grid-column</span>: <span class="cn">span</span> <span class="num">2</span>;
+  <span class="kw">grid-row</span>:    <span class="cn">span</span> <span class="num">2</span>;
+}</pre>
+      </div>
+
+      <h3>Flexbox vs Grid — When to Use Which?</h3>
+      <table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>Flexbox</th><th>Grid</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimensions</td><td>1D (row <em>or</em> column)</td><td>2D (rows + columns)</td></tr>
+          <tr><td>Best for</td><td>Nav, toolbars, button groups</td><td>Page layouts, card grids</td></tr>
+          <tr><td>Content-driven sizing</td><td class="tag-yes">✓ Yes</td><td class="tag-warn">~ Sometimes</td></tr>
+          <tr><td>Layout-driven sizing</td><td class="tag-warn">~ Sometimes</td><td class="tag-yes">✓ Yes</td></tr>
+          <tr><td>Implicit rows/columns</td><td class="tag-no">✗ No</td><td class="tag-yes">✓ Yes</td></tr>
+          <tr><td>Browser support</td><td class="tag-yes">✓ Universal</td><td class="tag-yes">✓ Universal</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>📐 Layout Decisions on This Page</strong>
+        <p>
+          <strong>Page level:</strong> CSS Grid <code>(1fr 380px)</code> — two columns, explicit and predictable.<br>
+          <strong>Navbar:</strong> Flexbox <code>space-between</code> — one axis, distributes space.<br>
+          <strong>Card grid:</strong> <code>repeat(auto-fit, minmax(200px, 1fr))</code> — self-responsive, zero media queries needed.<br>
+          <strong>Editor sidebar:</strong> Flexbox column — stacks panels with <code>flex: 1</code> filling remaining height.
+        </p>
+      </div>
+    </div>
+
+    <!-- 05 RESPONSIVE -->
+    <div class="doc-section">
+      <span class="section-number">05 / RESPONSIVE DESIGN</span>
+      <h2>Responsive Design &amp; Media Queries</h2>
+      <p>Responsive design ensures your page looks and works great on every screen. The core tool is the <strong>media query</strong> — CSS rules that only apply when conditions (like viewport width) are met.</p>
+
+      <h3>Active Breakpoint (resize your window to see it change)</h3>
+      <div class="mq-bar" id="mqBar">
+        <div class="mq-chip mobile"  data-max="480">📱 &lt; 480px</div>
+        <div class="mq-chip tablet"  data-max="600">📱 &lt; 600px</div>
+        <div class="mq-chip tablet"  data-max="900">📟 &lt; 900px</div>
+        <div class="mq-chip desktop" data-max="1024">💻 &lt; 1024px</div>
+        <div class="mq-chip wide"    data-max="99999">🖥 ≥ 1024px</div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">CSS — Media Queries (used on this page)</span>
+        </div>
+        <pre><span class="cm">/* ── Desktop: two-column grid (default) ── */</span>
+<span class="prop">.layout-container</span> {
+  <span class="kw">grid-template-columns</span>: <span class="num">1fr</span> <span class="num">380px</span>;
+}
+
+<span class="cm">/* ── Tablet ≤ 1024px: collapse to single column ── */</span>
+<span class="op">@media</span> (<span class="kw">max-width</span>: <span class="num">1024px</span>) {
+  <span class="prop">.layout-container</span> {
+    <span class="kw">grid-template-columns</span>: <span class="num">1fr</span>;
+  }
+  <span class="prop">.editor-sidebar</span> {
+    <span class="kw">position</span>: <span class="cn">static</span>;  <span class="cm">/* unstick on small screens */</span>
+    <span class="kw">height</span>: <span class="num">700px</span>;
+  }
+  <span class="prop">.before-after</span> {
+    <span class="kw">grid-template-columns</span>: <span class="num">1fr</span>;
+  }
+}
+
+<span class="cm">/* ── Mobile nav ≤ 900px: hamburger menu ── */</span>
+<span class="op">@media</span> (<span class="kw">max-width</span>: <span class="num">900px</span>) {
+  <span class="prop">.menu-toggle</span> { <span class="kw">display</span>: <span class="cn">flex</span>; }
+  <span class="prop">.nav-menu</span>    { <span class="kw">position</span>: <span class="cn">fixed</span>; <span class="kw">left</span>: <span class="num">-100%</span>; }
+  <span class="prop">.nav-menu.active</span> { <span class="kw">left</span>: <span class="num">0</span>; }
+}
+
+<span class="cm">/* ── Small mobile ≤ 600px ── */</span>
+<span class="op">@media</span> (<span class="kw">max-width</span>: <span class="num">600px</span>) {
+  <span class="prop">.card-grid</span> { <span class="kw">grid-template-columns</span>: <span class="num">1fr 1fr</span>; }
+  <span class="prop">.hero</span>      { <span class="kw">padding</span>: <span class="num">3rem 1rem</span>; }
+}
+
+<span class="cm">/* ── Fluid typography — no breakpoints needed ── */</span>
+<span class="prop">h1</span> { <span class="kw">font-size</span>: <span class="fn">clamp</span>(<span class="num">1.8rem</span>, <span class="num">5vw</span>, <span class="num">3.6rem</span>); }</pre>
+      </div>
+
+      <div class="callout success">
+        <strong>✅ Responsive Checklist — All Applied Here</strong>
+        <p>
+          ✓ <code>&lt;meta name="viewport"&gt;</code> tag &nbsp;|&nbsp;
+          ✓ <code>box-sizing: border-box</code> globally &nbsp;|&nbsp;
+          ✓ Fluid images <code>max-width: 100%</code> &nbsp;|&nbsp;
+          ✓ Flexbox &amp; Grid for layout &nbsp;|&nbsp;
+          ✓ <code>clamp()</code> fluid typography &nbsp;|&nbsp;
+          ✓ Media queries at 480 / 600 / 900 / 1024px &nbsp;|&nbsp;
+          ✓ Mobile hamburger navigation &nbsp;|&nbsp;
+          ✓ <code>auto-fit minmax()</code> grid cards
+        </p>
+      </div>
+    </div>
+
+  </main><!-- /doc-content -->
+
+  <!-- EDITOR SIDEBAR -->
   <aside class="editor-sidebar">
     <div class="editor-header">
       <span>⚡ Live Editor</span>
@@ -71,234 +427,239 @@
         <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
       </div>
     </div>
-
     <div class="editor-body">
       <div class="pane-row">
         <span class="pane-label" id="input-label">HTML</span>
-        <button class="run-btn" id="runBtn" onclick="runCode()" style="display: none;">
-          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
-          Run
+        <button class="run-btn" id="runBtn" onclick="runCode()" style="display:none;">
+          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> Run
         </button>
       </div>
-
       <textarea id="code-input" spellcheck="false"><style>
-  h1 { color: #2E5E99; }
-  .box {
-    background: #e7f0fa;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #b6d4fe;
+  body { font-family: 'Segoe UI', sans-serif; padding: 1rem; }
+
+  /* Selectors */
+  h2         { color: #2E5E99; }
+  .box       { background: #e7f0fa; border-radius: 8px;
+               padding: 16px; border: 1px solid #b6d4fe;
+               margin-bottom: 1rem; }
+  .box:hover { box-shadow: 0 4px 12px rgba(46,94,153,.2); }
+  .box p:first-child { font-weight: 700; }
+
+  /* Box Model */
+  .item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border: 2px solid #2E5E99;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background: #fff;
   }
+
+  /* Flexbox */
+  .flex-row  { display: flex; gap: 8px; flex-wrap: wrap; }
+  .flex-item { background: #2E5E99; color: #fff;
+               padding: 6px 12px; border-radius: 4px;
+               flex: 1; text-align: center; font-size: .85rem; }
 </style>
-<h1>CSS Demo</h1>
+
+<h2>🎨 Try Editing Me!</h2>
+
 <div class="box">
-  <p>Edit the CSS to see changes!</p>
+  <p>Box Model</p>
+  <div class="item">padding: 12px | border: 2px solid</div>
+  <div class="item">box-sizing: border-box applied</div>
+</div>
+
+<div class="box">
+  <p>Flexbox Row</p>
+  <div class="flex-row">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
 </div></textarea>
 
-      <!-- JS Console Output -->
-      <div class="output-pane" id="js-output-pane" style="display: none;">
+      <div class="output-pane" id="js-output-pane" style="display:none;">
         <div class="pane-row">
           <span class="pane-label">Output</span>
-          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()">Clear</button>
+          <button class="run-btn" style="background:rgba(255,255,255,.1);color:#fff;" onclick="clearOutput()">Clear</button>
         </div>
         <div class="output-content" id="output-content">
           <span class="output-empty">Click ▶ Run to execute your code…</span>
         </div>
       </div>
-
-      <!-- HTML Preview iframe (hidden by default) -->
-      <iframe id="live-preview" title="Live HTML Preview" style="display: block;"></iframe>
+      <iframe id="live-preview" title="Live HTML Preview"></iframe>
     </div>
   </aside>
 
-</div>
+</div><!-- /layout-container -->
 
 <script>
-  /* ===== NAVBAR LOGIC ===== */
-  (function() {
-    const menuToggle = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
+  /* ── NAVBAR ── */
+  (function () {
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('navMenu');
     const overlay = document.getElementById('overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-    let isMenuOpen = false;
-
-    function openMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.add('active');
-      menuToggle.classList.add('active');
-      if (overlay) overlay.classList.add('active');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      isMenuOpen = true;
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
-      if (overlay) overlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
-
-    if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); isMenuOpen ? closeMenu() : openMenu(); });
-    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768 && isMenuOpen) closeMenu(); }); });
-    if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 768 && isMenuOpen) closeMenu(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
+    let open = false;
+    const openMenu  = () => { menu.classList.add('active'); btn.classList.add('active'); overlay.classList.add('active'); btn.setAttribute('aria-expanded','true');  open=true;  document.body.style.overflow='hidden'; };
+    const closeMenu = () => { menu.classList.remove('active'); btn.classList.remove('active'); overlay.classList.remove('active'); btn.setAttribute('aria-expanded','false'); open=false; document.body.style.overflow=''; };
+    btn.addEventListener('click', e => { e.stopPropagation(); open ? closeMenu() : openMenu(); });
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { if (window.innerWidth <= 900) closeMenu(); }));
+    window.addEventListener('resize', () => { if (window.innerWidth > 900 && open) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) closeMenu(); });
   })();
 
-  /* ===== SECTION REVEAL ON SCROLL ===== */
-  (function() {
-    const sections = document.querySelectorAll('.doc-section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+  /* ── SCROLL REVEAL ── */
+  (function () {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.doc-section').forEach((s, i) => { s.style.transitionDelay = `${i * 0.04}s`; obs.observe(s); });
+  })();
+
+  /* ── SPECIFICITY BARS ── */
+  (function () {
+    const ladder = document.getElementById('specLadder');
+    if (!ladder) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        ladder.querySelectorAll('.spec-bar').forEach(bar => { bar.style.width = bar.dataset.w + '%'; });
+        obs.unobserve(ladder);
+      }
+    }, { threshold: 0.3 });
+    obs.observe(ladder);
+  })();
+
+  /* ── ACTIVE BREAKPOINT CHIP ── */
+  (function () {
+    const chips = Array.from(document.querySelectorAll('.mq-chip'));
+    function highlight() {
+      const w = window.innerWidth;
+      let found = false;
+      chips.forEach(c => {
+        const max = parseInt(c.dataset.max, 10);
+        if (!found && w <= max) { c.classList.add('active-breakpoint'); found = true; }
+        else { c.classList.remove('active-breakpoint'); }
       });
-    }, { threshold: 0.1 });
-    sections.forEach((s, i) => {
-      s.style.transitionDelay = `${i * 0.05}s`;
-      observer.observe(s);
-    });
+      if (!found && chips.length) chips[chips.length - 1].classList.add('active-breakpoint');
+    }
+    highlight();
+    window.addEventListener('resize', highlight);
   })();
 
-  /* ===== EDITOR LOGIC ===== */
+  /* ── EDITOR ── */
   let currentMode = 'html';
 
   function switchMode(mode, btn) {
     currentMode = mode;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    const outputPane = document.getElementById('js-output-pane');
+    const outPane = document.getElementById('js-output-pane');
     const preview = document.getElementById('live-preview');
-    const inputLabel = document.getElementById('input-label');
-    const runBtn = document.getElementById('runBtn');
-
+    const label   = document.getElementById('input-label');
+    const runBtn  = document.getElementById('runBtn');
     if (mode === 'js') {
-      outputPane.style.display = 'flex';
-      preview.style.display = 'none';
-      inputLabel.textContent = 'JavaScript';
-      runBtn.style.display = 'flex';
-      document.getElementById('code-input').value = `// ✏️ Try editing and click Run!
+      outPane.style.display = 'flex'; preview.style.display = 'none';
+      label.textContent = 'JavaScript'; runBtn.style.display = 'flex';
+      document.getElementById('code-input').value = `// ✏️ Edit and click ▶ Run!
 
-const students = [
-  { name: "Alice", score: 91 },
-  { name: "Bob",   score: 74 },
-  { name: "Carol", score: 88 },
-  { name: "Dan",   score: 67 }
+const selectors = [
+  { type: "Element",  example: "h1 { }",     score: 1    },
+  { type: "Class",    example: ".card { }",   score: 10   },
+  { type: "ID",       example: "#hero { }",   score: 100  },
+  { type: "Inline",   example: "style='…'",   score: 1000 }
 ];
 
-const passing = students.filter(s => s.score >= 75);
-console.log("Total students:", students.length);
-console.log("Passing:", passing.length);
+console.log("=== CSS Specificity Scores ===");
+selectors.forEach(s => {
+  const bar = "█".repeat(Math.round(s.score / 100) + 1);
+  console.log(\`\${s.type.padEnd(9)}: \${s.example.padEnd(16)} → \${s.score}\`);
+});
 
-passing.forEach(s => {
-  console.log(\`✅ \${s.name}: \${s.score}%\`);
-});`;
+const winner = selectors.reduce((a, b) => a.score > b.score ? a : b);
+console.log("\\nHighest specificity:", winner.type, "→", winner.score);`;
     } else {
-      outputPane.style.display = 'none';
-      preview.style.display = 'block';
-      inputLabel.textContent = 'HTML';
-      runBtn.style.display = 'none';
+      outPane.style.display = 'none'; preview.style.display = 'block';
+      label.textContent = 'HTML'; runBtn.style.display = 'none';
       document.getElementById('code-input').value = `<style>
-  h1 { color: #2E5E99; }
-  .box {
-    background: #e7f0fa;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #b6d4fe;
+  body { font-family: 'Segoe UI', sans-serif; padding: 1rem; }
+  h2         { color: #2E5E99; }
+  .box       { background: #e7f0fa; border-radius: 8px;
+               padding: 16px; border: 1px solid #b6d4fe;
+               margin-bottom: 1rem; }
+  .box:hover { box-shadow: 0 4px 12px rgba(46,94,153,.2); }
+  .box p:first-child { font-weight: 700; }
+  .item {
+    width: 100%; box-sizing: border-box;
+    padding: 12px 16px; border: 2px solid #2E5E99;
+    margin-bottom: 8px; border-radius: 6px; background: #fff;
   }
+  .flex-row  { display: flex; gap: 8px; flex-wrap: wrap; }
+  .flex-item { background: #2E5E99; color: #fff;
+               padding: 6px 12px; border-radius: 4px;
+               flex: 1; text-align: center; font-size: .85rem; }
 </style>
-<h1>CSS Demo</h1>
+<h2>🎨 Try Editing Me!</h2>
 <div class="box">
-  <p>Edit the CSS to see changes!</p>
+  <p>Box Model</p>
+  <div class="item">padding: 12px | border: 2px solid</div>
+  <div class="item">box-sizing: border-box applied</div>
+</div>
+<div class="box">
+  <p>Flexbox Row</p>
+  <div class="flex-row">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
 </div>`;
       updateHTMLPreview();
     }
     clearOutput();
   }
 
-  /* JS Console Runner */
   function runCode() {
     const code = document.getElementById('code-input').value;
-    const outputEl = document.getElementById('output-content');
-    outputEl.innerHTML = '';
-
-    const logs = [];
-
-    // Override console methods
-    const origLog = console.log;
-    const origError = console.error;
-    const origWarn = console.warn;
-
-    const addLine = (text, type = 'log') => {
-      const line = document.createElement('div');
-      line.className = `output-line ${type}`;
-      line.textContent = text;
-      outputEl.appendChild(line);
-      outputEl.scrollTop = outputEl.scrollHeight;
+    const out = document.getElementById('output-content');
+    out.innerHTML = '';
+    const addLine = (txt, cls = 'log') => {
+      const d = document.createElement('div');
+      d.className = `output-line ${cls}`;
+      d.textContent = txt;
+      out.appendChild(d);
+      out.scrollTop = out.scrollHeight;
     };
-
-    console.log = (...args) => {
-      addLine(args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' '), 'log');
-      origLog(...args);
-    };
-    console.error = (...args) => { addLine('Error: ' + args.join(' '), 'error'); origError(...args); };
-    console.warn = (...args) => { addLine('⚠ ' + args.join(' '), 'warn'); origWarn(...args); };
-
+    const oLog = console.log, oErr = console.error, oWarn = console.warn;
+    console.log  = (...a) => { addLine(a.map(x => typeof x === 'object' ? JSON.stringify(x,null,2) : String(x)).join(' ')); oLog(...a); };
+    console.error= (...a) => { addLine('Error: '+a.join(' '),'error'); oErr(...a); };
+    console.warn = (...a) => { addLine('⚠ '+a.join(' '),'warn'); oWarn(...a); };
     try {
-      const result = eval(code);
-      if (result !== undefined) {
-        addLine('↩ ' + (typeof result === 'object' ? JSON.stringify(result) : String(result)), 'result');
-      }
-      if (outputEl.children.length === 0) {
-        addLine('✓ Code ran with no output.', 'info');
-      }
-    } catch (err) {
-      addLine(err.toString(), 'error');
-    } finally {
-      console.log = origLog;
-      console.error = origError;
-      console.warn = origWarn;
-    }
+      const r = eval(code);
+      if (r !== undefined) addLine('↩ '+(typeof r==='object'?JSON.stringify(r):String(r)),'result');
+      if (!out.children.length) addLine('✓ Code ran with no output.','info');
+    } catch(e) { addLine(e.toString(),'error'); }
+    finally { console.log=oLog; console.error=oErr; console.warn=oWarn; }
   }
 
   function clearOutput() {
-    const el = document.getElementById('output-content');
-    el.innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
+    document.getElementById('output-content').innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
   }
 
-  /* HTML Preview */
   function updateHTMLPreview() {
     if (currentMode !== 'html') return;
     const code = document.getElementById('code-input').value;
-    const iframe = document.getElementById('live-preview');
-    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    const styles = `<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}code{background:#eee;padding:2px 4px;border-radius:4px;}</style>`;
-    iframeDoc.open();
-    iframeDoc.write(styles + code);
-    iframeDoc.close();
+    const frame = document.getElementById('live-preview');
+    const doc = frame.contentDocument || frame.contentWindow.document;
+    doc.open();
+    doc.write(`<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}</style>${code}`);
+    doc.close();
   }
 
-  document.getElementById('code-input').addEventListener('input', () => {
-    if (currentMode === 'html') updateHTMLPreview();
-  });
-
-  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
-  document.getElementById('code-input').addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-      e.preventDefault();
-      if (currentMode === 'js') runCode();
-    }
-  });
-
+  document.getElementById('code-input').addEventListener('input', () => { if (currentMode === 'html') updateHTMLPreview(); });
+  document.getElementById('code-input').addEventListener('keydown', e => { if ((e.ctrlKey||e.metaKey) && e.key==='Enter') { e.preventDefault(); if (currentMode==='js') runCode(); } });
   updateHTMLPreview();
 </script>
-
 </body>
 </html>

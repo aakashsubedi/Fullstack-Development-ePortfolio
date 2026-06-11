@@ -3,110 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>HTML In-Depth | Full Stack Development</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>HTML- In-Depth | Full Stack Development</title>
   <link rel="stylesheet" href="html.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<header class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">Logo</a>
+<div class="menu-overlay" id="overlay" aria-hidden="true"></div>
 
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" role="banner">
+  <div class="nav-container">
+    <a href="index.html" class="logo" aria-label="Full Stack Dev - Home">Krishna</a>
     <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
     </button>
-
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link active">HTML</a></li>
+      <li><a href="html.html" class="nav-link active" aria-current="page">HTML</a></li>
       <li><a href="css.html" class="nav-link">CSS</a></li>
       <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
       <li><a href="js.html" class="nav-link">JavaScript</a></li>
     </ul>
   </div>
-  <div class="menu-overlay" id="overlay"></div>
 </header>
+
 <!-- ===== HERO ===== -->
-<section class="hero">
-  <h1>What is HTML?</h1>
-  <p>The skeleton of the web.</p>
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-inner">
+    <h1 id="hero-heading">What is HTML?</h1>
+    <p>HyperText Markup Language is the skeleton of every webpage — it gives structure, meaning, and accessibility to content on the internet.</p>
+  </div>
 </section>
 
 <!-- ===== MAIN LAYOUT ===== -->
 <div class="layout-container">
-  <!-- LEFT: Documentation -->
-  <main class="doc-content">
-    <div class="doc-section">
 
+  <!-- LEFT: Documentation -->
+  <main class="doc-content" id="main-content" role="main">
+
+    <!-- ===== SECTION 01: INTRODUCTION ===== -->
+    <article class="doc-section" aria-labelledby="sec-intro">
       <span class="section-number">01 / INTRODUCTION</span>
-      <h2>HTML Elements</h2>
-      <p>HTML elements are the building blocks of web pages. They are represented by tags.</p>
+      <h2 id="sec-intro">HTML Elements</h2>
+      <p>HTML elements are the building blocks of web pages. They are defined by a start tag, some content, and an end tag. The browser reads these tags and renders them visually for the user.</p>
+      <div class="code-block" role="region" aria-label="HTML element example">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML</span>
+        </div>
+        <pre><span class="kw">&lt;h1&gt;</span>Hello World<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;p&gt;</span>This is a paragraph.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;a</span> <span class="cn">href</span>=<span class="str">"https://example.com"</span><span class="kw">&gt;</span>Visit Example<span class="kw">&lt;/a&gt;</span></pre>
+      </div>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="card-icon">🏷️</div>
+          <h4>Start Tag</h4>
+          <p>Opens an element, e.g. <code>&lt;p&gt;</code></p>
+        </div>
+        <div class="info-card green">
+          <div class="card-icon">📝</div>
+          <h4>Content</h4>
+          <p>The text or nested elements inside</p>
+        </div>
+        <div class="info-card orange">
+          <div class="card-icon">🔚</div>
+          <h4>End Tag</h4>
+          <p>Closes an element, e.g. <code>&lt;/p&gt;</code></p>
+        </div>
+        <div class="info-card red">
+          <div class="card-icon">⚡</div>
+          <h4>Void Elements</h4>
+          <p>Self-closing: <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code></p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== SECTION 02: DOCUMENT STRUCTURE ===== -->
+    <article class="doc-section" aria-labelledby="sec-structure">
+      <span class="section-number">02 / DOCUMENT STRUCTURE</span>
+      <h2 id="sec-structure">The HTML Document Structure</h2>
+      <p>Every HTML page follows a standard structure. Understanding each part is essential before writing a single line of code.</p>
+
+      <div class="code-block" role="region" aria-label="HTML document structure example">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML</span>
+        </div>
+        <pre><span class="cm">&lt;!-- Declares the document as HTML5 --&gt;</span>
+<span class="kw">&lt;!DOCTYPE html&gt;</span>
+<span class="kw">&lt;html</span> <span class="cn">lang</span>=<span class="str">"en"</span><span class="kw">&gt;</span>
+
+  <span class="cm">&lt;!-- Metadata: not visible to users --&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span> <span class="cn">charset</span>=<span class="str">"UTF-8"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;meta</span> <span class="cn">name</span>=<span class="str">"viewport"</span> <span class="cn">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>My Page Title<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;link</span> <span class="cn">rel</span>=<span class="str">"stylesheet"</span> <span class="cn">href</span>=<span class="str">"styles.css"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+
+  <span class="cm">&lt;!-- All visible content goes here --&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>Hello, World!<span class="kw">&lt;/h1&gt;</span>
+    <span class="kw">&lt;p&gt;</span>This is my first HTML page.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+
+<span class="kw">&lt;/html&gt;</span></pre>
+      </div>
+
+      <h3>Breaking It Down</h3>
+
+      <div class="explain-grid">
+        <div class="explain-card">
+          <div class="explain-tag"><code>&lt;!DOCTYPE html&gt;</code></div>
+          <p>Not an HTML element — it's an instruction to the browser. It declares this is an HTML5 document. Without it, browsers may enter <strong>quirks mode</strong> and render pages inconsistently.</p>
+        </div>
+        <div class="explain-card">
+          <div class="explain-tag"><code>&lt;html lang="en"&gt;</code></div>
+          <p>The root element that wraps everything. The <code>lang</code> attribute is critical for <strong>accessibility</strong> — screen readers use it to announce content in the correct language.</p>
+        </div>
+        <div class="explain-card">
+          <div class="explain-tag"><code>&lt;head&gt;</code></div>
+          <p>Contains metadata — information <em>about</em> the page, not <em>on</em> the page. Includes the <code>&lt;title&gt;</code> (shown on browser tab), CSS links, fonts, SEO meta tags, and viewport settings.</p>
+        </div>
+        <div class="explain-card">
+          <div class="explain-tag"><code>&lt;body&gt;</code></div>
+          <p>Everything inside <code>&lt;body&gt;</code> is rendered on the screen. This is where all your visible content lives — text, images, buttons, navigation, footers, and more.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>💡 Best Practice</strong>
+        <p>Always set <code>lang</code> on the <code>&lt;html&gt;</code> element and include a descriptive <code>&lt;title&gt;</code>. These two small steps significantly improve SEO and accessibility for every user.</p>
+      </div>
+    </article>
+
+    <!-- ===== SECTION 03: SEMANTIC TAGS ===== -->
+    <article class="doc-section" aria-labelledby="sec-semantic">
+      <span class="section-number">03 / SEMANTIC HTML</span>
+      <h2 id="sec-semantic">Semantic Tags</h2>
+      <p>Semantic HTML elements clearly describe their meaning to both the browser and the developer. Instead of using generic <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> everywhere, semantic tags give your HTML structure and meaning.</p>
+
+      <div class="semantic-visual" role="img" aria-label="Visual diagram of semantic HTML layout">
+        <div class="sem-block header-block"><code>&lt;header&gt;</code><span>Logo, Nav</span></div>
+        <div class="sem-block nav-block"><code>&lt;nav&gt;</code><span>Navigation links</span></div>
+        <div class="sem-row">
+          <div class="sem-block main-block"><code>&lt;main&gt;</code>
+            <div class="sem-block article-block"><code>&lt;article&gt;</code><span>Blog post / Card</span></div>
+            <div class="sem-block section-block"><code>&lt;section&gt;</code><span>Content group</span></div>
+          </div>
+          <div class="sem-block aside-block"><code>&lt;aside&gt;</code><span>Sidebar</span></div>
+        </div>
+        <div class="sem-block footer-block"><code>&lt;footer&gt;</code><span>Links, Copyright</span></div>
+      </div>
+
+      <h3>Key Semantic Elements</h3>
+      <div class="table-wrapper">
+      <table class="compare-table" role="table" aria-label="Semantic HTML elements comparison">
+        <thead>
+          <tr>
+            <th scope="col">Tag</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Replaces</th>
+            <th scope="col">ARIA Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&lt;header&gt;</code></td><td>Site or section header</td><td><code>&lt;div id="header"&gt;</code></td><td><code>banner</code></td></tr>
+          <tr><td><code>&lt;nav&gt;</code></td><td>Navigation links</td><td><code>&lt;div id="nav"&gt;</code></td><td><code>navigation</code></td></tr>
+          <tr><td><code>&lt;main&gt;</code></td><td>Primary page content</td><td><code>&lt;div id="content"&gt;</code></td><td><code>main</code></td></tr>
+          <tr><td><code>&lt;article&gt;</code></td><td>Self-contained content</td><td><code>&lt;div class="post"&gt;</code></td><td><code>article</code></td></tr>
+          <tr><td><code>&lt;section&gt;</code></td><td>Thematic group of content</td><td><code>&lt;div class="section"&gt;</code></td><td><code>region</code></td></tr>
+          <tr><td><code>&lt;aside&gt;</code></td><td>Sidebar / tangential info</td><td><code>&lt;div id="sidebar"&gt;</code></td><td><code>complementary</code></td></tr>
+          <tr><td><code>&lt;footer&gt;</code></td><td>Site or section footer</td><td><code>&lt;div id="footer"&gt;</code></td><td><code>contentinfo</code></td></tr>
+          <tr><td><code>&lt;figure&gt;</code></td><td>Image with caption</td><td><code>&lt;div class="image"&gt;</code></td><td><code>figure</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning">
+        <strong>⚠️ Common Mistake</strong>
+        <p>Using <code>&lt;div&gt;</code> for everything works visually, but screen readers and search engines can't understand your page structure. Always reach for a semantic element first.</p>
+      </div>
+
+      <div class="callout success">
+        <strong>✅ Why Semantics Matter</strong>
+        <p>Semantic HTML improves <strong>SEO</strong> (search engines understand content hierarchy), <strong>Accessibility</strong> (screen readers navigate by landmarks), and <strong>Maintainability</strong> (code is self-documenting).</p>
+      </div>
+    </article>
+
+    <!-- ===== SECTION 04: ACCESSIBILITY ===== -->
+    <article class="doc-section" aria-labelledby="sec-a11y">
+      <span class="section-number">04 / ACCESSIBILITY</span>
+      <h2 id="sec-a11y">Accessibility in HTML</h2>
+      <p>Accessible HTML ensures that <strong>all users</strong> — including those using screen readers, keyboard navigation, or low-vision tools — can use your webpage effectively. Accessibility starts in HTML, not CSS.</p>
+
+      <h3>1. Alt Text for Images</h3>
+      <p>Every <code>&lt;img&gt;</code> element should have an <code>alt</code> attribute. Screen readers read the alt text aloud to describe the image.</p>
+
       <div class="code-block">
         <div class="code-block-header">
           <div class="code-dots"><span></span><span></span><span></span></div>
           <span class="code-lang">HTML</span>
         </div>
-        <pre>&lt;h1&gt;Hello World&lt;/h1&gt;
-&lt;p&gt;This is a paragraph.&lt;/p&gt;</pre>
+        <pre><span class="cm">&lt;!-- ✅ Descriptive alt text --&gt;</span>
+<span class="kw">&lt;img</span> <span class="cn">src</span>=<span class="str">"team-photo.jpg"</span>
+     <span class="cn">alt</span>=<span class="str">"Our dev team standing in front of the office"</span><span class="kw">&gt;</span>
+
+<span class="cm">&lt;!-- ✅ Decorative image (empty alt is intentional) --&gt;</span>
+<span class="kw">&lt;img</span> <span class="cn">src</span>=<span class="str">"divider.png"</span> <span class="cn">alt</span>=<span class="str">""</span> <span class="cn">role</span>=<span class="str">"presentation"</span><span class="kw">&gt;</span>
+
+<span class="cm">&lt;!-- ❌ Never skip alt entirely --&gt;</span>
+<span class="kw">&lt;img</span> <span class="cn">src</span>=<span class="str">"logo.png"</span><span class="kw">&gt;</span> <span class="cm">&lt;!-- Screen readers say "image" -- useless! --&gt;</span></pre>
       </div>
 
-    </div>
+      <h3>2. Heading Hierarchy</h3>
+      <p>Use headings in logical order (<code>h1</code> → <code>h2</code> → <code>h3</code>). Screen reader users often navigate a page by jumping between headings — a proper hierarchy is like a table of contents.</p>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML</span>
+        </div>
+        <pre><span class="cm">&lt;!-- ✅ Correct heading hierarchy --&gt;</span>
+<span class="kw">&lt;h1&gt;</span>Page Title<span class="kw">&lt;/h1&gt;</span>
+  <span class="kw">&lt;h2&gt;</span>Main Section<span class="kw">&lt;/h2&gt;</span>
+    <span class="kw">&lt;h3&gt;</span>Sub-topic<span class="kw">&lt;/h3&gt;</span>
+
+<span class="cm">&lt;!-- ❌ Skipping levels (bad for screen readers) --&gt;</span>
+<span class="kw">&lt;h1&gt;</span>Page Title<span class="kw">&lt;/h1&gt;</span>
+  <span class="kw">&lt;h4&gt;</span>Jumped straight to h4!<span class="kw">&lt;/h4&gt;</span></pre>
+      </div>
+
+      <h3>3. Labels &amp; Forms</h3>
+      <div class="code-block">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML</span>
+        </div>
+        <pre><span class="cm">&lt;!-- ✅ Properly associated label --&gt;</span>
+<span class="kw">&lt;label</span> <span class="cn">for</span>=<span class="str">"email"</span><span class="kw">&gt;</span>Email Address<span class="kw">&lt;/label&gt;</span>
+<span class="kw">&lt;input</span> <span class="cn">type</span>=<span class="str">"email"</span> <span class="cn">id</span>=<span class="str">"email"</span> <span class="cn">name</span>=<span class="str">"email"</span>
+       <span class="cn">required</span> <span class="cn">aria-describedby</span>=<span class="str">"email-hint"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;span</span> <span class="cn">id</span>=<span class="str">"email-hint"</span><span class="kw">&gt;</span>We'll never share your email.<span class="kw">&lt;/span&gt;</span>
+
+<span class="cm">&lt;!-- ❌ Unlabeled input (screen reader says nothing useful) --&gt;</span>
+<span class="kw">&lt;input</span> <span class="cn">type</span>=<span class="str">"email"</span> <span class="cn">placeholder</span>=<span class="str">"Email"</span><span class="kw">&gt;</span></pre>
+      </div>
+
+      <div class="a11y-checklist" role="region" aria-label="Accessibility checklist">
+        <h4>🧪 Quick Accessibility Checklist</h4>
+        <ul>
+          <li><span class="chk">✅</span> All images have meaningful <code>alt</code> text</li>
+          <li><span class="chk">✅</span> Only one <code>&lt;h1&gt;</code> per page</li>
+          <li><span class="chk">✅</span> Headings follow logical order (h1→h2→h3)</li>
+          <li><span class="chk">✅</span> Every form input has an associated <code>&lt;label&gt;</code></li>
+          <li><span class="chk">✅</span> Links have descriptive text (not "click here")</li>
+          <li><span class="chk">✅</span> Interactive elements are keyboard-focusable</li>
+          <li><span class="chk">✅</span> Color is not the only way to convey meaning</li>
+          <li><span class="chk">✅</span> Language is set on the <code>&lt;html&gt;</code> element</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ===== SECTION 05: EVIDENCE — DEMO ===== -->
+    <article class="doc-section" aria-labelledby="sec-demo">
+      <span class="section-number">05 / WORKING DEMO</span>
+      <h2 id="sec-demo">🔥 Live Demo: Blog Layout</h2>
+      <p>Below is a complete, working personal blog layout that demonstrates semantic HTML in practice. Every structural choice is intentional — and annotated below.</p>
+
+      <div class="demo-preview" role="region" aria-label="Blog layout demo preview">
+        <div class="demo-chrome">
+          <div class="demo-chrome-bar">
+            <div class="demo-dots"><span></span><span></span><span></span></div>
+            <div class="demo-url">blog-demo.html</div>
+          </div>
+          <!-- ACTUAL SEMANTIC DEMO PAGE INSIDE -->
+          <div class="demo-body">
+            <header class="demo-header" role="banner">
+              <div class="demo-logo">📰 HTML</div>
+              <nav aria-label="Blog navigation">
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Articles</a></li>
+                  <li><a href="#">About</a></li>
+                </ul>
+              </nav>
+            </header>
+
+            <main class="demo-main" role="main">
+              <section class="demo-hero-section" aria-labelledby="demo-hero-h">
+                <h1 id="demo-hero-h">Welcome to HTML</h1>
+                <p>Deep dives into modern web development.</p>
+              </section>
+
+              <section class="demo-posts-section" aria-labelledby="posts-heading">
+                <h2 id="posts-heading">Latest Articles</h2>
+                <div class="demo-posts-grid">
+                  <article class="demo-post-card" aria-labelledby="post1-title">
+                    <figure>
+                      <div class="demo-img" role="img" aria-label="Abstract code visualization in blue tones"></div>
+                      <figcaption>Understanding the DOM</figcaption>
+                    </figure>
+                    <div class="demo-post-body">
+                      <h3 id="post1-title">Mastering the DOM</h3>
+                      <p>Learn how browsers parse HTML into a tree of nodes you can manipulate with JavaScript.</p>
+                      <a href="#" aria-label="Read full article: Mastering the DOM">Read more →</a>
+                    </div>
+                  </article>
+                  <article class="demo-post-card" aria-labelledby="post2-title">
+                    <figure>
+                      <div class="demo-img demo-img-2" role="img" aria-label="CSS flexbox layout illustration"></div>
+                      <figcaption>CSS Flexbox Layouts</figcaption>
+                    </figure>
+                    <div class="demo-post-body">
+                      <h3 id="post2-title">Flexbox in 5 Minutes</h3>
+                      <p>A practical guide to building flexible, responsive layouts with CSS Flexbox.</p>
+                      <a href="#" aria-label="Read full article: Flexbox in 5 Minutes">Read more →</a>
+                    </div>
+                  </article>
+                </div>
+              </section>
+            </main>
+
+            <aside class="demo-aside" role="complementary" aria-label="Blog sidebar">
+              <section aria-labelledby="tags-h">
+                <h2 id="tags-h">Tags</h2>
+                <div class="demo-tags">
+                  <span>HTML</span><span>CSS</span><span>JS</span><span>A11y</span>
+                </div>
+              </section>
+              <section aria-labelledby="about-h">
+                <h2 id="about-h">About</h2>
+                <p>A blog for developers who care about clean, accessible code.</p>
+              </section>
+            </aside>
+
+            <footer class="demo-footer" role="contentinfo">
+              <p>© 2026 HTML — Built with semantic HTML</p>
+              <nav aria-label="Footer navigation">
+                <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Contact</a>
+              </nav>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANNOTATIONS -->
+      <h3>Why These Semantic Choices?</h3>
+      <div class="annotation-list">
+        <div class="annotation">
+          <span class="ann-tag ann-header">header</span>
+          <p>Wraps the logo and primary navigation. Screen readers announce it as the <em>banner</em> landmark, so users can jump directly to it.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-nav">nav</span>
+          <p>Both the top nav and footer nav use <code>&lt;nav&gt;</code> with distinct <code>aria-label</code> values so screen readers can differentiate between them.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-main">main</span>
+          <p>Only one <code>&lt;main&gt;</code> per page. It marks the unique content area — skip-navigation links typically jump directly here for keyboard users.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-section">section</span>
+          <p>Used for the hero area and posts listing — both are thematically distinct groups. Each has an <code>aria-labelledby</code> pointing to its heading.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-article">article</span>
+          <p>Each blog post card is an <code>&lt;article&gt;</code> — self-contained, syndication-ready content that makes sense on its own when extracted from the page.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-figure">figure</span>
+          <p>Images are wrapped in <code>&lt;figure&gt;</code> with a <code>&lt;figcaption&gt;</code>. The image has a descriptive <code>aria-label</code> since it's a decorative placeholder here.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-aside">aside</span>
+          <p>The sidebar is an <code>&lt;aside&gt;</code> — tangentially related content (tags, about blurb) that complements but isn't essential to the main content flow.</p>
+        </div>
+        <div class="annotation">
+          <span class="ann-tag ann-footer">footer</span>
+          <p>The page <code>&lt;footer&gt;</code> acts as the <em>contentinfo</em> landmark. Contains copyright, legal links, and a secondary nav — all expected footer content.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== SECTION 06: CODE REFERENCE ===== -->
+    <article class="doc-section" aria-labelledby="sec-ref">
+      <span class="section-number">06 / FULL CODE</span>
+      <h2 id="sec-ref">The Complete Blog HTML</h2>
+      <p>Here's the full semantic HTML source for the blog layout above. Notice how reading the tags alone gives you a clear mental model of the page — no CSS needed to understand the structure.</p>
+      <div class="code-block" role="region" aria-label="Full blog HTML source code">
+        <div class="code-block-header">
+          <div class="code-dots"><span></span><span></span><span></span></div>
+          <span class="code-lang">HTML</span>
+        </div>
+        <pre><span class="kw">&lt;!DOCTYPE html&gt;</span>
+<span class="kw">&lt;html</span> <span class="cn">lang</span>=<span class="str">"en"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;meta</span> <span class="cn">charset</span>=<span class="str">"UTF-8"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;title&gt;</span>HTML — Web Development Articles<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+
+  <span class="kw">&lt;header</span> <span class="cn">role</span>=<span class="str">"banner"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;a</span> <span class="cn">href</span>=<span class="str">"/"</span><span class="kw">&gt;</span>📰 HTML<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;nav</span> <span class="cn">aria-label</span>=<span class="str">"Main navigation"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;ul&gt;</span>
+        <span class="kw">&lt;li&gt;&lt;a</span> <span class="cn">href</span>=<span class="str">"/"</span><span class="kw">&gt;</span>Home<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="kw">&lt;li&gt;&lt;a</span> <span class="cn">href</span>=<span class="str">"/articles"</span><span class="kw">&gt;</span>Articles<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="kw">&lt;/ul&gt;</span>
+    <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/header&gt;</span>
+
+  <span class="kw">&lt;main</span> <span class="cn">role</span>=<span class="str">"main"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;section</span> <span class="cn">aria-labelledby</span>=<span class="str">"hero-h"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;h1</span> <span class="cn">id</span>=<span class="str">"hero-h"</span><span class="kw">&gt;</span>Welcome to HTML<span class="kw">&lt;/h1&gt;</span>
+      <span class="kw">&lt;p&gt;</span>Deep dives into modern web development.<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;/section&gt;</span>
+
+    <span class="kw">&lt;section</span> <span class="cn">aria-labelledby</span>=<span class="str">"posts-h"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;h2</span> <span class="cn">id</span>=<span class="str">"posts-h"</span><span class="kw">&gt;</span>Latest Articles<span class="kw">&lt;/h2&gt;</span>
+
+      <span class="kw">&lt;article</span> <span class="cn">aria-labelledby</span>=<span class="str">"post1"</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;figure&gt;</span>
+          <span class="kw">&lt;img</span> <span class="cn">src</span>=<span class="str">"dom.jpg"</span>
+               <span class="cn">alt</span>=<span class="str">"Abstract code visualization in blue tones"</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;figcaption&gt;</span>Understanding the DOM<span class="kw">&lt;/figcaption&gt;</span>
+        <span class="kw">&lt;/figure&gt;</span>
+        <span class="kw">&lt;h3</span> <span class="cn">id</span>=<span class="str">"post1"</span><span class="kw">&gt;</span>Mastering the DOM<span class="kw">&lt;/h3&gt;</span>
+        <span class="kw">&lt;p&gt;</span>Learn how browsers parse HTML...<span class="kw">&lt;/p&gt;</span>
+        <span class="kw">&lt;a</span> <span class="cn">href</span>=<span class="str">"/mastering-dom"</span>
+           <span class="cn">aria-label</span>=<span class="str">"Read: Mastering the DOM"</span><span class="kw">&gt;</span>Read more →<span class="kw">&lt;/a&gt;</span>
+      <span class="kw">&lt;/article&gt;</span>
+
+    <span class="kw">&lt;/section&gt;</span>
+  <span class="kw">&lt;/main&gt;</span>
+
+  <span class="kw">&lt;aside</span> <span class="cn">role</span>=<span class="str">"complementary"</span> <span class="cn">aria-label</span>=<span class="str">"Blog sidebar"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;section&gt;</span>
+      <span class="kw">&lt;h2&gt;</span>Tags<span class="kw">&lt;/h2&gt;</span>
+      <span class="cm">&lt;!-- tag list --&gt;</span>
+    <span class="kw">&lt;/section&gt;</span>
+  <span class="kw">&lt;/aside&gt;</span>
+
+  <span class="kw">&lt;footer</span> <span class="cn">role</span>=<span class="str">"contentinfo"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>© 2026 HTML<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;nav</span> <span class="cn">aria-label</span>=<span class="str">"Footer navigation"</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;a</span> <span class="cn">href</span>=<span class="str">"/privacy"</span><span class="kw">&gt;</span>Privacy<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;/nav&gt;</span>
+  <span class="kw">&lt;/footer&gt;</span>
+
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></pre>
+      </div>
+    </article>
+
   </main>
 
-  <aside class="editor-sidebar">
+  <!-- RIGHT: Live Editor -->
+  <aside class="editor-sidebar" aria-label="Live code editor">
     <div class="editor-header">
       <span>⚡ Live Editor</span>
       <div class="editor-tabs">
-        <button class="tab-btn" data-mode="js" onclick="switchMode('js', this)">JS Console</button>
-        <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
+        <button class="tab-btn" data-mode="js" onclick="switchMode('js', this)" aria-pressed="false">JS Console</button>
+        <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)" aria-pressed="true">HTML Preview</button>
       </div>
     </div>
 
     <div class="editor-body">
       <div class="pane-row">
         <span class="pane-label" id="input-label">HTML</span>
-        <button class="run-btn" id="runBtn" onclick="runCode()" style="display: none;">
-          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+        <button class="run-btn" id="runBtn" onclick="runCode()" style="display: none;" aria-label="Run JavaScript code">
+          <svg viewBox="0 0 10 10" aria-hidden="true"><polygon points="2,1 9,5 2,9"/></svg>
           Run
         </button>
       </div>
 
-      <textarea id="code-input" spellcheck="false"><h1>Hello World!</h1>
-<p>Welcome to the live HTML editor.</p>
+      <textarea id="code-input" spellcheck="false" aria-label="Code editor">&lt;!-- 🧪 Try editing this HTML! --&gt;
+&lt;header&gt;
+  &lt;h1&gt;My Blog&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt; |
+    &lt;a href="#"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
 
-<section>
-  <h2>Semantic Tags Demo</h2>
-  <article>
-    <h3>Understanding the DOM</h3>
-    <p>The Document Object Model is a programming interface for web documents.</p>
-  </article>
-</section></textarea>
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;First Post&lt;/h2&gt;
+    &lt;p&gt;Welcome to my blog! This is my first article.&lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src="https://picsum.photos/300/150" 
+           alt="A random placeholder image"&gt;
+      &lt;figcaption&gt;A sample image with figcaption&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;a href="#" aria-label="Read full: First Post"&gt;Read more →&lt;/a&gt;
+  &lt;/article&gt;
+
+  &lt;section&gt;
+    &lt;h2&gt;About This Demo&lt;/h2&gt;
+    &lt;p&gt;This editor uses semantic HTML — 
+    &amp;lt;header&amp;gt;, &amp;lt;main&amp;gt;, &amp;lt;article&amp;gt;, 
+    &amp;lt;section&amp;gt;, and &amp;lt;footer&amp;gt;.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+  &lt;h3&gt;Tags&lt;/h3&gt;
+  &lt;p&gt;HTML · CSS · A11y&lt;/p&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;© 2026 HTML&lt;/p&gt;
+&lt;/footer&gt;</textarea>
 
       <!-- JS Console Output -->
-      <div class="output-pane" id="js-output-pane" style="display: none;">
+      <div class="output-pane" id="js-output-pane" style="display: none;" role="region" aria-label="JavaScript output">
         <div class="pane-row">
           <span class="pane-label">Output</span>
-          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()">Clear</button>
+          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()" aria-label="Clear console output">Clear</button>
         </div>
-        <div class="output-content" id="output-content">
+        <div class="output-content" id="output-content" role="log" aria-live="polite">
           <span class="output-empty">Click ▶ Run to execute your code…</span>
         </div>
       </div>
 
-      <!-- HTML Preview iframe (hidden by default) -->
       <iframe id="live-preview" title="Live HTML Preview" style="display: block;"></iframe>
     </div>
   </aside>
 
 </div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bottom">
+    <p>© 2026 Krishna · HTML In-Depth Module · Full-stack Development </p>
+  </div>
+</footer>
 
 <script>
   /* ===== NAVBAR LOGIC ===== */
@@ -138,9 +575,9 @@
     }
 
     if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); isMenuOpen ? closeMenu() : openMenu(); });
-    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 768 && isMenuOpen) closeMenu(); }); });
+    navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth <= 1024 && isMenuOpen) closeMenu(); }); });
     if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 768 && isMenuOpen) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 1024 && isMenuOpen) closeMenu(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
   })();
 
@@ -154,12 +591,19 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
     sections.forEach((s, i) => {
-      s.style.transitionDelay = `${i * 0.05}s`;
+      s.style.transitionDelay = `${i * 0.04}s`;
       observer.observe(s);
     });
   })();
+
+  /* ===== TAB ARIA STATE ===== */
+  function updateTabAria() {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+    });
+  }
 
   /* ===== EDITOR LOGIC ===== */
   let currentMode = 'html';
@@ -168,6 +612,7 @@
     currentMode = mode;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    updateTabAria();
 
     const outputPane = document.getElementById('js-output-pane');
     const preview = document.getElementById('live-preview');
@@ -200,16 +645,43 @@ passing.forEach(s => {
       preview.style.display = 'block';
       inputLabel.textContent = 'HTML';
       runBtn.style.display = 'none';
-      document.getElementById('code-input').value = `<h1>Hello World!</h1>
-<p>Welcome to the live HTML editor.</p>
+      document.getElementById('code-input').value = `<!-- 🧪 Try editing this HTML! -->
+<header>
+  <h1>My Blog</h1>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About</a>
+  </nav>
+</header>
 
-<section>
-  <h2>Semantic Tags Demo</h2>
+<main>
   <article>
-    <h3>Understanding the DOM</h3>
-    <p>The Document Object Model is a programming interface for web documents.</p>
+    <h2>First Post</h2>
+    <p>Welcome to my blog! This is my first article.</p>
+    <figure>
+      <img src="https://picsum.photos/300/150" 
+           alt="A random placeholder image">
+      <figcaption>A sample image with figcaption</figcaption>
+    </figure>
+    <a href="#" aria-label="Read full: First Post">Read more →</a>
   </article>
-</section>`;
+
+  <section>
+    <h2>About This Demo</h2>
+    <p>This editor uses semantic HTML — 
+    &lt;header&gt;, &lt;main&gt;, &lt;article&gt;, 
+    &lt;section&gt;, and &lt;footer&gt;.</p>
+  </section>
+</main>
+
+<aside>
+  <h3>Tags</h3>
+  <p>HTML · CSS · A11y</p>
+</aside>
+
+<footer>
+  <p>© 2026 HTML</p>
+</footer>`;
       updateHTMLPreview();
     }
     clearOutput();
@@ -221,9 +693,6 @@ passing.forEach(s => {
     const outputEl = document.getElementById('output-content');
     outputEl.innerHTML = '';
 
-    const logs = [];
-
-    // Override console methods
     const origLog = console.log;
     const origError = console.error;
     const origWarn = console.warn;
@@ -271,7 +740,23 @@ passing.forEach(s => {
     const code = document.getElementById('code-input').value;
     const iframe = document.getElementById('live-preview');
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    const styles = `<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}code{background:#eee;padding:2px 4px;border-radius:4px;}</style>`;
+    const styles = `<style>
+      body { font-family: system-ui, sans-serif; color: #1e2f3a; padding: 1rem; margin: 0; line-height: 1.6; background: #fff; }
+      h1, h2, h3 { color: #2E5E99; margin-top: 1rem; }
+      header { background: #E7F0FA; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+      nav a { color: #2E5E99; text-decoration: none; margin-right: .75rem; font-weight: 600; }
+      nav a:hover { text-decoration: underline; }
+      main { display: flex; flex-direction: column; gap: 1rem; }
+      article { background: #f8fafc; border: 1px solid #dbe7f5; border-radius: 8px; padding: 1rem; }
+      section { background: #fff; border-left: 3px solid #2E5E99; padding: .75rem 1rem; border-radius: 0 8px 8px 0; }
+      aside { background: #E7F0FA; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
+      footer { background: #1a3d6b; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center; }
+      figure { margin: .75rem 0; }
+      figcaption { font-size: .8rem; color: #64748b; margin-top: .35rem; }
+      img { max-width: 100%; border-radius: 6px; display: block; }
+      a { color: #2E5E99; font-weight: 600; }
+      code { background: #e0eaf7; color: #2E5E99; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+    </style>`;
     iframeDoc.open();
     iframeDoc.write(styles + code);
     iframeDoc.close();
@@ -281,11 +766,20 @@ passing.forEach(s => {
     if (currentMode === 'html') updateHTMLPreview();
   });
 
-  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
   document.getElementById('code-input').addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       e.preventDefault();
       if (currentMode === 'js') runCode();
+    }
+    // Tab key inserts spaces instead of losing focus
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const ta = e.target;
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      ta.value = ta.value.substring(0, start) + '  ' + ta.value.substring(end);
+      ta.selectionStart = ta.selectionEnd = start + 2;
+      if (currentMode === 'html') updateHTMLPreview();
     }
   });
 

@@ -639,3 +639,29 @@ tbody td:first-child { font-weight: 600; color: var(--blue); white-space: nowrap
   .code-block { font-size: .72rem; }
   .step-code { font-size: .75rem; }
 }
+
+/* ─── SITE FOOTER ─────────────────────────────────────────────── */
+.site-footer {
+  background: #1a3d6b;
+  color: rgba(255,255,255,0.85);
+  margin-top: 2rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: white;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom { padding: 1rem 1.5rem; }
+}

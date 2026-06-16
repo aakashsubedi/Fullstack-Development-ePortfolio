@@ -17,7 +17,7 @@
       --bg: #E7F0FA;
       --code-bg: #1e2d3d;
       --radius: 10px;
-      --font-body: 'Sora', sans-serif;
+      --font-body: 'Roboto', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
 
@@ -256,8 +256,10 @@
 
     /* ===== DOC CONTENT ===== */
     .doc-content {
-      flex: 1 1 60%;
+      flex: 1 1 100%;
       min-width: 0;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     /* Section reveal animation */
@@ -661,5 +663,31 @@
     @media (max-width: 600px) {
       .hero-stats { gap: 1.25rem; }
       .page-hero { padding: 2.5rem 1rem 1.75rem; }
+    }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.85);
+      margin-top: 2rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 1.25rem 2rem;
+      text-align: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: white;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom { padding: 1rem 1.5rem; }
     }
   

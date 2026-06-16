@@ -6,7 +6,7 @@
   <title>JavaScript In-Depth | Full Stack Development</title>
   <link rel="stylesheet" href="js.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -66,7 +66,7 @@
 
     <!-- Section 1: Variables -->
     <div class="doc-section">
-      <span class="section-number">01 / VARIABLES</span>
+      <span class="section-number">1 / VARIABLES</span>
       <h2>Variable Declarations</h2>
       <p>JavaScript provides three keywords for declaring variables — <code>var</code>, <code>let</code>, and <code>const</code>. Modern JavaScript (ES6+) strongly favors <code>let</code> and <code>const</code> over <code>var</code> due to block scoping and predictable behavior.</p>
 
@@ -121,7 +121,7 @@ student.grade = <span class="num">95</span>;        <span class="cm">// ✅ Allo
 
     <!-- Section 2: Functions -->
     <div class="doc-section">
-      <span class="section-number">02 / FUNCTIONS</span>
+      <span class="section-number">2 / FUNCTIONS</span>
       <h2>Functions & Arrow Functions</h2>
       <p>Functions are reusable blocks of code. JavaScript has multiple syntaxes — traditional function declarations, function expressions, and the modern <strong>arrow function</strong> syntax introduced in ES6.</p>
 
@@ -158,7 +158,7 @@ console.<span class="fn">log</span>(<span class="fn">formatScore</span>(<span cl
 
     <!-- Section 3: DOM Manipulation -->
     <div class="doc-section">
-      <span class="section-number">03 / DOM</span>
+      <span class="section-number">3 / DOM</span>
       <h2>DOM Manipulation</h2>
       <p>The <strong>Document Object Model (DOM)</strong> is a tree-like representation of your HTML that JavaScript can read and modify. This is what makes pages dynamic and interactive.</p>
 
@@ -187,7 +187,7 @@ document.<span class="fn">querySelector</span>(<span class="str">"ul"</span>).<s
 
     <!-- Section 4: Events -->
     <div class="doc-section">
-      <span class="section-number">04 / EVENTS</span>
+      <span class="section-number">4 / EVENTS</span>
       <h2>Event Listeners</h2>
       <p>Events are actions that happen in the browser — clicks, key presses, form submissions, mouse movements. JavaScript responds to these using <code>addEventListener</code>.</p>
 
@@ -222,7 +222,7 @@ document.<span class="fn">querySelector</span>(<span class="str">"form"</span>)
 
     <!-- Section 5: Arrays & Methods -->
     <div class="doc-section">
-      <span class="section-number">05 / ARRAYS</span>
+      <span class="section-number">5 / ARRAYS</span>
       <h2>Arrays & Higher-Order Methods</h2>
       <p>Arrays store ordered collections of data. JavaScript's built-in array methods — <code>map</code>, <code>filter</code>, and <code>reduce</code> — are among the most powerful tools in modern JS.</p>
 
@@ -254,66 +254,6 @@ console.<span class="fn">log</span>(<span class="str">`Average: </span><span cla
     </div>
 
   </main>
-
-  <!-- RIGHT: Live Editor -->
-  <aside class="editor-sidebar">
-    <div class="editor-header">
-      <span>⚡ Live Editor</span>
-      <div class="editor-tabs">
-        <button class="tab-btn active" data-mode="js" onclick="switchMode('js', this)">JS Console</button>
-        <button class="tab-btn" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
-      </div>
-    </div>
-
-    <div class="editor-body">
-      <div class="pane-row">
-        <span class="pane-label" id="input-label">JavaScript</span>
-        <button class="run-btn" id="runBtn" onclick="runCode()">
-          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
-          Run
-        </button>
-      </div>
-
-      <textarea id="code-input" spellcheck="false">// ✏️ Try editing and click Run!
-
-const students = [
-  { name: "Alice", score: 91 },
-  { name: "Bob",   score: 74 },
-  { name: "Carol", score: 88 },
-  { name: "Dan",   score: 67 }
-];
-
-// Filter passing students (score >= 75)
-const passing = students.filter(s => s.score >= 75);
-
-// Log results
-console.log("Total students:", students.length);
-console.log("Passing:", passing.length);
-
-passing.forEach(s => {
-  console.log(`✅ ${s.name}: ${s.score}%`);
-});
-
-// Calculate average
-const avg = students.reduce((sum, s) => sum + s.score, 0) / students.length;
-console.log(`Class average: ${avg.toFixed(1)}%`);
-</textarea>
-
-      <!-- JS Console Output -->
-      <div class="output-pane" id="js-output-pane">
-        <div class="pane-row">
-          <span class="pane-label">Output</span>
-          <button class="run-btn" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="clearOutput()">Clear</button>
-        </div>
-        <div class="output-content" id="output-content">
-          <span class="output-empty">Click ▶ Run to execute your code…</span>
-        </div>
-      </div>
-
-      <!-- HTML Preview iframe (hidden by default) -->
-      <iframe id="live-preview" title="Live HTML Preview"></iframe>
-    </div>
-  </aside>
 
 </div>
 
@@ -369,135 +309,13 @@ console.log(`Class average: ${avg.toFixed(1)}%`);
       observer.observe(s);
     });
   })();
-
-  /* ===== EDITOR LOGIC ===== */
-  let currentMode = 'js';
-
-  function switchMode(mode, btn) {
-    currentMode = mode;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const outputPane = document.getElementById('js-output-pane');
-    const preview = document.getElementById('live-preview');
-    const inputLabel = document.getElementById('input-label');
-    const runBtn = document.getElementById('runBtn');
-
-    if (mode === 'js') {
-      outputPane.style.display = 'flex';
-      preview.style.display = 'none';
-      inputLabel.textContent = 'JavaScript';
-      runBtn.style.display = 'flex';
-      document.getElementById('code-input').value = `// ✏️ Try editing and click Run!
-
-const students = [
-  { name: "Alice", score: 91 },
-  { name: "Bob",   score: 74 },
-  { name: "Carol", score: 88 },
-  { name: "Dan",   score: 67 }
-];
-
-const passing = students.filter(s => s.score >= 75);
-console.log("Total students:", students.length);
-console.log("Passing:", passing.length);
-
-passing.forEach(s => {
-  console.log(\`✅ \${s.name}: \${s.score}%\`);
-});`;
-    } else {
-      outputPane.style.display = 'none';
-      preview.style.display = 'block';
-      inputLabel.textContent = 'HTML';
-      runBtn.style.display = 'none';
-      document.getElementById('code-input').value = `<h1>Hello World!</h1>
-<p>Welcome to the live HTML editor.</p>
-
-<section>
-  <h2>Semantic Tags Demo</h2>
-  <article>
-    <h3>Understanding the DOM</h3>
-    <p>The Document Object Model is a programming interface for web documents.</p>
-  </article>
-</section>`;
-      updateHTMLPreview();
-    }
-    clearOutput();
-  }
-
-  /* JS Console Runner */
-  function runCode() {
-    const code = document.getElementById('code-input').value;
-    const outputEl = document.getElementById('output-content');
-    outputEl.innerHTML = '';
-
-    const logs = [];
-
-    // Override console methods
-    const origLog = console.log;
-    const origError = console.error;
-    const origWarn = console.warn;
-
-    const addLine = (text, type = 'log') => {
-      const line = document.createElement('div');
-      line.className = `output-line ${type}`;
-      line.textContent = text;
-      outputEl.appendChild(line);
-      outputEl.scrollTop = outputEl.scrollHeight;
-    };
-
-    console.log = (...args) => {
-      addLine(args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' '), 'log');
-      origLog(...args);
-    };
-    console.error = (...args) => { addLine('Error: ' + args.join(' '), 'error'); origError(...args); };
-    console.warn = (...args) => { addLine('⚠ ' + args.join(' '), 'warn'); origWarn(...args); };
-
-    try {
-      const result = eval(code);
-      if (result !== undefined) {
-        addLine('↩ ' + (typeof result === 'object' ? JSON.stringify(result) : String(result)), 'result');
-      }
-      if (outputEl.children.length === 0) {
-        addLine('✓ Code ran with no output.', 'info');
-      }
-    } catch (err) {
-      addLine(err.toString(), 'error');
-    } finally {
-      console.log = origLog;
-      console.error = origError;
-      console.warn = origWarn;
-    }
-  }
-
-  function clearOutput() {
-    const el = document.getElementById('output-content');
-    el.innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
-  }
-
-  /* HTML Preview */
-  function updateHTMLPreview() {
-    if (currentMode !== 'html') return;
-    const code = document.getElementById('code-input').value;
-    const iframe = document.getElementById('live-preview');
-    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    const styles = `<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}code{background:#eee;padding:2px 4px;border-radius:4px;}</style>`;
-    iframeDoc.open();
-    iframeDoc.write(styles + code);
-    iframeDoc.close();
-  }
-
-  document.getElementById('code-input').addEventListener('input', () => {
-    if (currentMode === 'html') updateHTMLPreview();
-  });
-
-  // Keyboard shortcut: Ctrl+Enter / Cmd+Enter to run
-  document.getElementById('code-input').addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-      e.preventDefault();
-      if (currentMode === 'js') runCode();
-    }
-  });
 </script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bottom">
+    <p>© 2026 Aakash Subedi · Full-stack Development ePortfolio</p>
+  </div>
+</footer>
 
 </body>
 </html>

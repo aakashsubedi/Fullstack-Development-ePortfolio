@@ -1,149 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Full Stack Development</title>
+  <title>Aakash Subedi | Full Stack Developer Portfolio</title>
+
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<header class="navbar">
-  <div class="nav-container">
-    <a href="#" class="logo">
-    Logo
+  <!-- ============================================================
+     NAVBAR
+============================================================ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">AS.</a>
+
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
+        <li><a href="html.html" class="nav-link">HTML</a></li>
+        <li><a href="css.html" class="nav-link">CSS</a></li>
+        <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+        <li><a href="js.html" class="nav-link">JavaScript</a></li>
+      </ul>
+    </div>
+    <div class="menu-overlay" id="overlay"></div>
+  </header>
+
+
+  <!-- ============================================================
+     HERO SECTION
+============================================================ -->
+  <section class="hero-section" id="hero">
+
+    <!-- Background blobs -->
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+
+    <div class="hero-container">
+
+      <!-- ============================
+         LEFT — Text Content
+    ============================= -->
+      <div class="hero-left">
+
+
+
+
+        <!-- Main Heading -->
+        <h1 class="hero-heading">
+          <span class="heading-accent">Hi, I'm<br>Aakash Subedi</span><br>
+          Junior Full Stack Developer
+        </h1>
+
+        <!-- Subheading -->
+        <p class="hero-subheading">
+          I am a Junior Full Stack Developer passionate about creating responsive, user-friendly, and dynamic web
+          applications. This portfolio demonstrates my understanding of Full Stack Development, HTML, CSS, Bootstrap
+          Framework, and JavaScript through practical examples and interactive demonstrations.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+          <!-- Explore Portfolio dropdown -->
+          <div class="explore-dropdown" id="exploreDropdown">
+            <button class="btn-primary explore-btn" id="exploreBtn" aria-haspopup="true" aria-expanded="false">
+              Explore Topics
+              <svg class="btn-icon explore-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div class="explore-menu" id="exploreMenu" role="menu">
+              <a href="full_stack.html" class="explore-item" role="menuitem">
+                <span class="explore-text">
+                  <span class="explore-title">Full Stack</span>
+                  <span class="explore-desc">Frontend &amp; Backend</span>
+                </span>
+              </a>
+              <a href="html.html" class="explore-item" role="menuitem">
+                <span class="explore-text">
+                  <span class="explore-title">HTML</span>
+                  <span class="explore-desc">Structure &amp; Semantics</span>
+                </span>
+              </a>
+              <a href="css.html" class="explore-item" role="menuitem">
+                <span class="explore-text">
+                  <span class="explore-title">CSS</span>
+                  <span class="explore-desc">Styling &amp; Animations</span>
+                </span>
+              </a>
+              <a href="js.html" class="explore-item" role="menuitem">
+                <span class="explore-text">
+                  <span class="explore-title">JavaScript</span>
+                  <span class="explore-desc">Interactivity &amp; Logic</span>
+                </span>
+              </a>
+              <a href="bootstrap.html" class="explore-item" role="menuitem">
+                <span class="explore-text">
+                  <span class="explore-title">Bootstrap</span>
+                  <span class="explore-desc">UI Framework</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Skills Label -->
+        <p class="skills-label">Tech Stack</p>
+
+        <!-- Skills Tags -->
+        <div class="skills-row">
+          <a style="text-decoration: none;" href="html.html" class="skill-tag">HTML5</a>
+          <a style="text-decoration: none;" href="css.html" class="skill-tag">CSS3</a>
+          <a style="text-decoration: none;" href="bootstrap.html" class="skill-tag">Bootstrap</a>
+          <a style="text-decoration: none;" href="js.html" class="skill-tag">JavaScript</a>
+        </div>
+
+        <!-- Stats Cards -->
+        <!-- <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Portfolio Sections</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">⚡</div>
+            <div class="stat-label">Interactive Examples</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Responsive Design</div>
+          </div>
+        </div> -->
+
+      </div><!-- /hero-left -->
+
+
+      <!-- ============================
+         RIGHT — Illustration
+    ============================= -->
+      <div class="hero-right">
+
+        <!-- Floating Technology Badges -->
+        <!-- <div class="float-badge fb-html">
+        <span class="fb-dot" style="background:#E88C8C"></span>
+        HTML5
+      </div>
+      <div class="float-badge fb-css">
+        <span class="fb-dot" style="background:#86C3E8"></span>
+        CSS3
+      </div>
+      <div class="float-badge fb-js">
+        <span class="fb-dot" style="background:#FEBC2E"></span>
+        JavaScript
+      </div>
+      <div class="float-badge fb-bs">
+        <span class="fb-dot" style="background:#BB9AF7"></span>
+        Bootstrap
+      </div> -->
+
+        <!-- Code Editor Illustration -->
+        <div class="code-editor" role="img" aria-label="Code editor illustration showing portfolio HTML and CSS code">
+
+          <!-- Title Bar -->
+          <div class="editor-titlebar">
+            <span class="traffic-dot td-red" title="Close"></span>
+            <span class="traffic-dot td-yellow" title="Minimise"></span>
+            <span class="traffic-dot td-green" title="Maximise"></span>
+            <div class="editor-tabs">
+              <div class="editor-tab active">index.html</div>
+              <div class="editor-tab">style.css</div>
+            </div>
+          </div>
+
+          <!-- Editor Body -->
+          <div class="editor-body">
+
+            <!-- File Tree -->
+            <div class="file-tree">
+              <div class="tree-title">Explorer</div>
+              <div class="tree-item active"><span class="tree-icon">📄</span>index.html</div>
+              <div class="tree-item"><span class="tree-icon">🎨</span>styles.css</div>
+              <div class="tree-item"><span class="tree-icon">⚡</span>script.js</div>
+              <div class="tree-item"><span class="tree-icon">📦</span>bootstrap.css</div>
+              <div class="tree-item"><span class="tree-icon">📁</span>assets/</div>
+              <div class="tree-item"><span class="tree-icon">📄</span>html.html</div>
+              <div class="tree-item"><span class="tree-icon">📄</span>css.html</div>
+            </div>
+
+            <!-- Code Pane -->
+            <div class="code-pane">
+              <div class="code-line"><span class="ln">1</span><span class="code-text"><span class="t-comment">&lt;!--
+                    ePortfolio Hero --&gt;</span></span></div>
+              <div class="code-line"><span class="ln">2</span><span class="code-text"><span
+                    class="t-tag">&lt;section</span> <span class="t-attr">class</span>=<span
+                    class="t-str">"hero"</span><span class="t-tag">&gt;</span></span></div>
+              <div class="code-line"><span class="ln">3</span><span class="code-text"> <span
+                    class="t-tag">&lt;div</span> <span class="t-attr">class</span>=<span
+                    class="t-str">"container"</span><span class="t-tag">&gt;</span></span></div>
+              <div class="code-line"><span class="ln">4</span><span class="code-text"> <span class="t-tag">&lt;h1</span>
+                  <span class="t-attr">class</span>=<span class="t-str">"heading"</span><span
+                    class="t-tag">&gt;</span></span></div>
+              <div class="code-line"><span class="ln">5</span><span class="code-text"> Aakash Subedi</span></div>
+              <div class="code-line"><span class="ln">6</span><span class="code-text"> <span
+                    class="t-tag">&lt;/h1&gt;</span></span></div>
+              <div class="code-line"><span class="ln">7</span><span class="code-text"> <span
+                    class="t-tag">&lt;/div&gt;</span></span></div>
+              <div class="code-line"><span class="ln">8</span><span class="code-text"><span
+                    class="t-tag">&lt;/section&gt;</span></span></div>
+              <div class="code-line"><span class="ln">9</span><span class="code-text"><span class="t-comment">/*
+                    styles.css */</span></span></div>
+              <div class="code-line"><span class="ln">10</span><span class="code-text"><span class="t-prop">.hero</span>
+                  {</span></div>
+              <div class="code-line"><span class="ln">11</span><span class="code-text"> <span
+                    class="t-prop">background</span>: <span class="t-val">#E7F0FA</span>;</span></div>
+              <div class="code-line"><span class="ln">12</span><span class="code-text"> <span
+                    class="t-prop">display</span>: <span class="t-val">flex</span>;</span></div>
+              <div class="code-line"><span class="ln">13</span><span class="code-text"> <span class="t-prop">gap</span>:
+                  <span class="t-num">2rem</span>;</span></div>
+              <div class="code-line"><span class="ln">14</span><span class="code-text">}<span
+                    class="cursor"></span></span></div>
+            </div>
+
+          </div><!-- /editor-body -->
+
+          <!-- Status Bar -->
+          <div class="editor-statusbar">
+            <span class="status-item">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16" />
+              </svg>
+              HTML
+            </span>
+            <span class="status-item">UTF-8</span>
+            <span class="status-item">Ln 14, Col 2</span>
+            <span class="status-item status-live">
+              <span class="live-dot"></span>
+              Live Preview
+            </span>
+          </div>
+
+        </div><!-- /code-editor -->
+      </div><!-- /hero-right -->
+    </div><!-- /hero-container -->
+
+    <!-- Scroll Indicator -->
+    <a href="#next-section" class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span class="scroll-label">Scroll</span>
     </a>
 
-    <!-- Mobile Menu -->
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
+  </section>
 
-    <!-- Navigation Links -->
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="full_stack.html" class="nav-link">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link">HTML</a></li>
-      <li><a href="css.html" class="nav-link">CSS</a></li>
-      <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
-      <li><a href="js.html" class="nav-link">JavaScript</a></li>
-    </ul>
-  </div>
 
-  <!-- mobile overlay (background dim) -->
-  <div class="menu-overlay" id="overlay"></div>
-</header>
+  <!-- Next section anchor -->
+  <div id="next-section"></div>
 
-<script>
-  // Responsive Navbar logic: toggle menu on hamburger click, close on link click or overlay tap
-  (function() {
-    const menuToggle = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-    // Flag to avoid double toggling events
-    let isMenuOpen = false;
 
-    // Helper: open menu
-    function openMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.add('active');
-      menuToggle.classList.add('active');
-      if (overlay) overlay.classList.add('active');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      isMenuOpen = true;
-      // prevent body scroll when menu open on mobile
-      document.body.style.overflow = 'hidden';
-    }
+  <!-- ============================================================
+     NAVBAR SCRIPT  (from provided index.html)
+============================================================ -->
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('navMenu');
+      const overlay = document.getElementById('overlay');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let isMenuOpen = false;
 
-    // Helper: close menu
-    function closeMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
-      if (overlay) overlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
-
-    // Toggle menu based on current state
-    function toggleMenu() {
-      if (isMenuOpen) {
-        closeMenu();
-      } else {
-        openMenu();
+      function openMenu() {
+        if (!navMenu || !menuToggle) return;
+        navMenu.classList.add('active');
+        menuToggle.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        isMenuOpen = true;
+        document.body.style.overflow = 'hidden';
       }
-    }
 
-    // Event listener for hamburger click
-    if (menuToggle) {
-      menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-    }
-
-    // Close menu when clicking on any nav link (for better UX)
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // only if it's mobile view (menu open) AND we are in responsive mode
-        // but safe: we check if menu is open, then close it and allow navigation
-        if (window.innerWidth <= 768 && isMenuOpen) {
-          // optional: small delay for better feeling? immediate close.
-          closeMenu();
-        }
-        // For active link highlight we can remove active from all and add to current
-        // Simple active state update (just to improve demo)
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        // prevent default if we want to demo but actually keep hash browsing? we don't have sections
-        // but we let href go ahead. For demo no e.preventDefault needed
-      });
-    });
-
-    // Close menu when overlay (background dim) is clicked
-    if (overlay) {
-      overlay.addEventListener('click', () => {
-        if (isMenuOpen) closeMenu();
-      });
-    }
-
-    // Listen to window resize: if window is resized above 768px and menu is open, close and reset
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isMenuOpen) {
-        closeMenu();
-      }
-      // additionally ensure that if desktop mode and menu has active class due to any bug, remove it
-      if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
+      function closeMenu() {
+        if (!navMenu || !menuToggle) return;
         navMenu.classList.remove('active');
-        if(menuToggle) menuToggle.classList.remove('active');
-        if(overlay) overlay.classList.remove('active');
-        document.body.style.overflow = '';
+        menuToggle.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
         isMenuOpen = false;
+        document.body.style.overflow = '';
       }
-    });
 
-    // Escape key closes menu (accessibility)
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
+      if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isMenuOpen ? closeMenu() : openMenu();
+        });
       }
-    });
 
-    // initial check: if any state is inconsistent from start, we sync.
-    // also guarantee that on load if screen is desktop, menu is visible correctly.
-    if (window.innerWidth > 768 && navMenu) {
-      navMenu.classList.remove('active');
-      if(menuToggle) menuToggle.classList.remove('active');
-      if(overlay) overlay.classList.remove('active');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
-  })();
-</script>
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768 && isMenuOpen) closeMenu();
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+
+      if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && isMenuOpen) closeMenu();
+        if (window.innerWidth > 768 && navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          if (menuToggle) menuToggle.classList.remove('active');
+          if (overlay) overlay.classList.remove('active');
+          document.body.style.overflow = '';
+          isMenuOpen = false;
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) closeMenu();
+      });
+
+      if (window.innerWidth > 768 && navMenu) {
+        navMenu.classList.remove('active');
+        if (menuToggle) menuToggle.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        isMenuOpen = false;
+        document.body.style.overflow = '';
+      }
+    })();
+
+    // ---- Explore Portfolio Dropdown ----
+    (function () {
+      const wrapper = document.getElementById('exploreDropdown');
+      const btn = document.getElementById('exploreBtn');
+      const menu = document.getElementById('exploreMenu');
+      if (!wrapper || !btn || !menu) return;
+
+      let closeTimer;
+
+      function openMenu() {
+        clearTimeout(closeTimer);
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+
+      function scheduleClose() {
+        closeTimer = setTimeout(() => {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }, 120);
+      }
+
+      // Hover behaviour
+      wrapper.addEventListener('mouseenter', openMenu);
+      wrapper.addEventListener('mouseleave', scheduleClose);
+
+      // Click / keyboard toggle
+      btn.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('open');
+        isOpen ? scheduleClose() : openMenu();
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target)) {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-bottom">
+      <p>© 2026 Krishna Subedi · Full-stack Development ePortfolio</p>
+    </div>
+  </footer>
 
 </body>
+
 </html>

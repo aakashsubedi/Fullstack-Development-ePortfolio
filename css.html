@@ -6,7 +6,7 @@
   <title>CSS In-Depth | Full Stack Development</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="css.css">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -41,7 +41,7 @@
 
     <!-- 01 SELECTORS -->
     <div class="doc-section">
-      <span class="section-number">01 / SELECTORS</span>
+      <span class="section-number">1 / SELECTORS</span>
       <h2>CSS Selectors</h2>
       <p>CSS selectors determine <em>which</em> HTML elements a rule applies to. They range from simple element names to complex structural expressions. Specificity decides which rule wins when multiple rules target the same element.</p>
 
@@ -131,7 +131,7 @@
 
     <!-- 02 BOX MODEL -->
     <div class="doc-section">
-      <span class="section-number">02 / BOX MODEL</span>
+      <span class="section-number">2 / BOX MODEL</span>
       <h2>The CSS Box Model</h2>
       <p>Every HTML element is a rectangular box made of four concentric layers. Understanding this model is fundamental to controlling layout and spacing.</p>
 
@@ -211,7 +211,7 @@
 
     <!-- 03 FLEXBOX -->
     <div class="doc-section">
-      <span class="section-number">03 / FLEXBOX</span>
+      <span class="section-number">3 / FLEXBOX</span>
       <h2>Flexbox Layout</h2>
       <p>Flexbox is a <strong>one-dimensional</strong> layout model — it handles a row <em>or</em> a column at a time. It excels at distributing space among items and aligning them within a container.</p>
 
@@ -277,7 +277,7 @@
 
     <!-- 04 GRID -->
     <div class="doc-section">
-      <span class="section-number">04 / CSS GRID</span>
+      <span class="section-number">4 / CSS GRID</span>
       <h2>CSS Grid Layout</h2>
       <p>Grid is a <strong>two-dimensional</strong> layout model — it controls rows <em>and</em> columns simultaneously. It is the right choice for page-level structures and complex two-axis layouts.</p>
 
@@ -347,7 +347,7 @@
 
     <!-- 05 RESPONSIVE -->
     <div class="doc-section">
-      <span class="section-number">05 / RESPONSIVE DESIGN</span>
+      <span class="section-number">5 / RESPONSIVE DESIGN</span>
       <h2>Responsive Design &amp; Media Queries</h2>
       <p>Responsive design ensures your page looks and works great on every screen. The core tool is the <strong>media query</strong> — CSS rules that only apply when conditions (like viewport width) are met.</p>
 
@@ -418,81 +418,6 @@
 
   </main><!-- /doc-content -->
 
-  <!-- EDITOR SIDEBAR -->
-  <aside class="editor-sidebar">
-    <div class="editor-header">
-      <span>⚡ Live Editor</span>
-      <div class="editor-tabs">
-        <button class="tab-btn" data-mode="js" onclick="switchMode('js', this)">JS Console</button>
-        <button class="tab-btn active" data-mode="html" onclick="switchMode('html', this)">HTML Preview</button>
-      </div>
-    </div>
-    <div class="editor-body">
-      <div class="pane-row">
-        <span class="pane-label" id="input-label">HTML</span>
-        <button class="run-btn" id="runBtn" onclick="runCode()" style="display:none;">
-          <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg> Run
-        </button>
-      </div>
-      <textarea id="code-input" spellcheck="false"><style>
-  body { font-family: 'Segoe UI', sans-serif; padding: 1rem; }
-
-  /* Selectors */
-  h2         { color: #2E5E99; }
-  .box       { background: #e7f0fa; border-radius: 8px;
-               padding: 16px; border: 1px solid #b6d4fe;
-               margin-bottom: 1rem; }
-  .box:hover { box-shadow: 0 4px 12px rgba(46,94,153,.2); }
-  .box p:first-child { font-weight: 700; }
-
-  /* Box Model */
-  .item {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 16px;
-    border: 2px solid #2E5E99;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    background: #fff;
-  }
-
-  /* Flexbox */
-  .flex-row  { display: flex; gap: 8px; flex-wrap: wrap; }
-  .flex-item { background: #2E5E99; color: #fff;
-               padding: 6px 12px; border-radius: 4px;
-               flex: 1; text-align: center; font-size: .85rem; }
-</style>
-
-<h2>🎨 Try Editing Me!</h2>
-
-<div class="box">
-  <p>Box Model</p>
-  <div class="item">padding: 12px | border: 2px solid</div>
-  <div class="item">box-sizing: border-box applied</div>
-</div>
-
-<div class="box">
-  <p>Flexbox Row</p>
-  <div class="flex-row">
-    <div class="flex-item">A</div>
-    <div class="flex-item">B</div>
-    <div class="flex-item">C</div>
-  </div>
-</div></textarea>
-
-      <div class="output-pane" id="js-output-pane" style="display:none;">
-        <div class="pane-row">
-          <span class="pane-label">Output</span>
-          <button class="run-btn" style="background:rgba(255,255,255,.1);color:#fff;" onclick="clearOutput()">Clear</button>
-        </div>
-        <div class="output-content" id="output-content">
-          <span class="output-empty">Click ▶ Run to execute your code…</span>
-        </div>
-      </div>
-      <iframe id="live-preview" title="Live HTML Preview"></iframe>
-    </div>
-  </aside>
-
 </div><!-- /layout-container -->
 
 <script>
@@ -548,118 +473,13 @@
     highlight();
     window.addEventListener('resize', highlight);
   })();
-
-  /* ── EDITOR ── */
-  let currentMode = 'html';
-
-  function switchMode(mode, btn) {
-    currentMode = mode;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const outPane = document.getElementById('js-output-pane');
-    const preview = document.getElementById('live-preview');
-    const label   = document.getElementById('input-label');
-    const runBtn  = document.getElementById('runBtn');
-    if (mode === 'js') {
-      outPane.style.display = 'flex'; preview.style.display = 'none';
-      label.textContent = 'JavaScript'; runBtn.style.display = 'flex';
-      document.getElementById('code-input').value = `// ✏️ Edit and click ▶ Run!
-
-const selectors = [
-  { type: "Element",  example: "h1 { }",     score: 1    },
-  { type: "Class",    example: ".card { }",   score: 10   },
-  { type: "ID",       example: "#hero { }",   score: 100  },
-  { type: "Inline",   example: "style='…'",   score: 1000 }
-];
-
-console.log("=== CSS Specificity Scores ===");
-selectors.forEach(s => {
-  const bar = "█".repeat(Math.round(s.score / 100) + 1);
-  console.log(\`\${s.type.padEnd(9)}: \${s.example.padEnd(16)} → \${s.score}\`);
-});
-
-const winner = selectors.reduce((a, b) => a.score > b.score ? a : b);
-console.log("\\nHighest specificity:", winner.type, "→", winner.score);`;
-    } else {
-      outPane.style.display = 'none'; preview.style.display = 'block';
-      label.textContent = 'HTML'; runBtn.style.display = 'none';
-      document.getElementById('code-input').value = `<style>
-  body { font-family: 'Segoe UI', sans-serif; padding: 1rem; }
-  h2         { color: #2E5E99; }
-  .box       { background: #e7f0fa; border-radius: 8px;
-               padding: 16px; border: 1px solid #b6d4fe;
-               margin-bottom: 1rem; }
-  .box:hover { box-shadow: 0 4px 12px rgba(46,94,153,.2); }
-  .box p:first-child { font-weight: 700; }
-  .item {
-    width: 100%; box-sizing: border-box;
-    padding: 12px 16px; border: 2px solid #2E5E99;
-    margin-bottom: 8px; border-radius: 6px; background: #fff;
-  }
-  .flex-row  { display: flex; gap: 8px; flex-wrap: wrap; }
-  .flex-item { background: #2E5E99; color: #fff;
-               padding: 6px 12px; border-radius: 4px;
-               flex: 1; text-align: center; font-size: .85rem; }
-</style>
-<h2>🎨 Try Editing Me!</h2>
-<div class="box">
-  <p>Box Model</p>
-  <div class="item">padding: 12px | border: 2px solid</div>
-  <div class="item">box-sizing: border-box applied</div>
-</div>
-<div class="box">
-  <p>Flexbox Row</p>
-  <div class="flex-row">
-    <div class="flex-item">A</div>
-    <div class="flex-item">B</div>
-    <div class="flex-item">C</div>
-  </div>
-</div>`;
-      updateHTMLPreview();
-    }
-    clearOutput();
-  }
-
-  function runCode() {
-    const code = document.getElementById('code-input').value;
-    const out = document.getElementById('output-content');
-    out.innerHTML = '';
-    const addLine = (txt, cls = 'log') => {
-      const d = document.createElement('div');
-      d.className = `output-line ${cls}`;
-      d.textContent = txt;
-      out.appendChild(d);
-      out.scrollTop = out.scrollHeight;
-    };
-    const oLog = console.log, oErr = console.error, oWarn = console.warn;
-    console.log  = (...a) => { addLine(a.map(x => typeof x === 'object' ? JSON.stringify(x,null,2) : String(x)).join(' ')); oLog(...a); };
-    console.error= (...a) => { addLine('Error: '+a.join(' '),'error'); oErr(...a); };
-    console.warn = (...a) => { addLine('⚠ '+a.join(' '),'warn'); oWarn(...a); };
-    try {
-      const r = eval(code);
-      if (r !== undefined) addLine('↩ '+(typeof r==='object'?JSON.stringify(r):String(r)),'result');
-      if (!out.children.length) addLine('✓ Code ran with no output.','info');
-    } catch(e) { addLine(e.toString(),'error'); }
-    finally { console.log=oLog; console.error=oErr; console.warn=oWarn; }
-  }
-
-  function clearOutput() {
-    document.getElementById('output-content').innerHTML = '<span class="output-empty">Click ▶ Run to execute your code…</span>';
-  }
-
-  function updateHTMLPreview() {
-    if (currentMode !== 'html') return;
-    const code = document.getElementById('code-input').value;
-    const frame = document.getElementById('live-preview');
-    const doc = frame.contentDocument || frame.contentWindow.document;
-    doc.open();
-    doc.write(`<style>body{font-family:system-ui,sans-serif;color:#333;padding:1rem;margin:0;line-height:1.5;}h1,h2,h3{color:#2E5E99;}</style>${code}`);
-    doc.close();
-  }
-
-  document.getElementById('code-input').addEventListener('input', () => { if (currentMode === 'html') updateHTMLPreview(); });
-  document.getElementById('code-input').addEventListener('keydown', e => { if ((e.ctrlKey||e.metaKey) && e.key==='Enter') { e.preventDefault(); if (currentMode==='js') runCode(); } });
-  updateHTMLPreview();
 </script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bottom">
+    <p>© 2026 Aakash Subedi · Full-stack Development ePortfolio</p>
+  </div>
+</footer>
+
 </body>
 </html>

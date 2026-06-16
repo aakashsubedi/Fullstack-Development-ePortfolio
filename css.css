@@ -16,7 +16,7 @@
       --bg:             #E7F0FA;
       --code-bg:        #1e2d3d;
       --radius:         10px;
-      --font-body:      'Sora', sans-serif;
+      --font-body:      'Roboto', sans-serif;
       --font-mono:      'JetBrains Mono', monospace;
     }
 
@@ -106,11 +106,11 @@
       max-width: 1300px; margin: 0 auto;
       padding: 2.5rem 2rem;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr;
       gap: 2.5rem;
       align-items: start;
     }
-    .doc-content { min-width: 0; }
+    .doc-content { min-width: 0; max-width: 900px; margin: 0 auto; width: 100%; }
 
     /* ============================================================
        SECTION REVEAL
@@ -453,8 +453,7 @@
       .menu-overlay { display: none !important; }
     }
     @media (max-width: 1024px) {
-      .layout-container { grid-template-columns: 1fr; padding: 1.5rem 1.5rem; }
-      .editor-sidebar { position: static; height: 700px; }
+      .layout-container { padding: 1.5rem 1.5rem; }
       .before-after { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
@@ -470,4 +469,30 @@
       .logo { font-size: 1.35rem; }
       .nav-menu { width: 85%; padding: 5rem 1.5rem 2rem; }
       .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SITE FOOTER ===== */
+    .site-footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.85);
+      margin-top: 2rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 1.25rem 2rem;
+      text-align: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: white;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom { padding: 1rem 1.5rem; }
     }

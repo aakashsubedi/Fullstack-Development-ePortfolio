@@ -1,503 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Full Stack Development</title>
   <link rel="stylesheet" href="full_stack.css">
 </head>
+
 <body>
 
-<!-- ══════════════════ NAVBAR ══════════════════════════════════ -->
-<header class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">Logo</a>
+  <!-- ══════════════════ NAVBAR ══════════════════════════════════ -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Logo</a>
 
-    <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
 
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="full_stack.html" class="nav-link active">Full Stack Development</a></li>
-      <li><a href="html.html" class="nav-link">HTML</a></li>
-      <li><a href="css.html" class="nav-link">CSS</a></li>
-      <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
-      <li><a href="js.html" class="nav-link">JavaScript</a></li>
-    </ul>
-  </div>
-  <div class="menu-overlay" id="overlay"></div>
-</header>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="full_stack.html" class="nav-link active">Full Stack Development</a></li>
+        <li><a href="html.html" class="nav-link">HTML</a></li>
+        <li><a href="css.html" class="nav-link">CSS</a></li>
+        <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+        <li><a href="js.html" class="nav-link">JavaScript</a></li>
+      </ul>
+    </div>
+    <div class="menu-overlay" id="overlay"></div>
+  </header>
 
-<!-- ══════════════════ HERO ══════════════════════════════════════ -->
-<section class="hero">
-  <!-- <div class="hero-badge">Assignment</div> -->
-  <h1>What is Full Stack <br>Development?</h1>
-  <p>Frontend, backend, and database a complete  web application development.</p>
-  <!-- <div class="hero-meta">
+  <!-- ══════════════════ HERO ══════════════════════════════════════ -->
+  <section class="hero">
+    <!-- <div class="hero-badge">Assignment</div> -->
+    <h1>What is Full Stack <br>Development?</h1>
+    <p>Frontend, backend and database a complete web application development.</p>
+    <!-- <div class="hero-meta">
     <span>Subject: Full Stack Development</span>
     <span>Topics: HTML · CSS · JS · PHP · SQL</span>
   </div> -->
-</section>
-
-<!-- ══════════════════ PAGE CONTENT ══════════════════════════════ -->
-<main class="page-wrapper">
-
-  <!-- 1. DEFINITION -->
-  <section id="what">
-    <div class="sec-label">Section 01</div>
-    <h2 class="sec-title">What is Full Stack Development?</h2>
-    <p class="sec-desc">Understanding the complete picture of how websites and web applications are built.</p>
-
-    <br>
-    <div class="definition-card">
-      <p>
-        <strong>Full Stack Development</strong> refers to the practice of developing both the
-        <strong>frontend</strong> (what the user sees in their browser) and the
-        <strong>backend</strong> (the server-side logic and processing), along with
-        <strong>database management</strong> — all together as one complete web solution.
-        A <em>Full Stack Developer</em> has knowledge and skills across all three layers of a web application,
-        enabling them to build and maintain an entire project from start to finish.
-      </p>
-    </div>
-
-    <br>
-    <div class="definition-card" style="border-color: var(--accent); margin-top:0;">
-      <p>
-        Think of a restaurant: The <strong>frontend</strong> is the dining area — what customers see and interact with.
-        The <strong>backend</strong> is the kitchen — where the food is prepared (data is processed).
-        The <strong>database</strong> is the pantry — where all the ingredients (data) are stored.
-        A full stack developer manages all three.
-      </p>
-    </div>
   </section>
 
-  <!-- 2. THREE LAYERS -->
-  <section id="frontend">
-    <div class="sec-label">Section 02</div>
-    <h2 class="sec-title">The Three Layers of a Web Application</h2>
-    <p class="sec-desc">Every web application is built on three main layers that each play a distinct role.</p>
-    <br>
-    <div class="layers-grid">
+  <!-- ══════════════════ PAGE CONTENT ══════════════════════════════ -->
+  <main class="page-wrapper">
 
-      <!-- Frontend -->
-      <div class="layer-card">
-        <div class="layer-header">
-          <div class="layer-icon fe">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E5E99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <!-- 1. DEFINITION -->
+    <section id="what">
+      <div class="sec-label">Section 01</div>
+      <h2 class="sec-title">What is Full Stack Development?</h2>
+      <p class="sec-desc">Understanding the complete picture of how websites and web applications are built.</p>
+
+      <br>
+      <div class="definition-card">
+        <p>
+          <strong>Full Stack Development</strong> refers to the practice of developing both the
+          <strong>frontend</strong> (what the user sees in their browser) and the
+          <strong>backend</strong> (the server-side logic and processing), along with
+          <strong>database management</strong> — all together as one complete web solution.
+          A <em>Full Stack Developer</em> has knowledge and skills across all three layers of a web application,
+          enabling them to build and maintain an entire project from start to finish.
+        </p>
+      </div>
+
+      <br>
+      <div class="definition-card" style="border-color: var(--accent); margin-top:0;">
+        <p>
+          Think of a restaurant: The <strong>frontend</strong> is the dining area — what customers see and interact
+          with.
+          The <strong>backend</strong> is the kitchen — where the food is prepared (data is processed).
+          The <strong>database</strong> is the pantry — where all the ingredients (data) are stored.
+          A full stack developer manages all three.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. THREE LAYERS -->
+    <section id="frontend">
+      <div class="sec-label">Section 02</div>
+      <h2 class="sec-title">The Three Layers of a Web Application</h2>
+      <p class="sec-desc">Every web application is built on three main layers that each play a distinct role.</p>
+      <br>
+      <div class="layers-grid">
+
+        <!-- Frontend -->
+        <div class="layer-card">
+          <div class="layer-header">
+            <div class="layer-icon fe">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2E5E99" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div>
+              <div class="tag fe">Layer 1</div>
+              <h3>Frontend</h3>
+            </div>
           </div>
-          <div>
-            <div class="tag fe">Layer 1</div>
-            <h3>Frontend</h3>
+          <div class="layer-body">
+            <p>The frontend is everything the user directly sees and interacts with in their web browser. It is built
+              using three core technologies:</p>
+            <div class="tech-chips">
+              <span class="chip fe">HTML</span>
+              <span class="chip fe">CSS</span>
+              <span class="chip fe">JavaScript</span>
+            </div>
+            <ul class="layer-list" style="margin-top:1rem;">
+              <li><strong>HTML</strong> – Creates the structure and content (headings, paragraphs, buttons, forms).</li>
+              <li><strong>CSS</strong> – Styles the page: colors, fonts, layout, and responsiveness.</li>
+              <li><strong>JavaScript</strong> – Adds interactivity: click events, animations, form validation, API
+                calls.</li>
+            </ul>
           </div>
         </div>
-        <div class="layer-body">
-          <p>The frontend is everything the user directly sees and interacts with in their web browser. It is built using three core technologies:</p>
-          <div class="tech-chips">
-            <span class="chip fe">HTML</span>
-            <span class="chip fe">CSS</span>
-            <span class="chip fe">JavaScript</span>
-          </div>
-          <ul class="layer-list" style="margin-top:1rem;">
-            <li><strong>HTML</strong> – Creates the structure and content (headings, paragraphs, buttons, forms).</li>
-            <li><strong>CSS</strong> – Styles the page: colors, fonts, layout, and responsiveness.</li>
-            <li><strong>JavaScript</strong> – Adds interactivity: click events, animations, form validation, API calls.</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Backend -->
-      <div class="layer-card" id="backend">
-        <div class="layer-header">
-          <div class="layer-icon be">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        <!-- Backend -->
+        <div class="layer-card" id="backend">
+          <div class="layer-header">
+            <div class="layer-icon be">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#065f46" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                <path d="M4.93 4.93a10 10 0 0 0 0 14.14" />
+              </svg>
+            </div>
+            <div>
+              <div class="tag be">Layer 2</div>
+              <h3>Backend</h3>
+            </div>
           </div>
-          <div>
-            <div class="tag be">Layer 2</div>
-            <h3>Backend</h3>
-          </div>
-        </div>
-        <div class="layer-body">
-          <p>The backend is the server-side of the application — invisible to the user but essential. It handles business logic, authentication, and communication with the database.</p>
-          <div class="tech-chips">
-            <span class="chip be">PHP</span>
-            <span class="chip be">Apache / Nginx</span>
-            <span class="chip be">REST API</span>
-          </div>
-          <ul class="layer-list" style="margin-top:1rem;">
-            <li>Receives requests sent from the browser (frontend).</li>
-            <li>Processes the data and applies business rules.</li>
-            <li>Talks to the database to read or write data.</li>
-            <li>Sends a response back to the browser.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Database -->
-      <div class="layer-card" id="database">
-        <div class="layer-header">
-          <div class="layer-icon db">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          </div>
-          <div>
-            <div class="tag db">Layer 3</div>
-            <h3>Database</h3>
+          <div class="layer-body">
+            <p>The backend is the server-side of the application — invisible to the user but essential. It handles
+              business logic, authentication, and communication with the database.</p>
+            <div class="tech-chips">
+              <span class="chip be">PHP</span>
+              <span class="chip be">Apache / Nginx</span>
+              <span class="chip be">REST API</span>
+            </div>
+            <ul class="layer-list" style="margin-top:1rem;">
+              <li>Receives requests sent from the browser (frontend).</li>
+              <li>Processes the data and applies business rules.</li>
+              <li>Talks to the database to read or write data.</li>
+              <li>Sends a response back to the browser.</li>
+            </ul>
           </div>
         </div>
-        <div class="layer-body">
-          <p>The database is where all data is permanently stored and organised. SQL (Structured Query Language) is used to communicate with relational databases like MySQL.</p>
-          <div class="tech-chips">
-            <span class="chip db">MySQL</span>
-            <span class="chip db">SQL</span>
-            <span class="chip db">Tables / Rows</span>
+
+        <!-- Database -->
+        <div class="layer-card" id="database">
+          <div class="layer-header">
+            <div class="layer-icon db">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <div>
+              <div class="tag db">Layer 3</div>
+              <h3>Database</h3>
+            </div>
           </div>
-          <ul class="layer-list" style="margin-top:1rem;">
-            <li><strong>SELECT</strong> – Retrieve data from a table.</li>
-            <li><strong>INSERT</strong> – Add new data records.</li>
-            <li><strong>UPDATE</strong> – Modify existing records.</li>
-            <li><strong>DELETE</strong> – Remove records from the database.</li>
-          </ul>
+          <div class="layer-body">
+            <p>The database is where all data is permanently stored and organised. SQL (Structured Query Language) is
+              used to communicate with relational databases like MySQL.</p>
+            <div class="tech-chips">
+              <span class="chip db">MySQL</span>
+              <span class="chip db">SQL</span>
+              <span class="chip db">Tables / Rows</span>
+            </div>
+            <ul class="layer-list" style="margin-top:1rem;">
+              <li><strong>SELECT</strong> – Retrieve data from a table.</li>
+              <li><strong>INSERT</strong> – Add new data records.</li>
+              <li><strong>UPDATE</strong> – Modify existing records.</li>
+              <li><strong>DELETE</strong> – Remove records from the database.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. ARCHITECTURE DIAGRAM -->
+    <section>
+      <div class="sec-label">Section 03</div>
+      <h2 class="sec-title">Architecture Diagram</h2>
+      <p class="sec-desc">How the three layers connect and communicate with each other.</p>
+      <br>
+
+      <div class="diagram-wrap">
+        <h3>Full Stack Architecture — How the Layers Connect</h3>
+        <svg class="arch-svg" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img"
+          aria-label="Full Stack Architecture Diagram">
+
+          <!-- background -->
+          <rect width="860" height="420" fill="#f8fbff" rx="12" />
+
+          <!-- USER -->
+          <g>
+            <circle cx="80" cy="210" r="38" fill="#dbeafe" stroke="#2E5E99" stroke-width="2" />
+            <text x="80" y="215" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#2E5E99"
+              font-weight="700">USER</text>
+            <text x="80" y="262" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10"
+              fill="#556677">Browser</text>
+          </g>
+
+          <!-- arrow user→frontend -->
+          <line x1="118" y1="210" x2="190" y2="210" stroke="#2E5E99" stroke-width="2" stroke-dasharray="5,3"
+            marker-end="url(#arr)" />
+          <text x="154" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9"
+            fill="#556677">HTTP Request</text>
+
+          <!-- FRONTEND BOX -->
+          <g>
+            <rect x="194" y="130" width="160" height="160" rx="12" fill="#dbeafe" stroke="#2E5E99" stroke-width="2" />
+            <text x="274" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#1e4070"
+              font-weight="700">FRONTEND</text>
+            <rect x="210" y="170" width="128" height="26" rx="6" fill="#2E5E99" />
+            <text x="274" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">HTML</text>
+            <rect x="210" y="202" width="128" height="26" rx="6" fill="#2E5E99" opacity=".8" />
+            <text x="274" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">CSS</text>
+            <rect x="210" y="234" width="128" height="26" rx="6" fill="#2E5E99" opacity=".6" />
+            <text x="274" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">JavaScript</text>
+          </g>
+
+          <!-- arrow frontend→backend -->
+          <line x1="354" y1="210" x2="424" y2="210" stroke="#065f46" stroke-width="2" stroke-dasharray="5,3"
+            marker-end="url(#arr2)" />
+          <text x="389" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#065f46">PHP
+            Request</text>
+
+          <!-- BACKEND BOX -->
+          <g>
+            <rect x="428" y="130" width="160" height="160" rx="12" fill="#d1fae5" stroke="#065f46" stroke-width="2" />
+            <text x="508" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#064e3b"
+              font-weight="700">BACKEND</text>
+            <rect x="444" y="170" width="128" height="26" rx="6" fill="#065f46" />
+            <text x="508" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">PHP Script</text>
+            <rect x="444" y="202" width="128" height="26" rx="6" fill="#065f46" opacity=".8" />
+            <text x="508" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">Server Logic</text>
+            <rect x="444" y="234" width="128" height="26" rx="6" fill="#065f46" opacity=".6" />
+            <text x="508" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">Authentication</text>
+          </g>
+
+          <!-- arrow backend→database -->
+          <line x1="588" y1="210" x2="658" y2="210" stroke="#92400e" stroke-width="2" stroke-dasharray="5,3"
+            marker-end="url(#arr3)" />
+          <text x="623" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#92400e">SQL
+            Query</text>
+
+          <!-- DATABASE BOX -->
+          <g>
+            <rect x="662" y="130" width="160" height="160" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+            <text x="742" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#78350f"
+              font-weight="700">DATABASE</text>
+            <rect x="678" y="170" width="128" height="26" rx="6" fill="#d97706" />
+            <text x="742" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">MySQL Tables</text>
+            <rect x="678" y="202" width="128" height="26" rx="6" fill="#d97706" opacity=".8" />
+            <text x="742" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">SELECT / INSERT</text>
+            <rect x="678" y="234" width="128" height="26" rx="6" fill="#d97706" opacity=".6" />
+            <text x="742" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11"
+              fill="#fff">Data Storage</text>
+          </g>
+
+          <!-- return arrow -->
+          <path d="M742 290 Q742 360 508 360 Q390 360 274 360 Q160 360 80 290" fill="none" stroke="#2E5E99"
+            stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrR)" />
+          <text x="430" y="385" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10"
+            fill="#2E5E99">Response sent back to User (HTML / JSON)</text>
+
+          <!-- arrowhead markers -->
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+              orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#2E5E99" />
+            </marker>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+              orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#065f46" />
+            </marker>
+            <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+              orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#92400e" />
+            </marker>
+            <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+              orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#2E5E99" />
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 4. EXAMPLE PROJECT -->
+    <section>
+      <div class="sec-label">Section 04</div>
+      <h2 class="sec-title">Example: Student Registration Form</h2>
+      <p class="sec-desc">Let's see how all three layers work together in a real, simple project — a student
+        registration form.</p>
+      <br>
+
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h4>Frontend — The HTML Form</h4>
+          <p>The user sees and fills in a form with their name, email, and student ID.</p>
+          <div class="code-block"><span class="cm">&lt;!-- HTML Form --&gt;</span>
+            &lt;<span class="kw">form</span> <span class="var">action</span>=<span class="str">"register.php"</span>
+            <span class="var">method</span>=<span class="str">"POST"</span>&gt;
+            &lt;<span class="kw">input</span> <span class="var">name</span>=<span class="str">"name"</span>
+            <span class="var">placeholder</span>=<span class="str">"Your Name"</span>&gt;
+            &lt;<span class="kw">input</span> <span class="var">name</span>=<span class="str">"email"</span>
+            <span class="var">type</span>=<span class="str">"email"</span>&gt;
+            &lt;<span class="kw">button</span>&gt;Register&lt;/<span class="kw">button</span>&gt;
+            &lt;/<span class="kw">form</span>&gt;
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>Backend — The PHP Script</h4>
+          <p>PHP receives the form data, validates it, and saves it to the database.</p>
+          <div class="code-block"><span class="cm">// register.php (Backend)</span>
+            <span class="kw">$name</span> = <span class="fn">$_POST</span>[<span class="str">'name'</span>];
+            <span class="kw">$email</span> = <span class="fn">$_POST</span>[<span class="str">'email'</span>];
+
+            <span class="cm">// Connect to DB</span>
+            <span class="kw">$conn</span> = <span class="fn">mysqli_connect</span>(
+            <span class="str">"localhost"</span>,<span class="str">"root"</span>,<span class="str">""</span>,<span
+              class="str">"uni"</span>
+            );
+
+            <span class="cm">// Insert into DB</span>
+            <span class="kw">$sql</span> = <span class="str">"INSERT INTO students
+              (name, email)
+              VALUES ('$name','$email')"</span>;
+            <span class="fn">mysqli_query</span>(<span class="kw">$conn</span>, <span class="kw">$sql</span>);
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>Database — MySQL Table</h4>
+          <p>Data is stored permanently in an SQL table inside the MySQL database.</p>
+          <div class="code-block"><span class="cm">-- Create the table</span>
+            <span class="kw">CREATE TABLE</span> students (
+            id <span class="fn">INT</span> <span class="kw">AUTO_INCREMENT</span>
+            <span class="kw">PRIMARY KEY</span>,
+            name <span class="fn">VARCHAR</span>(100),
+            email <span class="fn">VARCHAR</span>(100)
+            );
+
+            <span class="cm">-- View stored records</span>
+            <span class="kw">SELECT</span> * <span class="kw">FROM</span> students;
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. DATA FLOW -->
+    <section id="flow">
+      <div class="sec-label">Section 05</div>
+      <h2 class="sec-title">How Data Flows:</h2>
+      <p class="sec-desc">When a user submits a form, here is exactly what happens — from click to response.</p>
+      <br>
+
+      <div class="flow-steps">
+
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>User Fills &amp; Submits the Form (Frontend)</h4>
+            <p>The user types their name and email in the HTML form and clicks <em>Submit</em>. JavaScript can validate
+              the fields first (e.g., check the email format is correct). Then the browser packages the data and sends
+              an <strong>HTTP POST request</strong> to the server.</p>
+            <div class="step-code">POST /register.php → name=Ali&amp;email=ali@uni.edu</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Server Receives the Request (Backend — PHP)</h4>
+            <p>The web server (Apache/Nginx) receives the request and hands it to the <strong>PHP script</strong>. PHP
+              reads the submitted data, applies business logic (validation, security checks), and prepares an SQL query
+              to store or retrieve the data.</p>
+            <div class="step-code">$name = $_POST['name']; // "Ali"
+              $email = $_POST['email']; // "ali@uni.edu"</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Data is Stored in the Database (MySQL / SQL)</h4>
+            <p>PHP sends an <strong>SQL INSERT query</strong> to the MySQL database. The database validates the query,
+              writes the record to the correct table, and confirms success back to PHP.</p>
+            <div class="step-code">INSERT INTO students (name, email)
+              VALUES ('Ali', 'ali@uni.edu');
+              -- Database confirms: 1 row inserted</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Response Sent Back to the User (Backend to Frontend)</h4>
+            <p>PHP generates an HTML response (e.g., a success message page or JSON data) and sends it back through the
+              server. The browser receives it and displays the result to the user — the full cycle is complete.</p>
+            <div class="step-code">echo "Registration successful! Welcome, $name.";</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BONUS BOX -->
+    <section>
+      <div class="bonus-box">
+        <h3>Bonus: The Complete Request–Response Cycle</h3>
+        <p>Here is the entire journey of a form submission visualised as a simple flow:</p>
+        <div class="bonus-flow">
+          <div class="bf-step">User submits form</div>
+          <div class="bf-arrow">→</div>
+          <div class="bf-step">HTTP POST Request</div>
+          <div class="bf-arrow">→</div>
+          <div class="bf-step">PHP processes data</div>
+          <div class="bf-arrow">→</div>
+          <div class="bf-step">SQL saves to DB</div>
+          <div class="bf-arrow">→</div>
+          <div class="bf-step">Response sent back</div>
+          <div class="bf-arrow">→</div>
+          <div class="bf-step">User sees success</div>
+        </div>
+        <div class="bonus-detail">
+          <strong style="font-size:.95rem;">Why does this matter?</strong>
+          <ol style="margin-top:.6rem;">
+            <li>The <strong>frontend</strong> never directly touches the database — it always goes through the backend.
+              This keeps data secure.</li>
+            <li>The <strong>backend</strong> acts as a gatekeeper, validating and sanitising data before it is stored.
+            </li>
+            <li>The <strong>database</strong> only accepts properly formatted SQL queries — it does not care about HTML
+              or JS.</li>
+            <li>This separation of concerns makes full stack applications easier to maintain, scale, and secure.</li>
+          </ol>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- 3. ARCHITECTURE DIAGRAM -->
-  <section>
-    <div class="sec-label">Section 03</div>
-    <h2 class="sec-title">Architecture Diagram</h2>
-    <p class="sec-desc">How the three layers connect and communicate with each other.</p>
-    <br>
-
-    <div class="diagram-wrap">
-      <h3>Full Stack Architecture — How the Layers Connect</h3>
-      <svg class="arch-svg" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Full Stack Architecture Diagram">
-
-        <!-- background -->
-        <rect width="860" height="420" fill="#f8fbff" rx="12"/>
-
-        <!-- USER -->
-        <g>
-          <circle cx="80" cy="210" r="38" fill="#dbeafe" stroke="#2E5E99" stroke-width="2"/>
-          <text x="80" y="215" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#2E5E99" font-weight="700">USER</text>
-          <text x="80" y="262" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#556677">Browser</text>
-        </g>
-
-        <!-- arrow user→frontend -->
-        <line x1="118" y1="210" x2="190" y2="210" stroke="#2E5E99" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
-        <text x="154" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#556677">HTTP Request</text>
-
-        <!-- FRONTEND BOX -->
-        <g>
-          <rect x="194" y="130" width="160" height="160" rx="12" fill="#dbeafe" stroke="#2E5E99" stroke-width="2"/>
-          <text x="274" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#1e4070" font-weight="700">FRONTEND</text>
-          <rect x="210" y="170" width="128" height="26" rx="6" fill="#2E5E99"/>
-          <text x="274" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">HTML</text>
-          <rect x="210" y="202" width="128" height="26" rx="6" fill="#2E5E99" opacity=".8"/>
-          <text x="274" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">CSS</text>
-          <rect x="210" y="234" width="128" height="26" rx="6" fill="#2E5E99" opacity=".6"/>
-          <text x="274" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">JavaScript</text>
-        </g>
-
-        <!-- arrow frontend→backend -->
-        <line x1="354" y1="210" x2="424" y2="210" stroke="#065f46" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr2)"/>
-        <text x="389" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#065f46">PHP Request</text>
-
-        <!-- BACKEND BOX -->
-        <g>
-          <rect x="428" y="130" width="160" height="160" rx="12" fill="#d1fae5" stroke="#065f46" stroke-width="2"/>
-          <text x="508" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#064e3b" font-weight="700">BACKEND</text>
-          <rect x="444" y="170" width="128" height="26" rx="6" fill="#065f46"/>
-          <text x="508" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">PHP Script</text>
-          <rect x="444" y="202" width="128" height="26" rx="6" fill="#065f46" opacity=".8"/>
-          <text x="508" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">Server Logic</text>
-          <rect x="444" y="234" width="128" height="26" rx="6" fill="#065f46" opacity=".6"/>
-          <text x="508" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">Authentication</text>
-        </g>
-
-        <!-- arrow backend→database -->
-        <line x1="588" y1="210" x2="658" y2="210" stroke="#92400e" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr3)"/>
-        <text x="623" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#92400e">SQL Query</text>
-
-        <!-- DATABASE BOX -->
-        <g>
-          <rect x="662" y="130" width="160" height="160" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-          <text x="742" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#78350f" font-weight="700">DATABASE</text>
-          <rect x="678" y="170" width="128" height="26" rx="6" fill="#d97706"/>
-          <text x="742" y="188" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">MySQL Tables</text>
-          <rect x="678" y="202" width="128" height="26" rx="6" fill="#d97706" opacity=".8"/>
-          <text x="742" y="220" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">SELECT / INSERT</text>
-          <rect x="678" y="234" width="128" height="26" rx="6" fill="#d97706" opacity=".6"/>
-          <text x="742" y="252" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">Data Storage</text>
-        </g>
-
-        <!-- return arrow -->
-        <path d="M742 290 Q742 360 508 360 Q390 360 274 360 Q160 360 80 290" fill="none" stroke="#2E5E99" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrR)"/>
-        <text x="430" y="385" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#2E5E99">Response sent back to User (HTML / JSON)</text>
-
-        <!-- arrowhead markers -->
-        <defs>
-          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#2E5E99"/>
-          </marker>
-          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#065f46"/>
-          </marker>
-          <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#92400e"/>
-          </marker>
-          <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#2E5E99"/>
-          </marker>
-        </defs>
-      </svg>
-    </div>
-  </section>
-
-  <!-- 4. EXAMPLE PROJECT -->
-  <section>
-    <div class="sec-label">Section 04</div>
-    <h2 class="sec-title">Example: Student Registration Form</h2>
-    <p class="sec-desc">Let's see how all three layers work together in a real, simple project — a student registration form.</p>
-    <br>
-
-    <div class="project-grid">
-
-      <div class="project-card">
-        <h4>Frontend — The HTML Form</h4>
-        <p>The user sees and fills in a form with their name, email, and student ID.</p>
-        <div class="code-block"><span class="cm">&lt;!-- HTML Form --&gt;</span>
-&lt;<span class="kw">form</span> <span class="var">action</span>=<span class="str">"register.php"</span>
-      <span class="var">method</span>=<span class="str">"POST"</span>&gt;
-  &lt;<span class="kw">input</span> <span class="var">name</span>=<span class="str">"name"</span>
-         <span class="var">placeholder</span>=<span class="str">"Your Name"</span>&gt;
-  &lt;<span class="kw">input</span> <span class="var">name</span>=<span class="str">"email"</span>
-         <span class="var">type</span>=<span class="str">"email"</span>&gt;
-  &lt;<span class="kw">button</span>&gt;Register&lt;/<span class="kw">button</span>&gt;
-&lt;/<span class="kw">form</span>&gt;</div>
+    <!-- SUMMARY TABLE -->
+    <section>
+      <div class="sec-label">Summary</div>
+      <h2 class="sec-title">Quick Reference Table</h2>
+      <p class="sec-desc">A comparison of all three layers at a glance.</p>
+      <br>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Technologies</th>
+              <th>Role</th>
+              <th>Where it Runs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend</td>
+              <td>HTML, CSS, JavaScript</td>
+              <td>User interface — what people see and click</td>
+              <td>Browser (Client Side)</td>
+            </tr>
+            <tr>
+              <td>Backend</td>
+              <td>PHP, Apache/Nginx</td>
+              <td>Business logic — processes requests and data</td>
+              <td>Web Server (Server Side)</td>
+            </tr>
+            <tr>
+              <td>Database</td>
+              <td>MySQL, SQL</td>
+              <td>Data storage — stores and retrieves all records</td>
+              <td>Database Server</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </section>
 
-      <div class="project-card">
-        <h4>Backend — The PHP Script</h4>
-        <p>PHP receives the form data, validates it, and saves it to the database.</p>
-        <div class="code-block"><span class="cm">// register.php (Backend)</span>
-<span class="kw">$name</span>  = <span class="fn">$_POST</span>[<span class="str">'name'</span>];
-<span class="kw">$email</span> = <span class="fn">$_POST</span>[<span class="str">'email'</span>];
-
-<span class="cm">// Connect to DB</span>
-<span class="kw">$conn</span> = <span class="fn">mysqli_connect</span>(
-  <span class="str">"localhost"</span>,<span class="str">"root"</span>,<span class="str">""</span>,<span class="str">"uni"</span>
-);
-
-<span class="cm">// Insert into DB</span>
-<span class="kw">$sql</span> = <span class="str">"INSERT INTO students
-  (name, email)
-  VALUES ('$name','$email')"</span>;
-<span class="fn">mysqli_query</span>(<span class="kw">$conn</span>, <span class="kw">$sql</span>);</div>
+    <!-- CONCLUSION -->
+    <section>
+      <div class="conclusion">
+        <h3>Conclusion</h3>
+        <p>Full Stack Development is the practice of working across all three layers of a web application — the
+          <strong>Frontend</strong>, <strong>Backend</strong>, and <strong>Database</strong> — to deliver a complete,
+          functional product.</p>
+        <p>Using <strong>HTML, CSS, and JavaScript</strong> on the frontend, <strong>PHP</strong> on the backend, and
+          <strong>MySQL (SQL)</strong> for the database, a full stack developer can build everything from a simple
+          registration form to a complex web platform.</p>
+        <p>Understanding how these layers communicate — through HTTP requests, PHP scripts, and SQL queries — is the
+          foundation of modern web development.</p>
       </div>
+    </section>
 
-      <div class="project-card">
-        <h4>Database — MySQL Table</h4>
-        <p>Data is stored permanently in an SQL table inside the MySQL database.</p>
-        <div class="code-block"><span class="cm">-- Create the table</span>
-<span class="kw">CREATE TABLE</span> students (
-  id    <span class="fn">INT</span> <span class="kw">AUTO_INCREMENT</span>
-        <span class="kw">PRIMARY KEY</span>,
-  name  <span class="fn">VARCHAR</span>(100),
-  email <span class="fn">VARCHAR</span>(100)
-);
+  </main>
 
-<span class="cm">-- View stored records</span>
-<span class="kw">SELECT</span> * <span class="kw">FROM</span> students;</div>
-      </div>
+  <!-- ══════════════════ NAVBAR SCRIPT ══════════════════════════ -->
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('mobileMenuBtn');
+      const navMenu = document.getElementById('navMenu');
+      const overlay = document.getElementById('overlay');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let isMenuOpen = false;
 
-    </div>
-  </section>
+      function openMenu() {
+        if (!navMenu || !menuToggle) return;
+        navMenu.classList.add('active');
+        menuToggle.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        isMenuOpen = true;
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        if (!navMenu || !menuToggle) return;
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        isMenuOpen = false;
+        document.body.style.overflow = '';
+      }
+      function toggleMenu() { isMenuOpen ? closeMenu() : openMenu(); }
 
-  <!-- 5. DATA FLOW -->
-  <section id="flow">
-    <div class="sec-label">Section 05</div>
-    <h2 class="sec-title">How Data Flows:</h2>
-    <p class="sec-desc">When a user submits a form, here is exactly what happens — from click to response.</p>
-    <br>
+      if (menuToggle) menuToggle.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
 
-    <div class="flow-steps">
-
-      <div class="flow-step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <h4>User Fills &amp; Submits the Form (Frontend)</h4>
-          <p>The user types their name and email in the HTML form and clicks <em>Submit</em>. JavaScript can validate the fields first (e.g., check the email format is correct). Then the browser packages the data and sends an <strong>HTTP POST request</strong> to the server.</p>
-          <div class="step-code">POST /register.php  →  name=Ali&amp;email=ali@uni.edu</div>
-        </div>
-      </div>
-
-      <div class="flow-step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <h4>Server Receives the Request (Backend — PHP)</h4>
-          <p>The web server (Apache/Nginx) receives the request and hands it to the <strong>PHP script</strong>. PHP reads the submitted data, applies business logic (validation, security checks), and prepares an SQL query to store or retrieve the data.</p>
-          <div class="step-code">$name = $_POST['name'];   // "Ali"
-$email = $_POST['email'];  // "ali@uni.edu"</div>
-        </div>
-      </div>
-
-      <div class="flow-step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <h4>Data is Stored in the Database (MySQL / SQL)</h4>
-          <p>PHP sends an <strong>SQL INSERT query</strong> to the MySQL database. The database validates the query, writes the record to the correct table, and confirms success back to PHP.</p>
-          <div class="step-code">INSERT INTO students (name, email)
-VALUES ('Ali', 'ali@uni.edu');
--- Database confirms: 1 row inserted</div>
-        </div>
-      </div>
-
-      <div class="flow-step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <h4>Response Sent Back to the User (Backend to Frontend)</h4>
-          <p>PHP generates an HTML response (e.g., a success message page or JSON data) and sends it back through the server. The browser receives it and displays the result to the user — the full cycle is complete.</p>
-          <div class="step-code">echo "Registration successful! Welcome, $name.";</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- BONUS BOX -->
-  <section>
-    <div class="bonus-box">
-      <h3>Bonus: The Complete Request–Response Cycle</h3>
-      <p>Here is the entire journey of a form submission visualised as a simple flow:</p>
-      <div class="bonus-flow">
-        <div class="bf-step">User submits form</div>
-        <div class="bf-arrow">→</div>
-        <div class="bf-step">HTTP POST Request</div>
-        <div class="bf-arrow">→</div>
-        <div class="bf-step">PHP processes data</div>
-        <div class="bf-arrow">→</div>
-        <div class="bf-step">SQL saves to DB</div>
-        <div class="bf-arrow">→</div>
-        <div class="bf-step">Response sent back</div>
-        <div class="bf-arrow">→</div>
-        <div class="bf-step">User sees success</div>
-      </div>
-      <div class="bonus-detail">
-        <strong style="font-size:.95rem;">Why does this matter?</strong>
-        <ol style="margin-top:.6rem;">
-          <li>The <strong>frontend</strong> never directly touches the database — it always goes through the backend. This keeps data secure.</li>
-          <li>The <strong>backend</strong> acts as a gatekeeper, validating and sanitising data before it is stored.</li>
-          <li>The <strong>database</strong> only accepts properly formatted SQL queries — it does not care about HTML or JS.</li>
-          <li>This separation of concerns makes full stack applications easier to maintain, scale, and secure.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- SUMMARY TABLE -->
-  <section>
-    <div class="sec-label">Summary</div>
-    <h2 class="sec-title">Quick Reference Table</h2>
-    <p class="sec-desc">A comparison of all three layers at a glance.</p>
-    <br>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Layer</th>
-            <th>Technologies</th>
-            <th>Role</th>
-            <th>Where it Runs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Frontend</td>
-            <td>HTML, CSS, JavaScript</td>
-            <td>User interface — what people see and click</td>
-            <td>Browser (Client Side)</td>
-          </tr>
-          <tr>
-            <td>Backend</td>
-            <td>PHP, Apache/Nginx</td>
-            <td>Business logic — processes requests and data</td>
-            <td>Web Server (Server Side)</td>
-          </tr>
-          <tr>
-            <td>Database</td>
-            <td>MySQL, SQL</td>
-            <td>Data storage — stores and retrieves all records</td>
-            <td>Database Server</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- CONCLUSION -->
-  <section>
-    <div class="conclusion">
-      <h3>Conclusion</h3>
-      <p>Full Stack Development is the practice of working across all three layers of a web application — the <strong>Frontend</strong>, <strong>Backend</strong>, and <strong>Database</strong> — to deliver a complete, functional product.</p>
-      <p>Using <strong>HTML, CSS, and JavaScript</strong> on the frontend, <strong>PHP</strong> on the backend, and <strong>MySQL (SQL)</strong> for the database, a full stack developer can build everything from a simple registration form to a complex web platform.</p>
-      <p>Understanding how these layers communicate — through HTTP requests, PHP scripts, and SQL queries — is the foundation of modern web development.</p>
-    </div>
-  </section>
-
-</main>
-
-<!-- ══════════════════ NAVBAR SCRIPT ══════════════════════════ -->
-<script>
-  (function() {
-    const menuToggle = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-    const overlay = document.getElementById('overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-    let isMenuOpen = false;
-
-    function openMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.add('active');
-      menuToggle.classList.add('active');
-      if (overlay) overlay.classList.add('active');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      isMenuOpen = true;
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-      if (!navMenu || !menuToggle) return;
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
-      if (overlay) overlay.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      isMenuOpen = false;
-      document.body.style.overflow = '';
-    }
-    function toggleMenu() { isMenuOpen ? closeMenu() : openMenu(); }
-
-    if (menuToggle) menuToggle.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 900 && isMenuOpen) closeMenu();
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900 && isMenuOpen) closeMenu();
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
       });
-    });
 
-    if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
+      if (overlay) overlay.addEventListener('click', () => { if (isMenuOpen) closeMenu(); });
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && isMenuOpen) closeMenu();
-    });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && isMenuOpen) closeMenu();
+      });
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
-  })();
-</script>
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
+    })();
+  </script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bottom">
+    <p>© 2026 Aakash Subedi · Full-stack Development ePortfolio</p>
+  </div>
+</footer>
 
 </body>
+
 </html>

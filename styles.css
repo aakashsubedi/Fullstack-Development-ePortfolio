@@ -27,20 +27,18 @@ body {
      This forces exactly 3 rows. The middle row (1fr) 
      will ALWAYS expand to push the footer down.
   ========================================== */
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  /* Solves mobile browser address bar bugs */
 }
 
-/* Row 2 Wrapper — must stretch to fill the 1fr grid row */
+/* Row 2 Wrapper — must stretch to fill the available space */
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 0;        /* prevents overflow in grid context */
-  flex: 1 1 auto;       /* fills the middle row so footer is pushed down */
+  flex: 1;
 }
 
 /* =====================================================
@@ -1202,16 +1200,13 @@ body {
 }
 
 /* =====================================================
-   FOOTER (Row 3)
-   The body grid (grid-template-rows: auto 1fr auto) places
-   the footer in the last row — it always sits at the bottom
-   even when page content is short.
+   FOOTER
 ===================================================== */
 .site-footer {
   background: #1a3d6b;
   color: rgba(255, 255, 255, 0.85);
-  width: 100%;          /* span full width */
-  /* grid row 3 — naturally sits at bottom */
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .footer-bottom {

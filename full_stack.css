@@ -21,7 +21,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: system-ui, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -473,7 +473,7 @@ body {
 .step-body p { color: var(--muted); font-size: .93rem; }
 
 .step-code {
-  font-family: 'Courier New', 'Courier', monospace;
+  font-family: 'Courier New', 'Courier', ;
   font-size: .8rem;
   background: #f0f5fb;
   border-radius: 6px;
@@ -664,4 +664,4 @@ tbody td:first-child { font-weight: 600; color: var(--blue); white-space: nowrap
 
 @media (max-width: 768px) {
   .footer-bottom { padding: 1rem 1.5rem; }
-}
+}

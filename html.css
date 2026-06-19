@@ -34,6 +34,8 @@ body {
   background: #E7F0FA;
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden; /* prevent horizontal scroll on all devices */
+  min-height: 100dvh;
 }
 
 /* ===== NAVBAR ===== */
@@ -292,11 +294,12 @@ body {
 }
 
 .hero p {
-  max-width: 580px;
+  max-width: min(580px, 100%);
   margin: 0 auto;
   font-size: clamp(.95rem, 2.5vw, 1.05rem);
   opacity: .92;
   color: white;
+  word-wrap: break-word;
 }
 
 /* ===== LAYOUT – single column, centered ===== */
@@ -304,6 +307,8 @@ body {
   max-width: 1100px;
   margin: 2.5rem auto;
   padding: 0 1.5rem;
+  width: 100%;       /* ensure it never escapes viewport */
+  min-width: 0;      /* allow grid/flex children to shrink */
 }
 
 /* ===== DOC CONTENT ===== */
@@ -432,12 +437,15 @@ body {
 .code-block pre {
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   line-height: 1.65;
   color: #cdd6f4;
-  white-space: pre;
+  white-space: pre;        /* preserve formatting on wide screens */
+  word-break: normal;      /* don't break words mid-char on wide screens */
   margin: 0;
+  /* on very small screens white-space falls back via media query */
 }
 
 /* syntax highlighting */
@@ -644,7 +652,8 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
   flex: 1;
-  min-width: 110px;
+  min-width: clamp(80px, 25vw, 110px); /* fluid min-width so blocks don't overflow */
+  word-break: break-word;
 }
 
 .sem-block span {
@@ -794,7 +803,7 @@ body {
     "demo-header demo-header"
     "demo-main demo-aside"
     "demo-footer demo-footer";
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr minmax(0, 200px); /* minmax(0) prevents overflow */
   gap: 1rem;
 }
 
@@ -905,9 +914,14 @@ body {
   flex-wrap: wrap;
 }
 
+/* 780px breakpoint: demo layout already handled at 768px below — kept for safety */
 @media (max-width: 780px) {
   .demo-body {
-    grid-template-areas: "demo-header" "demo-main" "demo-aside" "demo-footer";
+    grid-template-areas:
+      "demo-header"
+      "demo-main"
+      "demo-aside"
+      "demo-footer";
     grid-template-columns: 1fr;
   }
 
@@ -1384,5 +1398,93 @@ body {
   .a11y-checklist li {
     font-size: 0.8rem;
     padding: 0.3rem 0.4rem;
+  }
+}
+
+/* ===== LANDSCAPE PHONES (short + wide) ===== */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .doc-section {
+    padding: 1rem 1.1rem 1.2rem;
+  }
+
+  /* Keep nav overlay fully scrollable in landscape */
+  .nav-menu {
+    overflow-y: auto;
+    padding-top: 4.5rem;
+  }
+}
+
+/* ===== VERY WIDE SCREENS (≥ 1600px) ===== */
+@media (min-width: 1600px) {
+  .layout-container {
+    max-width: 1280px;
+  }
+
+  .nav-container {
+    max-width: 1500px;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .navbar,
+  .menu-toggle,
+  .menu-overlay,
+  .site-footer {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .hero {
+    background: #1a3d6b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 2rem 1rem;
+  }
+
+  .doc-section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .code-block {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  .code-block pre {
+    white-space: pre-wrap;
+    font-size: 0.75rem;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+    color: #555;
+  }
+
+  .layout-container {
+    max-width: 100%;
+    padding: 0;
   }
 }
